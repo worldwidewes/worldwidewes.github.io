@@ -10,13 +10,13 @@ GAME RULES:
 */
 
 
-var scores, roundScore, activePlayer, dice;
+var scores, roundScore, activePlayer;
 
 scores = [0,0];
 roundScore = 0;
 activePlayer = 0;
 
-dice = (Math.floor(Math.random() * 6)) + 1;
+
 //document.querySelector('#current-' + activePlayer).textContent = dice;
 document.querySelector('#current-' + activePlayer).innerHTML = '<em>' + dice + "</em>";
 
@@ -24,3 +24,18 @@ var x = document.querySelector('#score-0').textContent;
 console.log(x);
 
 document.querySelector('.dice').style.display = "none";
+
+
+//event handling for roll dice button
+document.querySelector('.btn-roll').addEventListener('click', function(){
+	//1. random number
+	var dice = (Math.floor(Math.random() * 6)) + 1;
+
+	//2 display the results
+	document.querySelector('.dice').style.display = "block";
+	document.querySelector('.dice').style.src = "dice-" + dice;
+
+	//3 update score IF rolled number was NOT a 1
+
+
+});
