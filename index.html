@@ -6,34 +6,49 @@
                        
  <body>            
 	<h1> Wesley's Playground </h1>
+	<script type="text/javascript">
 
-	<script>
 		function onClick() {
-			console.log("Button Clicked!");
+		  
+		  
+		  const getIDs = new Promise((resolve, reject) => {
+		    setTimeout(() => {
+		      //success -> call resolve passsing through val in .then() below
+		      resolve([523, 883, 432, 974]);
+		      console.log("getIDs finished");
+		    }, 1500);
+		  });
+		  
+		  const getRecipe = recID => {
+		    console.log("getRecipe called");
+		    return new Promise((resolve, reject) => {
+		      setTimeout(ID => {
+		        const recipe = {title: "Fresh tomato pasta", publisher: "Jonas"};
+		        resolve(`${ID}: ${recipe.title}`);
+		      }, 1500, recID);
+		    });
+		  }
+
+		  //IDs is the value passed from promise resolve() above
+		  getIDs.then(IDs => {
+		      console.log(IDs);
+		      return getRecipe(IDs[2]);
+		    })
+		    .then(recipe => {
+		      console.log(recipe);
+		    })
+		    .catch(error => {
+		      console.log("error!");
+		    });
+		  
+		  
+		  
 		}
+
+
 	</script>
 
 	<button onclick="onClick()">Run Code</button>
-
-	<script type="text/javascript">
-
-		const getIDs = new Promise((resolve, reject) => {
-			setTimeout(() => {
-				//on success, then call resolve and pass the values you want returned in the .then() below
-				reject([523, 883, 432, 974]);
-			}, 1500)
-		});
-
-		//IDs is the value passed from promise resolve() above
-		getIDs
-		.then(IDs => {
-			console.log(IDs);
-		})
-		.catch(error => {
-			console.log("error!")
-		});
-
-	</script>
  
  </body>
 
