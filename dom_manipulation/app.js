@@ -33,7 +33,7 @@ document.querySelector('.btn-roll').addEventListener('click', function(){
 
 	//2 display the results
 	document.querySelector('.dice').style.display = "block";
-	document.querySelector('.dice').src = "dice-" + dice;
+	document.querySelector('.dice').src = "/dice-" + dice;
 	document.querySelector('#current-' + activePlayer).innerHTML = '<em>' + dice + "</em>";
 
 	//3 update score IF rolled number was NOT a 1
