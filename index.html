@@ -13,23 +13,27 @@
 		}
 	</script>
 
-<button onclick="onClick()">Run Code</button>
+	<button onclick="onClick()">Run Code</button>
 
-<script type="text/javascript">
-	
-	const getIDs = new Promise((resolve, reject) => {
-		setTimeout(() => {
-			//on success, then call resolve and pass the values you want returned in the .then() below
-			resolve([523, 883, 432, 974]);
-		}, 1500)
-	});
+	<script type="text/javascript">
 
-	//IDs is the value passed from promise resolve() above
-	getIDs.then(IDs => {
-		console.log(IDs);
-	});
+		const getIDs = new Promise((resolve, reject) => {
+			setTimeout(() => {
+				//on success, then call resolve and pass the values you want returned in the .then() below
+				reject([523, 883, 432, 974]);
+			}, 1500)
+		});
 
-</script>
+		//IDs is the value passed from promise resolve() above
+		getIDs
+		.then(IDs => {
+			console.log(IDs);
+		})
+		.catch(error => {
+			console.log(error)
+		});
+
+	</script>
  
  </body>
 
