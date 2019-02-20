@@ -18,7 +18,7 @@ activePlayer = 0;
 
 
 //document.querySelector('#current-' + activePlayer).textContent = dice;
-document.querySelector('#current-' + activePlayer).innerHTML = '<em>' + dice + "</em>";
+//document.querySelector('#current-' + activePlayer).innerHTML = '<em>' + dice + "</em>";
 
 var x = document.querySelector('#score-0').textContent;
 console.log(x);
@@ -34,6 +34,7 @@ document.querySelector('.btn-roll').addEventListener('click', function(){
 	//2 display the results
 	document.querySelector('.dice').style.display = "block";
 	document.querySelector('.dice').style.src = "dice-" + dice;
+	document.querySelector('#current-' + activePlayer).innerHTML = '<em>' + dice + "</em>";
 
 	//3 update score IF rolled number was NOT a 1
 
