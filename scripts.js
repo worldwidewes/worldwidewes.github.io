@@ -34,3 +34,17 @@ function onClick() {
   
     
 }
+
+
+function changeBGImage() {
+  var bg = document.getElementByClassName('body');
+
+  var req = new XMLHTTPRequest();
+
+  req.open('GET', 'https://github.com/dconnolly/chromecast-backgrounds/blob/master/backgrounds.json');
+  req.onload = function(){
+    var data = JSON.parse(req.responseText);
+    debugger;
+    //bg.style.backgroundImage = "url(" + responseText +")"
+  }
+};
