@@ -8,7 +8,11 @@ window.onload = function() {
     var randomImageIndex = Math.floor((Math.random() * (data.length - 1)) + 1);
     bg.style.backgroundRepeat =  "no-repeat";
     bg.style.backgroundSize = "cover";
+    bg.style.backgroundColor = "black";
     bg.style.backgroundImage = "url(" + data[randomImageIndex].url + ")";
+    bg.style = {
+      
+    }
   }
   req.onerror = function(){
     console.error("Image URL Connection Error!");
