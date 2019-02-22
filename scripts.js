@@ -10,9 +10,6 @@ window.onload = function() {
     bg.style.backgroundSize = "cover";
     bg.style.backgroundColor = "black";
     bg.style.backgroundImage = "url(" + data[randomImageIndex].url + ")";
-    bg.style = {
-      
-    }
   }
   req.onerror = function(){
     console.error("Image URL Connection Error!");
