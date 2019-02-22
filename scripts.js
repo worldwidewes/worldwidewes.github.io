@@ -47,4 +47,5 @@ function changeBGImage() {
     debugger;
     //bg.style.backgroundImage = "url(" + responseText +")"
   }
+  req.send();
 };
