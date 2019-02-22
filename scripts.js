@@ -45,8 +45,8 @@ function changeBGImage() {
   req.onload = function(){
     var data = JSON.parse(req.responseText);
     var randomImageIndex = Math.floor((Math.random() * (data.length - 1)) + 1);
-    bg.style.bg.style.backgroundRepeat =  "no-repeat";
-    bg.style.bg.style.backgroundSize = "auto";
+    bg.style.backgroundRepeat =  "no-repeat";
+    bg.style.backgroundSize = "auto";
     bg.style.backgroundImage = "url(" + data[randomImageIndex].url + ")";
   }
   req.send();
