@@ -2,7 +2,7 @@
 window.onload = function() {
   var bg = document.querySelector('body');
   var req = new XMLHttpRequest();
-  req.open('GET', 'https://raw.githubusercontent.com/worldwidewes/worldwidewes.github.io/master/images.json');
+  req.open('GET', 'https://raw.githubusercontent.com/worldwidewes/worldwidewes.github.io/master/imagess.json');
   req.onload = function(){
     var data = JSON.parse(req.responseText);
     var randomImageIndex = Math.floor((Math.random() * (data.length - 1)) + 1);
