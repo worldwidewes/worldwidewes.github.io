@@ -41,7 +41,7 @@ function changeBGImage() {
 
   var req = new XMLHttpRequest();
 
-  req.open('GET', 'https://github.com/dconnolly/chromecast-backgrounds/blob/master/backgrounds.json');
+  req.open('GET', 'https://raw.githubusercontent.com/worldwidewes/worldwidewes.github.io/master/images.json');
   req.onload = function(){
     var data = JSON.parse(req.responseText);
     debugger;
