@@ -21,28 +21,27 @@ window.onload = function() {
 //Change Background Image, Fired on Button Click
 function changeBGImage() {
   var bg = document.querySelector('body');
-  if (!window.bg_data){
-    window.bg_data = {};
-    var req = new XMLHttpRequest();
-    req.open('GET', 'https://raw.githubusercontent.com/worldwidewes/worldwidewes.github.io/master/images.json');
-    req.onload = function(){
-      var data = JSON.parse(req.responseText);
-      window.bg_data = data;
-      var randomImageIndex = Math.floor((Math.random() * (data.length - 1)) + 1);
-      bg.style.backgroundRepeat =  "no-repeat";
-      bg.style.backgroundSize = "cover";
-      bg.style.backgroundImage = "url(" + data[randomImageIndex].url + ")";
-  }else if(window.bg_data){
-    var randomImageIndex = Math.floor((Math.random() * (window.bg_data.length - 1)) + 1);
-    bg.style.backgroundImage = "url(" + window.bg_data[randomImageIndex].url + ")";
+    if (!window.bg_data){
+      window.bg_data = {};
+      var req = new XMLHttpRequest();
+      req.open('GET', 'https://raw.githubusercontent.com/worldwidewes/worldwidewes.github.io/master/images.json');
+      req.onload = function(){
+        var data = JSON.parse(req.responseText);
+        window.bg_data = data;
+        var randomImageIndex = Math.floor((Math.random() * (data.length - 1)) + 1);
+        bg.style.backgroundRepeat =  "no-repeat";
+        bg.style.backgroundSize = "cover";
+        bg.style.backgroundImage = "url(" + data[randomImageIndex].url + ")";
+      }
+      req.onerror = function(){
+        console.error("Image URL Connection Error!");
+      };
+      req.send();
+    }else if(window.bg_data){
+      var randomImageIndex = Math.floor((Math.random() * (window.bg_data.length - 1)) + 1);
+      bg.style.backgroundImage = "url(" + window.bg_data[randomImageIndex].url + ")";
+    }
   }
-    req.onerror = function(){
-      console.error("Image URL Connection Error!");
-    };
-    req.send();
-  }
-  
-};
 
 //Testbed Javascript
 function onClick() {
