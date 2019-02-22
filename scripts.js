@@ -37,7 +37,7 @@ function onClick() {
 
 
 function changeBGImage() {
-  var bg = document.getElementByClassName('body');
+  var bg = document.getElementsByClassName('body');
 
   var req = new XMLHTTPRequest();
 
