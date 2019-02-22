@@ -1,7 +1,45 @@
 
+window.onload = function() {
+  var bg = document.querySelector('body');
+  var req = new XMLHttpRequest();
+  req.open('GET', 'https://raw.githubusercontent.com/worldwidewes/worldwidewes.github.io/master/images.json');
+  req.onload = function(){
+    var data = JSON.parse(req.responseText);
+    var randomImageIndex = Math.floor((Math.random() * (data.length - 1)) + 1);
+    bg.style.backgroundRepeat =  "no-repeat";
+    bg.style.backgroundSize = "cover";
+    bg.style.backgroundImage = "url(" + data[randomImageIndex].url + ")";
+  }
+  req.onerror = function(){
+    console.error("Image URL Connection Error!");
+  };
+  req.send();
+
+};
+
+
+
+function changeBGImage() {
+  var bg = document.querySelector('body');
+
+  var req = new XMLHttpRequest();
+
+  req.open('GET', 'https://raw.githubusercontent.com/worldwidewes/worldwidewes.github.io/master/images.json');
+  req.onload = function(){
+    var data = JSON.parse(req.responseText);
+    var randomImageIndex = Math.floor((Math.random() * (data.length - 1)) + 1);
+    bg.style.backgroundRepeat =  "no-repeat";
+    bg.style.backgroundSize = "cover";
+    bg.style.backgroundImage = "url(" + data[randomImageIndex].url + ")";
+  }
+  req.onerror = function(){
+    console.error("Image URL Connection Error!");
+  };
+  req.send();
+};
+
+
 function onClick() {
-  
-  
   const getIDs = new Promise((resolve, reject) => {
     setTimeout(() => {
       //success -> call resolve passsing through val in .then() below
@@ -31,43 +69,4 @@ function onClick() {
     .catch(error => {
       console.log("error!");
     });
-  
-    
 }
-
-(function() {
-  var bg = document.querySelector('body');
-  var req = new XMLHttpRequest();
-  req.open('GET', 'https://raw.githubusercontent.com/worldwidewes/worldwidewes.github.io/master/images.json');
-  req.onload = function(){
-    var data = JSON.parse(req.responseText);
-    var randomImageIndex = Math.floor((Math.random() * (data.length - 1)) + 1);
-    bg.style.backgroundRepeat =  "no-repeat";
-    bg.style.backgroundSize = "cover";
-    bg.style.backgroundImage = "url(" + data[randomImageIndex].url + ")";
-  }
-  req.onerror = function(){
-    console.error("Image URL Connection Error!");
-  };
-  req.send();
-})();
-
-
-function changeBGImage() {
-  var bg = document.querySelector('body');
-
-  var req = new XMLHttpRequest();
-
-  req.open('GET', 'https://raw.githubusercontent.com/worldwidewes/worldwidewes.github.io/master/images.json');
-  req.onload = function(){
-    var data = JSON.parse(req.responseText);
-    var randomImageIndex = Math.floor((Math.random() * (data.length - 1)) + 1);
-    bg.style.backgroundRepeat =  "no-repeat";
-    bg.style.backgroundSize = "cover";
-    bg.style.backgroundImage = "url(" + data[randomImageIndex].url + ")";
-  }
-  req.onerror = function(){
-    console.error("Image URL Connection Error!");
-  };
-  req.send();
-};
