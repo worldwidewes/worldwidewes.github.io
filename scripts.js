@@ -46,8 +46,11 @@ function changeBGImage() {
     var data = JSON.parse(req.responseText);
     var randomImageIndex = Math.floor((Math.random() * (data.length - 1)) + 1);
     bg.style.backgroundRepeat =  "no-repeat";
-    bg.style.backgroundSize = "auto";
+    bg.style.backgroundSize = "cover";
     bg.style.backgroundImage = "url(" + data[randomImageIndex].url + ")";
   }
+  req.onerror = function(){
+    console.error("Image URL Connection Error!");
+  };
   req.send();
 };
