@@ -15,7 +15,6 @@ window.onload = function() {
     console.error("Image URL Connection Error!");
   };
   req.send();
-
 };
 
 //Change Background Image, Fired on Button Click
