@@ -39,7 +39,7 @@ function onClick() {
 function changeBGImage() {
   var bg = document.getElementsByClassName('body');
 
-  var req = new XMLHTTPRequest();
+  var req = new XMLHttpRequest();
 
   req.open('GET', 'https://github.com/dconnolly/chromecast-backgrounds/blob/master/backgrounds.json');
   req.onload = function(){
