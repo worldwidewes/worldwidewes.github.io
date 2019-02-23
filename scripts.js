@@ -56,21 +56,21 @@ function promiseAll() {
   const function1 = new Promise((resolve, reject) => {
     console.log("Function 1 started!")
     setTimeout(() => {
-      resolve('Function 1 completed')
+      resolve('Function 1 completed after .5 seconds')
     }, 500);
   })
 
   const function2 = new Promise((resolve, reject) => {
     console.log("Function 2 started!")
     setTimeout(() => {
-      resolve('Function 2 completed')
-    }, 3000);
+      resolve('Function 2 completed after 2 seconds')
+    }, 2000);
   })
 
   const function3 = new Promise((resolve, reject) => {
     console.log("Function 3 started!")
     setTimeout(() => {
-      resolve('Function 3 completed')
+      resolve('Function 3 completed after 1.5 seconds')
     }, 1500);
   })
 
@@ -126,7 +126,7 @@ function promiseThen() {
   const function1 = new Promise((resolve, reject) => {
     console.log("Function 1 started!")
     setTimeout(() => {
-      resolve('Function 1 completed')
+      resolve('Function 1 completed after 1 second')
     }, 1000);
   })
 
@@ -134,7 +134,7 @@ function promiseThen() {
     return new Promise((resolve, reject) => {
       console.log("Function 2 started!")
       setTimeout(() => {
-        resolve('Function 2 completed')
+        resolve('Function 2 completed after 1 second')
       }, 1000);
     })
   }
@@ -143,7 +143,7 @@ function promiseThen() {
     return new Promise((resolve, reject) => {
       console.log("Function 3 started!")
       setTimeout(() => {
-        resolve('Function 3 completed')
+        resolve('Function 3 completed after 1 second')
       }, 1000);
     })
   }
