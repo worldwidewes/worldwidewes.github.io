@@ -105,7 +105,7 @@ function promiseAll() {
     });
   }
 
-  IDs is the value passed from promise resolve() above
+//IDs is the value passed from promise resolve() above
   getIDs.then(IDs => {
       console.log(IDs);
       return getRecipe(IDs[2]);
