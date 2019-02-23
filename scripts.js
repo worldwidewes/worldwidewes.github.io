@@ -44,33 +44,66 @@ function changeBGImage() {
 
 //Testbed Javascript
 function onClick() {
-  const getIDs = new Promise((resolve, reject) => {
+
+//Practicing Promises
+  const function1 = new Promise((resolve, reject) => {
     setTimeout(() => {
-      //success -> call resolve passsing through val in .then() below
-      resolve([523, 883, 432, 974]);
-      console.log("getIDs finished");
+      resolve('Function 1 completed')
+    }, 500);
+  })
+
+  const function2 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('Function 2 completed')
+    }, 3000);
+  })
+
+  const function3 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('Function 3 completed')
     }, 1500);
+  })
+
+  //Start all functions together, but only do .then() or .catch() when all completed
+  Promise.all([
+    function1,
+    function2,
+    function3
+  ])
+  .then((messages) => {
+    console.log(messages);
+  })
+  .catch((errors) => {
+    console.log(errors);
   });
+
+  // const getIDs = new Promise((resolve, reject) => {
+  //   setTimeout(() => {
+  //     //success -> call resolve passsing through val in .then() below
+  //     resolve([523, 883, 432, 974]);
+  //     console.log("getIDs finished");
+  //   }, 1500);
+  // });
   
-  const getRecipe = recID => {
-    console.log("getRecipe called");
-    return new Promise((resolve, reject) => {
-      setTimeout(ID => {
-        const recipe = {title: "Fresh tomato pasta", publisher: "Jonas"};
-        resolve(`${ID}: ${recipe.title}`);
-      }, 1500, recID);
-    });
-  }
+  // const getRecipe = recID => {
+  //   console.log("getRecipe called");
+  //   return new Promise((resolve, reject) => {
+  //     setTimeout(ID => {
+  //       const recipe = {title: "Fresh tomato pasta", publisher: "Jonas"};
+  //       resolve(`${ID}: ${recipe.title}`);
+  //     }, 1500, recID);
+  //   });
+  // }
 
   //IDs is the value passed from promise resolve() above
-  getIDs.then(IDs => {
-      console.log(IDs);
-      return getRecipe(IDs[2]);
-    })
-    .then(recipe => {
-      console.log(recipe);
-    })
-    .catch(error => {
-      console.log("error!");
-    });
+  // getIDs.then(IDs => {
+  //     console.log(IDs);
+  //     return getRecipe(IDs[2]);
+  //   })
+  //   .then(recipe => {
+  //     console.log(recipe);
+  //   })
+  //   .catch(error => {
+  //     console.log("error!");
+  //   });
 }
