@@ -127,7 +127,7 @@ function promiseThen() {
     console.log("Function 1 started!")
     setTimeout(() => {
       resolve('Function 1 completed')
-    }, 500);
+    }, 1000);
   })
 
   const function2 = (resolvedMessage) => {
@@ -135,7 +135,7 @@ function promiseThen() {
       console.log("Function 2 started!")
       setTimeout(() => {
         resolve('Function 2 completed')
-      }, 1500);
+      }, 1000);
     })
   }
 
@@ -144,7 +144,7 @@ function promiseThen() {
       console.log("Function 3 started!")
       setTimeout(() => {
         resolve('Function 3 completed')
-      }, 2500);
+      }, 1000);
     })
   }
 
