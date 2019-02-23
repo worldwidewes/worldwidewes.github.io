@@ -143,7 +143,7 @@ function promiseThen() {
   })
 
   //Start all functions together, but only do .then() or .catch() when all completed
- function1()
+ function1
   .then((message) => {
     console.log(message);
     function2();
