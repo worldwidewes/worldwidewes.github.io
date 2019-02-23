@@ -50,7 +50,7 @@ function changeBGImage() {
   }
 
 //Testbed Javascript
-function onClick() {
+function promiseAll() {
   if(debugger)debugger;
 //Practicing Promises
   const function1 = new Promise((resolve, reject) => {
@@ -116,4 +116,43 @@ function onClick() {
   //   .catch(error => {
   //     console.log("error!");
   //   });
+}
+
+function promiseThen() {
+  if(debugger)debugger;
+//Practicing Promises
+  const function1 = new Promise((resolve, reject) => {
+    console.log("Function 1 started!")
+    setTimeout(() => {
+      resolve('Function 1 completed')
+    }, 500);
+  })
+
+  const function2 = new Promise((resolve, reject) => {
+    console.log("Function 2 started!")
+    setTimeout(() => {
+      resolve('Function 2 completed')
+    }, 3000);
+  })
+
+  const function3 = new Promise((resolve, reject) => {
+    console.log("Function 3 started!")
+    setTimeout(() => {
+      resolve('Function 3 completed')
+    }, 1500);
+  })
+
+  //Start all functions together, but only do .then() or .catch() when all completed
+ function1()
+  .then((message) => {
+    console.log(message);
+    function2();
+  })
+  .then((message) => {
+    console.log(message);
+    function3();
+  })
+  .catch((errors) => {
+    console.log(errors);
+  });
 }
