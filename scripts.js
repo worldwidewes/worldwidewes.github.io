@@ -15,6 +15,13 @@ window.onload = function() {
     console.error("Image URL Connection Error!");
   };
   req.send();
+
+
+  //Set debugging
+  if(document.URL.indexOf("debug=true") > -1){
+    document.cookie = "debug=true";
+    window.debugger = true;
+  }
 };
 
 //Change Background Image, Fired on Button Click
@@ -44,7 +51,7 @@ function changeBGImage() {
 
 //Testbed Javascript
 function onClick() {
-
+  if(debugger)debugger;
 //Practicing Promises
   const function1 = new Promise((resolve, reject) => {
     console.log("Function 1 started!")
