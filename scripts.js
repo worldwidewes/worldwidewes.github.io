@@ -87,35 +87,35 @@ function promiseAll() {
     console.log(errors);
   });
 
-  // const getIDs = new Promise((resolve, reject) => {
-  //   setTimeout(() => {
-  //     //success -> call resolve passsing through val in .then() below
-  //     resolve([523, 883, 432, 974]);
-  //     console.log("getIDs finished");
-  //   }, 1500);
-  // });
+  const getIDs = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      //success -> call resolve passsing through val in .then() below
+      resolve([523, 883, 432, 974]);
+      console.log("getIDs finished");
+    }, 1500);
+  });
   
-  // const getRecipe = recID => {
-  //   console.log("getRecipe called");
-  //   return new Promise((resolve, reject) => {
-  //     setTimeout(ID => {
-  //       const recipe = {title: "Fresh tomato pasta", publisher: "Jonas"};
-  //       resolve(`${ID}: ${recipe.title}`);
-  //     }, 1500, recID);
-  //   });
-  // }
+  const getRecipe = recID => {
+    console.log("getRecipe called");
+    return new Promise((resolve, reject) => {
+      setTimeout(ID => {
+        const recipe = {title: "Fresh tomato pasta", publisher: "Jonas"};
+        resolve(`${ID}: ${recipe.title}`);
+      }, 1500, recID);
+    });
+  }
 
-  //IDs is the value passed from promise resolve() above
-  // getIDs.then(IDs => {
-  //     console.log(IDs);
-  //     return getRecipe(IDs[2]);
-  //   })
-  //   .then(recipe => {
-  //     console.log(recipe);
-  //   })
-  //   .catch(error => {
-  //     console.log("error!");
-  //   });
+  IDs is the value passed from promise resolve() above
+  getIDs.then(IDs => {
+      console.log(IDs);
+      return getRecipe(IDs[2]);
+    })
+    .then(recipe => {
+      console.log(recipe);
+    })
+    .catch(error => {
+      console.log("error!");
+    });
 }
 
 function promiseThen() {
@@ -128,29 +128,36 @@ function promiseThen() {
     }, 500);
   })
 
-  const function2 = new Promise((resolve, reject) => {
-    console.log("Function 2 started!")
-    setTimeout(() => {
-      resolve('Function 2 completed')
-    }, 3000);
-  })
+  const function2 = (resolvedMessage) => {
+    return new Promise((resolve, reject) => {
+      console.log("Function 2 started!")
+      setTimeout(() => {
+        resolve('Function 2 completed')
+      }, 1500);
+    })
+  }
 
-  const function3 = new Promise((resolve, reject) => {
-    console.log("Function 3 started!")
-    setTimeout(() => {
-      resolve('Function 3 completed')
-    }, 1500);
-  })
+  const function3 = (resolvedMessage) => {
+    return new Promise((resolve, reject) => {
+      console.log("Function 3 started!")
+      setTimeout(() => {
+        resolve('Function 3 completed')
+      }, 2500);
+    })
+  }
 
   //Start all functions together, but only do .then() or .catch() when all completed
  function1
   .then((message) => {
     console.log(message);
-    function2();
+    return function2(message);
   })
   .then((message) => {
     console.log(message);
-    function3();
+    return function3(message);
+  })
+  .then((message) => {
+    console.log(message);
   })
   .catch((errors) => {
     console.log(errors);
