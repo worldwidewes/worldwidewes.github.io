@@ -51,7 +51,7 @@ function changeBGImage() {
 
 //Testbed Javascript
 function promiseAll() {
-  if(debugger)debugger;
+  if(window.debugger){debugger;};
 //Practicing Promises
   const function1 = new Promise((resolve, reject) => {
     console.log("Function 1 started!")
