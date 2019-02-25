@@ -27,6 +27,7 @@ window.onload = function() {
 //Change Background Image, Fired on Button Click
 function changeBGImage() {
   var bg = document.querySelector('body');
+    if(window.debugger){debugger;};
     if (!window.bg_data){
       window.bg_data = {};
       var req = new XMLHttpRequest();
