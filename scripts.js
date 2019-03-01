@@ -1,3 +1,5 @@
+var dataLayer = {"stuff": "goesinhere"}
+
 //onload JS, randomize bg image on page load
 window.onload = function() {
   var bg = document.querySelector('body');
