@@ -855,7 +855,6 @@ try {
             })
         },
         link: function(a, c, d) {
-            copy(a);
             console.log("Copied a track call, paste it now!");
             debugger;
             return this.track({
