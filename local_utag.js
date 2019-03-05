@@ -845,9 +845,6 @@ try {
             }
         },
         view: function(a, c, d) {
-            copy(a);
-            console.log("Copied a track call, paste it now!");
-            debugger;
             return this.track({
                 event: 'view',
                 data: a || {},
@@ -858,6 +855,9 @@ try {
             })
         },
         link: function(a, c, d) {
+            copy(a);
+            console.log("Copied a track call, paste it now!");
+            debugger;
             return this.track({
                 event: 'link',
                 data: a || {},
