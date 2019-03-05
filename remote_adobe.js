@@ -1,4 +1,4 @@
-//tealium universal tag - utag.53 ut4.0.201903052121, Copyright 2019 Tealium.com Inc. All Rights Reserved.
+//tealium universal tag - utag.53 ut4.0.201903052320, Copyright 2019 Tealium.com Inc. All Rights Reserved.
 if (location.hostname == "mazdausa.com" || location.hostname == "www.mazdausa.com" || location.hostname == "www.mazdaespanol.com" || location.hostname == "mazdaespanol.com" || location.hostname == "accessories.mazdausa.com" || location.hostname == "www.mazdarecallinfo.com" || location.hostname == "www.mazdaseguridad.com" || location.hostname == "www.mymazda.com" || location.hostname == "www.mazdafeelalive.com" || location.hostname == "ja.mazdausa.com" || location.hostname == "zh.mazdausa.com") {
     var s_account = "mazdausaglobal";
 } else {
@@ -77,14 +77,34 @@ window.mazdaAnalytics = {
         dataLayerValueSplit = dataLayerValue.split('.');
         if (dataLayerValueSplit.length == 2) {
             if (!!dataLayer[dataLayerValueSplit[1]]) {
-                return mazdaAnalytics.format(dataLayer[dataLayerValueSplit[1]]);
+                if (typeof (dataLayer[dataLayerValueSplit[1]]) == 'object') {
+                    var tempString = '';
+                    for (key in dataLayer[dataLayerValueSplit[1]]) {
+                        if (key > 0)
+                            tempString += ';';
+                        tempString += String(dataLayer[dataLayerValueSplit[1]][key]);
+                    }
+                    return tempString;
+                } else {
+                    return mazdaAnalytics.format(dataLayer[dataLayerValueSplit[1]]);
+                }
             } else {
                 mazdaAnalytics.log('The dataLayer parameter ' + dataLayerValue + ' does not exist');
                 return '';
             }
         } else if (dataLayerValueSplit.length == 3) {
             if (!!dataLayer[dataLayerValueSplit[1]][dataLayerValueSplit[2]]) {
-                return mazdaAnalytics.format(dataLayer[dataLayerValueSplit[1]][dataLayerValueSplit[2]]);
+                if (typeof (dataLayer[dataLayerValueSplit[1]][dataLayerValueSplit[2]]) == 'object') {
+                    var tempString = '';
+                    for (key in dataLayer[dataLayerValueSplit[1]][dataLayerValueSplit[2]]) {
+                        if (key > 0)
+                            tempString += ';';
+                        tempString += String(dataLayer[dataLayerValueSplit[1]][dataLayerValueSplit[2]][key]);
+                    }
+                    return tempString;
+                } else {
+                    return mazdaAnalytics.format(dataLayer[dataLayerValueSplit[1]][dataLayerValueSplit[2]]);
+                }
             } else {
                 mazdaAnalytics.log('The dataLayer parameter ' + dataLayerValue + ' does not exist');
                 return '';
@@ -295,12 +315,13 @@ window.mazdaAnalytics = {
         s.eVar60 = s.prop60 = '';
     }
 }
-//comment out todds stuff not working
-// s.prop39 = mazdaAnalytics.getData('dataLayer.vehicle.trimCode');
-// s.prop28 = mazdaAnalytics.getData('dataLayer.vehicle.msrp');
-// s.prop36 = mazdaAnalytics.getData('dataLayer.vehicle.totalCost');
-// s.prop32 = mazdaAnalytics.getData('dataLayer.accessory.cost');
-// s.prop33 = mazdaAnalytics.getData('dataLayer.accessory.name');
+s.prop39 = mazdaAnalytics.getData('dataLayer.vehicle.trimCode');
+s.prop28 = mazdaAnalytics.getData('dataLayer.vehicle.msrp');
+s.prop36 = mazdaAnalytics.getData('dataLayer.vehicle.totalCost');
+s.prop29 = mazdaAnalytics.getData('dataLayer.package.cost');
+s.prop30 = mazdaAnalytics.getData('dataLayer.package.name');
+s.prop32 = mazdaAnalytics.getData('dataLayer.accessory.cost');
+s.prop33 = mazdaAnalytics.getData('dataLayer.accessory.name');
 dataLayer.events = '';
 s.events = s.events || '';
 var subSection = mazdaAnalytics.getData('dataLayer.site.subsection');
@@ -1914,6 +1935,1034 @@ if (!isVehicleLanding && jqueryHasLoaded && document.location.pathname.match(non
         }
     }
 }
+!function() {
+    function e(e) {
+        var a = "/shopping-tools/request-a-quote" == document.location.pathname
+          , n = "/shopping-tools/cpo-request-a-quote" == document.location.pathname
+          , o = document.location.pathname.search(/inventory\/cpo\//) > -1
+          , r = document.location.pathname.search(/inventory\/new\//) > -1
+          , i = [{
+            name: "raqConfirm",
+            channel: n || o ? "cpo" : "quote_confirm",
+            events: n || o ? "event39,event41" : "event3,event11",
+            prop1: mazdaAnalytics.getData("dataLayer.vehicle.vehicleID").toUpperCase(),
+            prop2: "",
+            page: "confirm",
+            nameHistorical: a || r ? "musa:quote_confirm" + (mazdaAnalytics.getData("dataLayer.vehicle.vehicleID") ? "_" + mazdaAnalytics.getData("dataLayer.vehicle.vehicleID") : "") : "musa:cpo_quote_confirm" + (mazdaAnalytics.getData("dataLayer.vehicle.vehicleID") ? "_" + mazdaAnalytics.getData("dataLayer.vehicle.vehicleID") : ""),
+            subCategory: a ? "quote_confirm" : n ? "cpo_quote_confirm" : o ? "cpo_quote_confirm" : "quote_confirm",
+            sectionHistorical: "quote_confirm",
+            section: "tools",
+            subsection: "quote",
+            eVar2: " ",
+            msrp: mazdaAnalytics.getData("dataLayer.vehicle.msrp"),
+            totalCost: mazdaAnalytics.getData("dataLayer.vehicle.totalCost"),
+            trim: mazdaAnalytics.getData("dataLayer.vehicle.trimCode"),
+            searchType: "",
+            formType: a ? "new_page" : n ? "cpo_page" : o ? "cpo_overlay" : "new_overlay",
+            formValues: mazdaAnalytics.getData("dataLayer.form.values")
+        }, {
+            name: "raqInfo",
+            channel: "quote_info",
+            events: "event163,event164",
+            prop1: mazdaAnalytics.getData("dataLayer.vehicle.vehicleID").toUpperCase(),
+            prop2: "",
+            page: "info",
+            nameHistorical: "musa:quote_info",
+            subCategory: "quote_info",
+            sectionHistorical: "quote_info",
+            section: "tools",
+            subsection: "quote",
+            eVar2: " ",
+            msrp: mazdaAnalytics.getData("dataLayer.vehicle.msrp"),
+            totalCost: mazdaAnalytics.getData("dataLayer.vehicle.totalCost"),
+            trim: mazdaAnalytics.getData("dataLayer.vehicle.trimCode"),
+            searchType: "",
+            formType: a ? "new_page" : n ? "cpo_page" : o ? "cpo_overlay" : "new_overlay",
+            formValues: ""
+        }, {
+            name: "raqInfo_cpo",
+            channel: "quote_info",
+            events: "event163,event164",
+            prop1: mazdaAnalytics.getData("dataLayer.vehicle.vehicleID").toUpperCase(),
+            prop2: "",
+            page: "info",
+            nameHistorical: "musa:quote_info",
+            subCategory: "quote_info",
+            sectionHistorical: "quote_info",
+            section: "tools",
+            subsection: "quote",
+            eVar2: " ",
+            msrp: mazdaAnalytics.getData("dataLayer.vehicle.msrp"),
+            totalCost: mazdaAnalytics.getData("dataLayer.vehicle.totalCost"),
+            trim: mazdaAnalytics.getData("dataLayer.vehicle.trimCode"),
+            searchType: "",
+            formType: a ? "new_page" : n ? "cpo_page" : o ? "cpo_overlay" : "new_overlay",
+            formValues: ""
+        }, {
+            name: "leaseSpecialOffers",
+            channel: mazdaAnalytics.getData("dataLayer.site.sectionHistorical"),
+            events: "event131,event132",
+            prop1: t(e.datums),
+            prop2: "",
+            page: mazdaAnalytics.getData("dataLayer.page.name"),
+            pageFull: ["musa", mazdaAnalytics.getData("dataLayer.site.section"), mazdaAnalytics.getData("dataLayer.site.subsection"), mazdaAnalytics.getData("dataLayer.page.name")].filter(function(e) {
+                return "" !== e
+            }).join(":"),
+            nameHistorical: "",
+            subCategory: mazdaAnalytics.getData("dataLayer.page.subCategory"),
+            sectionHistorical: "",
+            section: mazdaAnalytics.getData("dataLayer.site.section"),
+            subsection: mazdaAnalytics.getData("dataLayer.site.subsection"),
+            data: e.datums.trim().toLowerCase().replace(/\W/g, "_"),
+            formType: "",
+            formValues: "",
+            msrp: "",
+            totalCost: "",
+            trim: "",
+            searchType: "lease"
+        }, {
+            name: "purchaseSpecialOffers",
+            channel: mazdaAnalytics.getData("dataLayer.site.sectionHistorical"),
+            events: "event131,event132",
+            prop1: t(e.datums),
+            prop2: "",
+            page: mazdaAnalytics.getData("dataLayer.page.name"),
+            pageFull: ["musa", mazdaAnalytics.getData("dataLayer.site.section"), mazdaAnalytics.getData("dataLayer.site.subsection"), mazdaAnalytics.getData("dataLayer.page.name")].filter(function(e) {
+                return "" !== e
+            }).join(":"),
+            nameHistorical: "",
+            subCategory: mazdaAnalytics.getData("dataLayer.page.subCategory"),
+            sectionHistorical: "",
+            section: mazdaAnalytics.getData("dataLayer.site.section"),
+            subsection: mazdaAnalytics.getData("dataLayer.site.subsection"),
+            data: e.datums.trim().toLowerCase().replace(/\W/g, "_"),
+            formType: "",
+            formValues: "",
+            msrp: "",
+            totalCost: "",
+            trim: "",
+            searchType: "purchase"
+        }, {
+            name: "specialSpecialOffers",
+            channel: mazdaAnalytics.getData("dataLayer.site.sectionHistorical"),
+            events: "event131,event132",
+            prop1: "",
+            prop2: "",
+            page: mazdaAnalytics.getData("dataLayer.page.name"),
+            pageFull: ["musa", mazdaAnalytics.getData("dataLayer.site.section"), mazdaAnalytics.getData("dataLayer.site.subsection"), mazdaAnalytics.getData("dataLayer.page.name")].filter(function(e) {
+                return "" !== e
+            }).join(":"),
+            nameHistorical: "",
+            subCategory: mazdaAnalytics.getData("dataLayer.page.subCategory"),
+            sectionHistorical: "",
+            section: mazdaAnalytics.getData("dataLayer.site.section"),
+            subsection: mazdaAnalytics.getData("dataLayer.site.subsection"),
+            data: e.datums.trim().toLowerCase().replace(/\W/g, "_"),
+            formType: "",
+            formValues: "",
+            msrp: "",
+            totalCost: "",
+            trim: "",
+            searchType: "special"
+        }].find(function(a) {
+            return a.name === e.name
+        }) || {
+            name: e.name,
+            events: "",
+            channel: mazdaAnalytics.getData("dataLayer.site.sectionHistorical"),
+            prop1: mazdaAnalytics.getData("dataLayer.vehicle.vehicleID"),
+            prop2: [mazdaAnalytics.getData("dataLayer.vehicle.vehicleID"), mazdaAnalytics.getData("dataLayer.vehicle.trimCode")].filter(function(e) {
+                return "" !== e
+            }).join("_"),
+            page: mazdaAnalytics.getData("dataLayer.page.name"),
+            pageFull: ["musa", mazdaAnalytics.getData("dataLayer.site.section"), mazdaAnalytics.getData("dataLayer.site.subsection"), mazdaAnalytics.getData("dataLayer.page.name")].filter(function(e) {
+                return "" !== e
+            }).join(":"),
+            nameHistorical: "",
+            subCategory: mazdaAnalytics.getData("dataLayer.page.subCategory"),
+            sectionHistorical: "",
+            section: mazdaAnalytics.getData("dataLayer.site.section"),
+            subsection: mazdaAnalytics.getData("dataLayer.site.subsection"),
+            data: e.datums.trim().toLowerCase().replace(/\W/g, "_"),
+            formType: "",
+            formValues: "",
+            msrp: "",
+            totalCost: "",
+            trim: "",
+            searchType: ""
+        }
+          , c = {
+            pageName: i.pageFull + (i.data ? "_" + i.data : ""),
+            channel: i.channel,
+            prop1: i.prop1 || "",
+            prop2: i.prop2 || "",
+            prop8: i.sectionHistorical,
+            prop25: i.formValues,
+            prop42: a || n ? "page" : "overlay",
+            prop45: i.formType,
+            prop62: i.searchType,
+            events: i.events,
+            list2: i.formValues,
+            nameHistorical: i.nameHistorical,
+            subCategory: i.subCategory,
+            section: i.section,
+            subsection: i.subsection,
+            formType: i.formType,
+            evar2: " ",
+            msrp: i.msrp,
+            totalCost: i.totalCost,
+            trim: i.trim
+        }
+          , l = dataLayer.page.name
+          , d = dataLayer.page.nameHistorical
+          , m = dataLayer.site.section
+          , u = dataLayer.site.subsection
+          , p = dataLayer.form.type
+          , y = dataLayer.page.subCategory
+          , g = dataLayer.vehicle.vehicleID
+          , f = dataLayer.search.type
+          , v = dataLayer.site.sectionHistorical;
+        dataLayer.page.nameHistorical = i.nameHistorical,
+        dataLayer.page.name = i.data ? i.page + "_" + i.data : i.page,
+        dataLayer.site.section = i.section,
+        dataLayer.site.subsection = i.subsection,
+        dataLayer.form.type = i.formType,
+        dataLayer.page.subCategory = i.subCategory,
+        dataLayer.vehicle.vehicleID = i.prop1,
+        dataLayer.search.type = i.searchType,
+        dataLayer.site.sectionHistorical = i.channel,
+        dataLayer.events = i.events,
+        i.name.includes("disclaimer") ? (dataLayer.page.name = i.page,
+        s.tl(!0, "o", c.pageName),
+        console.log("Mirror ʕ ◔ᴥ◔ ʔ Disclaimer Page Name should be: " + i.pageFull),
+        console.log('Mirror ʕ´•ᴥ•`ʔσ" while Custom Link name should be: ' + c.pageName)) : (console.log("Mirror ʕ ◔ᴥ◔ ʔ Page Name could be: " + (c.pageName || dataLayer.page.name)),
+        s.events = "",
+        s.t(c)),
+        console.log(e),
+        "raqConfirm" !== i.name && (dataLayer.page.name = l,
+        dataLayer.page.nameHistorical = d,
+        dataLayer.site.section = m,
+        dataLayer.site.subsection = u,
+        dataLayer.form.type = p,
+        dataLayer.page.subCategory = y,
+        dataLayer.vehicle.vehicleID = g,
+        dataLayer.search.type = f,
+        dataLayer.site.sectionHistorical = v)
+    }
+    function a(e) {
+        var a = [{
+            name: "careersDecrepitDepartments",
+            events: "",
+            prop1: "",
+            prop2: "",
+            page: mazdaAnalytics.getData("dataLayer.page.name"),
+            pageFull: ["musa", mazdaAnalytics.getData("dataLayer.site.section"), mazdaAnalytics.getData("dataLayer.site.subsection"), mazdaAnalytics.getData("dataLayer.page.name")].filter(function(e) {
+                return "" !== e
+            }).join(":"),
+            nameHistorical: "musa:about_careers_departments",
+            subCategory: "about_careers_departments",
+            sectionHistorical: "about",
+            section: "about",
+            subsection: mazdaAnalytics.getData("dataLayer.site.subsection"),
+            data: e.datums.trim().toLowerCase().replace(/\W/g, "_"),
+            searchType: "overlay"
+        }, {
+            name: "careersDecrepitBenefits",
+            events: "",
+            prop1: "",
+            prop2: "",
+            page: mazdaAnalytics.getData("dataLayer.page.name"),
+            pageFull: ["musa", mazdaAnalytics.getData("dataLayer.site.section"), mazdaAnalytics.getData("dataLayer.site.subsection"), mazdaAnalytics.getData("dataLayer.page.name")].filter(function(e) {
+                return "" !== e
+            }).join(":"),
+            nameHistorical: "musa:about_careers_benefits",
+            subCategory: "about_careers_benefits",
+            sectionHistorical: "about",
+            section: "about",
+            subsection: mazdaAnalytics.getData("dataLayer.site.subsection"),
+            data: e.datums.trim().toLowerCase().replace(/\W/g, "_"),
+            searchType: "overlay"
+        }, {
+            name: "ownersDecrepitServiceWarranty",
+            events: "",
+            prop1: "",
+            prop2: "",
+            page: mazdaAnalytics.getData("dataLayer.page.name"),
+            pageFull: ["musa", mazdaAnalytics.getData("dataLayer.site.section"), mazdaAnalytics.getData("dataLayer.site.subsection"), mazdaAnalytics.getData("dataLayer.page.name")].filter(function(e) {
+                return "" !== e
+            }).join(":"),
+            nameHistorical: "musa:owners_maintenance_warranty",
+            subCategory: "owners_maintenance_warranty",
+            sectionHistorical: "nonowner",
+            section: "owners",
+            subsection: mazdaAnalytics.getData("dataLayer.site.subsection"),
+            data: e.datums.trim().toLowerCase().replace(/\W/g, "_"),
+            searchType: "overlay"
+        }, {
+            name: "ownersDecrepitPartsTires",
+            events: "",
+            prop1: "",
+            prop2: "",
+            page: mazdaAnalytics.getData("dataLayer.page.name"),
+            pageFull: ["musa", mazdaAnalytics.getData("dataLayer.site.section"), mazdaAnalytics.getData("dataLayer.site.subsection"), mazdaAnalytics.getData("dataLayer.page.name")].filter(function(e) {
+                return "" !== e
+            }).join(":"),
+            nameHistorical: "musa:owners_vehiclecare_tires",
+            subCategory: "owners_vehiclecare_tires",
+            sectionHistorical: "nonowner",
+            section: "owners",
+            subsection: mazdaAnalytics.getData("dataLayer.site.subsection"),
+            data: e.datums.trim().toLowerCase().replace(/\W/g, "_"),
+            searchType: "overlay"
+        }, {
+            name: "ownersDecrepitPartsBrakes",
+            events: "",
+            prop1: "",
+            prop2: "",
+            page: mazdaAnalytics.getData("dataLayer.page.name"),
+            pageFull: ["musa", mazdaAnalytics.getData("dataLayer.site.section"), mazdaAnalytics.getData("dataLayer.site.subsection"), mazdaAnalytics.getData("dataLayer.page.name")].filter(function(e) {
+                return "" !== e
+            }).join(":"),
+            nameHistorical: "musa:owners_vehiclecare_brakes",
+            subCategory: "owners_vehiclecare_brakes",
+            sectionHistorical: "nonowner",
+            section: "owners",
+            subsection: mazdaAnalytics.getData("dataLayer.site.subsection"),
+            data: e.datums.trim().toLowerCase().replace(/\W/g, "_"),
+            searchType: "overlay"
+        }, {
+            name: "ownersDecrepitPartsBatteries",
+            events: "",
+            prop1: "",
+            prop2: "",
+            page: mazdaAnalytics.getData("dataLayer.page.name"),
+            pageFull: ["musa", mazdaAnalytics.getData("dataLayer.site.section"), mazdaAnalytics.getData("dataLayer.site.subsection"), mazdaAnalytics.getData("dataLayer.page.name")].filter(function(e) {
+                return "" !== e
+            }).join(":"),
+            nameHistorical: "musa:owners_vehiclecare_battery",
+            subCategory: "owners_vehiclecare_battery",
+            sectionHistorical: "nonowner",
+            section: "owners",
+            subsection: mazdaAnalytics.getData("dataLayer.site.subsection"),
+            data: e.datums.trim().toLowerCase().replace(/\W/g, "_"),
+            searchType: "overlay"
+        }, {
+            name: "recallsVin",
+            events: " ",
+            prop1: "",
+            prop2: "",
+            page: mazdaAnalytics.getData("dataLayer.page.name"),
+            pageFull: ["musa", mazdaAnalytics.getData("dataLayer.site.section"), mazdaAnalytics.getData("dataLayer.site.subsection"), mazdaAnalytics.getData("dataLayer.page.name")].filter(function(e) {
+                return "" !== e
+            }).join(":"),
+            nameHistorical: "musa:profile_vin_how",
+            subCategory: "profile_vin_how",
+            sectionHistorical: "profile",
+            section: "owners",
+            subsection: mazdaAnalytics.getData("dataLayer.site.subsection"),
+            data: e.datums.trim().toLowerCase().replace(/\W/g, "_"),
+            searchType: "overlay"
+        }].find(function(a) {
+            return a.name === e.name
+        })
+          , t = {
+            pageName: a.nameHistorical ? a.nameHistorical : a.pageFull,
+            channel: a.sectionHistorical ? a.sectionHistorical : a.section,
+            prop1: a.prop1 || "",
+            prop2: a.prop2 || "",
+            prop8: a.subCategory,
+            prop23: "",
+            prop42: "overlay",
+            prop62: a.searchType,
+            evar2: " ",
+            events: a.events
+        }
+          , n = dataLayer.page.name
+          , o = dataLayer.page.nameHistorical
+          , r = dataLayer.site.section
+          , i = dataLayer.site.subsection
+          , c = dataLayer.page.subCategory
+          , l = dataLayer.vehicle.vehicleID
+          , d = dataLayer.search.type;
+        dataLayer.page.nameHistorical = a.nameHistorical,
+        dataLayer.page.name = a.data ? a.page + "_" + a.data : a.page,
+        dataLayer.site.section = a.section,
+        dataLayer.site.subsection = a.subsection,
+        dataLayer.page.subCategory = a.subCategory,
+        dataLayer.vehicle.vehicleID = a.prop1,
+        dataLayer.search.type = a.searchType,
+        s.t(t),
+        console.log(e),
+        dataLayer.page.name = n,
+        dataLayer.page.nameHistorical = o,
+        dataLayer.site.section = r,
+        dataLayer.site.subsection = i,
+        dataLayer.page.subCategory = c,
+        dataLayer.vehicle.vehicleID = l,
+        dataLayer.search.type = d
+    }
+    function t(e) {
+        var a = String(e);
+        if ("" === a)
+            return a;
+        if (n(a))
+            return a;
+        var t = a.trim().toLowerCase().replace(/\s/g, "_").replace(/-/g, "")
+          , o = -1 !== t.search(/cx(\-)?(3)+/gi)
+          , r = -1 !== t.search(/cx(\-)?(5)+/gi)
+          , s = -1 !== t.search(/cx(\-)?(7)+/gi)
+          , i = -1 !== t.search(/cx(\-)?(9)+/gi)
+          , c = -1 !== t.search(/mx|miata/gi)
+          , l = c && -1 !== t.search(/rf|prht/)
+          , d = -1 !== t.search(/m(azda)?(2|5|3|6)+/gi)
+          , m = d && -1 !== t.search(/5(.)?(door|puertas)+|hatchback/gi)
+          , u = d && -1 !== t.search(/m?6+g?/)
+          , p = d && -1 !== t.search(/mz2|mazda2/gi)
+          , y = d && -1 !== t.search(/mz5|mazda5/gi)
+          , g = -1 !== t.search(/ms3+|mazdaspeed3/gi)
+          , f = -1 !== t.search(/rx(8)?/gi);
+        return (o ? "cx3" : r ? "cx5" : s ? "cx7" : i ? "cx9" : l ? "mxr" : c ? "mx5" : m ? "m3h" : p ? "mz2" : g ? "ms3" : y ? "mz5" : u ? "m6g" : d ? "m3s" : f ? "rx8" : "").toUpperCase()
+    }
+    function n(e) {
+        var a = String(e).toLowerCase();
+        if (-1 !== ["m3s", "m3h", "m6g", "cx3", "cx5", "cx7", "cx9", "mx5", "mxr", "rx8", "mz2", "ms3"].findIndex(function(e) {
+            return e == a
+        }))
+            return !0;
+        if (/^(c|m|r)(x|[1-9])([1-9]|h|g|r|s|z)$/.test(a))
+            return !0;
+        var t = 3 == a.length
+          , n = -1 !== a.search(/\w{3}/g)
+          , o = 0 === a.search(/^\D/);
+        return !!(t && n && o)
+    }
+    function o(e) {
+        var a = [{
+            name: "recallsFound",
+            page: "results",
+            nameHistorical: "",
+            subCategory: "",
+            sectionHistorical: "",
+            events: "",
+            formValues: ""
+        }, {
+            name: "contactUsFleet",
+            page: "confirm",
+            nameHistorical: "madm:fleet_contact_email_confirm",
+            subCategory: "fleet_contact_email_confirm",
+            sectionHistorical: "fleet",
+            events: "",
+            formValues: ""
+        }, {
+            name: "contactUsEmail",
+            page: "confirm",
+            nameHistorical: "musa:contact_email_confirm",
+            subCategory: "contact_email",
+            sectionHistorical: "contact",
+            events: "",
+            formValues: ""
+        }, {
+            name: "keepMeUpdated",
+            page: "confirm",
+            nameHistorical: "musa:updated_info_email_thankyou",
+            subCategory: "updated_confirm",
+            sectionHistorical: "KMU_confirm",
+            events: "event5,event99",
+            formValues: dataLayer.form.values
+        }, {
+            name: "keepMeUpdatedSingleVehicle",
+            page: "confirm",
+            nameHistorical: "musa:updated_info_email_thankyou",
+            subCategory: "updated_confirm",
+            sectionHistorical: "KMU_confirm",
+            events: "event27,event35",
+            formValues: dataLayer.form.values
+        }, {
+            name: "raqSummaryThankyou",
+            page: "confirm",
+            nameHistorical: "musa:quote_confirm",
+            subCategory: "quote_confirm",
+            sectionHistorical: "quote_confirm",
+            events: "",
+            formValues: ""
+        }, {
+            name: "rab",
+            page: "confirm",
+            nameHistorical: "musa:updated_confirm",
+            subCategory: "updated_confirm",
+            sectionHistorical: "KMU_confirm",
+            events: "event5,event99",
+            formValues: dataLayer.form.values
+        }, {
+            name: "buildPriceTrim",
+            page: "trim",
+            nameHistorical: "musa:build_trim_",
+            subCategory: "build_trim",
+            sectionHistorical: "build_trim",
+            events: "event101,event102",
+            formValues: ""
+        }, {
+            name: "buildPriceColors",
+            page: "colors",
+            nameHistorical: "musa:build_color_",
+            subCategory: "build_colors",
+            sectionHistorical: "build_colors",
+            events: "",
+            formValues: ""
+        }, {
+            name: "buildPricePackages",
+            page: "packages",
+            nameHistorical: "",
+            subCategory: "build_packages",
+            sectionHistorical: "build_packages",
+            events: "",
+            formValues: ""
+        }, {
+            name: "buildPriceOptions",
+            page: "options",
+            nameHistorical: "musa:build_options_",
+            subCategory: "build_options",
+            sectionHistorical: "build_options",
+            events: "",
+            formValues: ""
+        }, {
+            name: "buildPriceSummary",
+            page: "summary",
+            nameHistorical: "musa:build_summary_",
+            subCategory: "build_summary",
+            sectionHistorical: "build_summary",
+            events: "event2,event21",
+            formValues: ""
+        }].find(function(a) {
+            return a.name === e.name
+        })
+          , n = e.datums.trim().toLowerCase().replace(/\-/g, "_")
+          , o = {
+            pageName: ["musa", mazdaAnalytics.getData("dataLayer.site.section"), mazdaAnalytics.getData("dataLayer.site.subsection"), a.page].filter(function(e) {
+                return "" !== e
+            }).join(":"),
+            nameHistorical: e.name.includes("buildPrice") && a.nameHistorical ? a.nameHistorical + t(n) : a.nameHistorical,
+            subCategory: a.subCategory,
+            sectionHistorical: a.sectionHistorical,
+            events: "" === a.events ? (s.events = "",
+            "") : a.events,
+            list2: a.formValues,
+            prop52: a.formValues,
+            prop29: dataLayer.package.cost.length > 0 ? dataLayer.package.cost.reduce(function(e, a) {
+                return e + a
+            }, 0) : "",
+            prop30: dataLayer.package.name.length > 0 ? dataLayer.package.name.reduce(function(e, a, t, n) {
+                return e.includes(a) || e.push(a),
+                e
+            }, []).join(";") : "",
+            prop32: dataLayer.accessory.cost.length > 0 ? dataLayer.accessory.cost.reduce(function(e, a) {
+                return e + a
+            }, 0) : "",
+            list1: dataLayer.accessory.name.length > 0 ? dataLayer.accessory.name.reduce(function(e, a, t, n) {
+                return e.includes(a) || e.push(a),
+                e
+            }, []).join("|") : "",
+            eVar93: dataLayer.accessory.name.length > 0 ? dataLayer.accessory.name.reduce(function(e, a, t, n) {
+                return e.includes(a) || e.push(a),
+                e
+            }, []).join(";") : ""
+        };
+        dataLayer.page.name = a.page,
+        dataLayer.page.nameHistorical = o.nameHistorical,
+        dataLayer.page.subCategory = o.subCategory,
+        dataLayer.site.sectionHistorical = o.sectionHistorical,
+        dataLayer.events = o.events,
+        s.t(o),
+        console.log("Mirror ✧(=ↀωↀ=)ノ New Page Name shall be: " + o.pageName),
+        console.log("Mirror                Historical Page Name shall be: " + o.nameHistorical),
+        console.log(e)
+    }
+    var r = [{
+        name: "triTout",
+        selector: 'div.modal-tout--full[style*="none"]' + [':not([data-analytics-content-description="Benefits and Culture"])', ':not([data-analytics-content-description="Departments"])', ':not([data-analytics-content-description=" Mazda Benefits "])', ':not([data-analytics-content-description="Mazda Warranty"])', ':not([data-analytics-content-description="Mazda Tire Center"])', ':not([data-analytics-content-description="GENUINE MAZDA BRAKES"])', ':not([data-analytics-content-description="MAZDA HIGH-PERFORMANCE BATTERIES"])'].join(""),
+        observed: "style",
+        visible: "block",
+        hidden: "none",
+        dataOf: function(e) {
+            return e.dataset.analyticsContentDescription
+        }
+    }, {
+        name: "triTout",
+        selector: "div.component-modal.tout__modal" + [':not([data-analytics-content-description="Benefits and Culture"])', ':not([data-analytics-content-description="Departments"])', ':not([data-analytics-content-description=" Mazda Benefits "])', ':not([data-analytics-content-description="Mazda Warranty"])', ':not([data-analytics-content-description="Mazda Tire Center"])', ':not([data-analytics-content-description="GENUINE MAZDA BRAKES"])', ':not([data-analytics-content-description="MAZDA HIGH-PERFORMANCE BATTERIES"])'].join(""),
+        observed: "class",
+        visible: "--open",
+        hidden: "",
+        dataOf: function(e) {
+            return e.dataset.analyticsContentDescription
+        }
+    }, {
+        name: "multiTout",
+        selector: 'div[class*="modal-tout"]:not(.raq-modal)' + [':not([data-analytics-content-description="Benefits and Culture"])', ':not([data-analytics-content-description="Departments"])', ':not([data-analytics-content-description=" Mazda Benefits "])', ':not([data-analytics-content-description="Mazda Warranty"])', ':not([data-analytics-content-description="Mazda Tire Center"])', ':not([data-analytics-content-description="GENUINE MAZDA BRAKES"])', ':not([data-analytics-content-description="MAZDA HIGH-PERFORMANCE BATTERIES"])'].join(""),
+        observed: "class",
+        visible: "modal--open",
+        hidden: "^modal-tout$",
+        dataOf: function(e) {
+            return e.dataset.analyticsContentDescription
+        }
+    }, {
+        name: "specialOffers",
+        selector: 'div.mdp-incentives > div.mdp-incentives__modal > div[style*="none"]',
+        observed: "style",
+        visible: "block",
+        hidden: "none",
+        dataOf: function(e) {
+            return e.dataset.url
+        }
+    }, {
+        name: "generalTout",
+        selector: 'div.modal-tout[style*="none"]',
+        observed: "style",
+        visible: "block",
+        hidden: "none",
+        dataOf: function(e) {
+            return e.dataset.analyticsContentDescription
+        }
+    }, {
+        name: "gallerySlides",
+        selector: 'div[class*="gallery-modal--container"] div[class*="-container"].slick-slide',
+        observed: "class",
+        visible: "slick-active",
+        hidden: "slick-current",
+        dataOf: function(e) {
+            var a = e.getElementsByTagName("h5")[0].textContent
+              , t = String(parseInt(e.dataset.slickIndex) + 1);
+            return a || "slide_" + t
+        }
+    }, {
+        name: "vlpTrims",
+        selector: 'div[class*="trims--modal"][class*="trim__modal"]',
+        observed: "class",
+        visible: "modal--open",
+        hidden: "^((?!modal--open).)*$",
+        dataOf: function(e) {
+            return e.getElementsByTagName("h4")[0].textContent
+        }
+    }, {
+        name: "buildOptions",
+        selector: 'div[class*="mdp-assemble--modal"][class*="mdp-assemble--options"]',
+        observed: "style",
+        visible: "block|z-index: 200",
+        hidden: "none|z-index: -1",
+        dataOf: function(e) {
+            return e.getElementsByTagName("h4")[0].textContent
+        }
+    }, {
+        name: "buildTrims",
+        selector: 'div[class*="mdp-assemble--modal"][class*="mdp-assemble--trim__modal"]',
+        observed: "style",
+        visible: "block|z-index: 200",
+        hidden: "none|z-index: -1",
+        dataOf: function(e) {
+            return e.getElementsByTagName("h4")[0].textContent
+        }
+    }, {
+        name: "disclaimer",
+        selector: "div.mdp-foundation-disclaimer__modal",
+        observed: "class",
+        visible: "active",
+        hidden: "touch",
+        dataOf: function(e) {
+            var a = e.querySelector("div.disclaimer-block__num").textContent.trim();
+            e.getElementsByTagName("p")[0].textContent;
+            return "disclaimer" + a
+        }
+    }, {
+        name: "disclaimerMobile",
+        selector: "div.mdp-foundation-disclaimer__modal-mobile",
+        observed: "class",
+        visible: "active",
+        hidden: "",
+        dataOf: function(e) {
+            var a = e.querySelector("div.disclaimer-block__num").textContent.trim();
+            e.getElementsByTagName("p")[0].textContent;
+            return "disclaimer" + a
+        }
+    }, {
+        name: "emailForms",
+        selector: "div.mdp-forms-email",
+        observed: "data-form-state",
+        visible: "open",
+        hidden: "closed",
+        dataOf: function(e) {
+            return e.getElementsByTagName("h4")[0].textContent
+        }
+    }, {
+        name: "keepMeUpdated",
+        selector: "div.kmu-component div.mdp-forms__summary",
+        observed: "style",
+        visible: "visible",
+        hidden: "display:none",
+        dataOf: function(e) {
+            return e.getElementsByTagName("h1")[0].textContent
+        }
+    }, {
+        name: "changeZip",
+        selector: "div.mdp-navigation-global-modal__zip-code",
+        observed: "class",
+        visible: "show",
+        hidden: "",
+        dataOf: function(e) {
+            return e.getElementsByTagName("h3")[0].textContent
+        }
+    }, {
+        name: "whereVin_contactUs",
+        selector: "div.mdp-forms-container + div.component-overlay-modal",
+        observed: "class",
+        visible: "show",
+        hidden: "",
+        dataOf: function(e) {
+            return e.getElementsByTagName("h2")[0].textContent
+        }
+    }, {
+        name: "leaseOffers",
+        selector: 'div[class*="__modal--lease-offers"]',
+        observed: "class",
+        visible: "enter|modal--open",
+        hidden: "__modal--lease-offers$",
+        dataOf: function(e) {
+            var a = e.querySelector(".copy-model__content") ? e.querySelector(".copy-model__content").textContent : "";
+            return "lease_offer" + (a ? "_" + a : "")
+        }
+    }, {
+        name: "purchaseOffers",
+        selector: 'div[class*="__modal--purchase-offers"]',
+        observed: "class",
+        visible: "enter|modal--open",
+        hidden: "__modal--purchase-offers$",
+        dataOf: function(e) {
+            var a = e.querySelector(".copy-model__content") ? e.querySelector(".copy-model__content").textContent : "";
+            return "purchase_offer" + (a ? "_" + a : "")
+        }
+    }, {
+        name: "leaseSpecialOffers",
+        selector: "div.component-modal.mdp-offers__modal.mdp-offers__modal--lease",
+        observed: "class",
+        visible: "component-modal--open",
+        hidden: "^((?!component-modal--open).)*$",
+        dataOf: function(e) {
+            var a = e.querySelector(".copy-model__content") ? e.querySelector(".copy-model__content").textContent : "";
+            return "lease_offer" + (a ? "_" + a : "")
+        }
+    }, {
+        name: "purchaseSpecialOffers",
+        selector: "div.component-modal.mdp-offers__modal.mdp-offers__modal--purchase",
+        observed: "class",
+        visible: "component-modal--open",
+        hidden: "^((?!component-modal--open).)*$",
+        dataOf: function(e) {
+            var a = e.querySelector(".copy-model__content") ? e.querySelector(".copy-model__content").textContent : "";
+            return "purchase_offer" + (a ? "_" + a : "")
+        }
+    }, {
+        name: "specialSpecialOffers",
+        selector: "div.component-modal.mdp-offers__modal.mdp-offers__modal--special",
+        observed: "class",
+        visible: "component-modal--open",
+        hidden: "^((?!component-modal--open).)*$",
+        dataOf: function(e) {
+            var a = e.querySelector(".copy-title__content") ? e.querySelector(".copy-title__content").textContent : "";
+            return "special_offer" + (a ? "_" + a : "")
+        }
+    }, {
+        name: "raqInfo",
+        selector: "div.raq-modal.modal-tout--full",
+        observed: "class",
+        visible: "modal--open",
+        hidden: "^((?!modal--open).)*$",
+        dataOf: function(e) {
+            return ""
+        }
+    }, {
+        name: "raqInfo_cpo",
+        selector: "#raq-component-modal",
+        observed: "class",
+        visible: "modal--open",
+        hidden: "^((?!modal--open).)*$",
+        dataOf: function(e) {
+            return ""
+        }
+    }]
+      , i = [{
+        name: "careersDecrepitDepartments",
+        selector: 'div[class*="tout__modal"][data-analytics-content-description="Departments"]',
+        observed: "class",
+        visible: "component-modal--open",
+        hidden: "^((?!component-modal--open).)*$",
+        dataOf: function(e) {
+            return e.dataset.analyticsContentDescription
+        }
+    }, {
+        name: "careersDecrepitBenefits",
+        selector: 'div[class*="tout__modal"][data-analytics-content-description="Benefits and Culture"],div[class*="modal-tout"][data-analytics-content-description=" Mazda Benefits "]',
+        observed: "class",
+        visible: "component-modal--open",
+        hidden: "^((?!component-modal--open).)*$",
+        dataOf: function(e) {
+            return e.dataset.analyticsContentDescription
+        }
+    }, {
+        name: "ownersDecrepitServiceWarranty",
+        selector: 'div[class*="tout__modal"][data-analytics-content-description="Mazda Warranty"]',
+        observed: "class",
+        visible: "component-modal--open",
+        hidden: "^((?!component-modal--open).)*$",
+        dataOf: function(e) {
+            return e.dataset.analyticsContentDescription
+        }
+    }, {
+        name: "ownersDecrepitPartsTires",
+        selector: 'div[class*="tout__modal"][data-analytics-content-description="Mazda Tire Center"]',
+        observed: "class",
+        visible: "component-modal--open",
+        hidden: "^((?!component-modal--open).)*$",
+        dataOf: function(e) {
+            return e.dataset.analyticsContentDescription
+        }
+    }, {
+        name: "ownersDecrepitPartsBrakes",
+        selector: 'div[class*="tout__modal"][data-analytics-content-description="GENUINE MAZDA BRAKES"]',
+        observed: "class",
+        visible: "component-modal--open",
+        hidden: "^((?!component-modal--open).)*$",
+        dataOf: function(e) {
+            return e.dataset.analyticsContentDescription
+        }
+    }, {
+        name: "ownersDecrepitPartsBatteries",
+        selector: 'div[class*="tout__modal"][data-analytics-content-description="MAZDA HIGH-PERFORMANCE BATTERIES"]',
+        observed: "class",
+        visible: "component-modal--open",
+        hidden: "^((?!component-modal--open).)*$",
+        dataOf: function(e) {
+            return e.dataset.analyticsContentDescription
+        }
+    }, {
+        name: "recallsVin",
+        selector: "div.component-overlay-modal.mdp-search-recalls-vin__component-overlay-modal",
+        observed: "class",
+        visible: "show",
+        hidden: "",
+        dataOf: function(e) {
+            return e.getElementsByTagName("h2")[0].textContent
+        }
+    }]
+      , c = [{
+        name: "recallsFound",
+        selector: "div.mdp-search-recalls-vin > div.mdp-search-recalls-vin__result > div.mdp-search-recalls-vin__result-item",
+        observed: "class",
+        visible: "active",
+        hidden: "event157,event158",
+        dataOf: function(e) {
+            return e.querySelector("div.mdp-search-recalls-vin__result-summary-item").textContent
+        }
+    }, {
+        name: "contactUsFleet",
+        selector: "div.container.mdp-fleet-contact > div.mdp-fleet-contact__summary",
+        observed: "style",
+        visible: "block",
+        hidden: "",
+        dataOf: function(e) {
+            return e.getElementsByTagName("h4")[0].textContent
+        }
+    }, {
+        name: "contactUsEmail",
+        selector: "div.container.mdp-forms-container > div.mdp-forms__summary",
+        observed: "style",
+        visible: "visible",
+        hidden: "",
+        dataOf: function(e) {
+            return e.getElementsByTagName("h1")[0].textContent
+        }
+    }, {
+        name: "keepMeUpdated",
+        selector: "div.kmu-page div.mdp-forms__summary",
+        observed: "style",
+        visible: "block",
+        hidden: "",
+        dataOf: function(e) {
+            return e.getElementsByTagName("h1")[0].textContent
+        }
+    }, {
+        name: "keepMeUpdatedSingleVehicle",
+        selector: "div.kmu-component > div > div.mdp-forms__summary",
+        observed: "style",
+        visible: "block",
+        hidden: "display:none",
+        dataOf: function(e) {
+            return e.getElementsByTagName("h1")[0].textContent
+        }
+    }, {
+        name: "rab",
+        selector: "div.mdp-rab__container > div.container > div.mdp-forms__summary",
+        observed: "style",
+        visible: "block",
+        hidden: "",
+        dataOf: function(e) {
+            return e.getElementsByTagName("h1")[0].textContent
+        }
+    }, {
+        name: "buildPriceTrim",
+        selector: "#assemble > section.mdp-assemble--step.mdp-assemble--trim.section",
+        observed: "class",
+        visible: "active",
+        hidden: "",
+        dataOf: function(e) {
+            var a = ["mazda3-sedan", "mazda3-hatchback", "mazda6", "cx-3", "cx-5", "cx-9", "mx-5-miata"]
+              , t = ["m3s", "m3h", "m6g", "cx3", "cx5", "cx9", "mx5"]
+              , n = ["Mazda3 4-door", "Mazda3 5-door", "Mazda6", "CX-3", "CX-5", "CX-9", "MX-5 Miata"]
+              , o = mazdaAnalytics.getData("dataLayer.vehicle.vehicleID")
+              , r = mazdaAnalytics.getData("vehicleID.fromURLParam")
+              , s = a.findIndex(function(e) {
+                return document.location.pathname.includes(e)
+            })
+              , i = t.findIndex(function(e) {
+                return document.location.hash.includes(e)
+            })
+              , c = n.findIndex(function(e) {
+                return document.querySelector("h3.mobile-title") ? document.querySelector("h3.mobile-title").textContent.includes(e) : ""
+            })
+              , l = s > -1 ? s : i > -1 ? i : c > -1 ? c : -1;
+            return o || r || t[l] || ""
+        }
+    }, {
+        name: "buildPriceColors",
+        selector: "#assemble > section.mdp-assemble--step.mdp-assemble--colors.section",
+        observed: "class",
+        visible: "active",
+        hidden: "",
+        dataOf: function(e) {
+            var a = ["mazda3-sedan", "mazda3-hatchback", "mazda6", "cx-3", "cx-5", "cx-9", "mx-5-miata"]
+              , t = ["m3s", "m3h", "m6g", "cx3", "cx5", "cx9", "mx5"]
+              , n = ["Mazda3 4-door", "Mazda3 5-door", "Mazda6", "CX-3", "CX-5", "CX-9", "MX-5 Miata"]
+              , o = mazdaAnalytics.getData("dataLayer.vehicle.vehicleID")
+              , r = mazdaAnalytics.getData("vehicleID.fromURLParam")
+              , s = a.findIndex(function(e) {
+                return document.location.pathname.includes(e)
+            })
+              , i = t.findIndex(function(e) {
+                return document.location.hash.includes(e)
+            })
+              , c = n.findIndex(function(e) {
+                return document.querySelector("h3.mobile-title") ? document.querySelector("h3.mobile-title").textContent.includes(e) : ""
+            })
+              , l = s > -1 ? s : i > -1 ? i : c > -1 ? c : -1;
+            return o || r || t[l] || ""
+        }
+    }, {
+        name: "buildPricePackages",
+        selector: "#assemble > section.mdp-assemble--step.mdp-assemble--packages.section",
+        observed: "class",
+        visible: "active",
+        hidden: "",
+        dataOf: function(e) {
+            var a = ["mazda3-sedan", "mazda3-hatchback", "mazda6", "cx-3", "cx-5", "cx-9", "mx-5-miata"]
+              , t = ["m3s", "m3h", "m6g", "cx3", "cx5", "cx9", "mx5"]
+              , n = ["Mazda3 4-door", "Mazda3 5-door", "Mazda6", "CX-3", "CX-5", "CX-9", "MX-5 Miata"]
+              , o = mazdaAnalytics.getData("dataLayer.vehicle.vehicleID")
+              , r = mazdaAnalytics.getData("vehicleID.fromURLParam")
+              , s = a.findIndex(function(e) {
+                return document.location.pathname.includes(e)
+            })
+              , i = t.findIndex(function(e) {
+                return document.location.hash.includes(e)
+            })
+              , c = n.findIndex(function(e) {
+                return document.querySelector("h3.mobile-title") ? document.querySelector("h3.mobile-title").textContent.includes(e) : ""
+            })
+              , l = s > -1 ? s : i > -1 ? i : c > -1 ? c : -1;
+            return o || r || t[l] || ""
+        }
+    }, {
+        name: "buildPriceOptions",
+        selector: "#assemble > section.mdp-assemble--step.mdp-assemble--options.section",
+        observed: "class",
+        visible: "active",
+        hidden: "",
+        dataOf: function(e) {
+            var a = ["mazda3-sedan", "mazda3-hatchback", "mazda6", "cx-3", "cx-5", "cx-9", "mx-5-miata"]
+              , t = ["m3s", "m3h", "m6g", "cx3", "cx5", "cx9", "mx5"]
+              , n = ["Mazda3 4-door", "Mazda3 5-door", "Mazda6", "CX-3", "CX-5", "CX-9", "MX-5 Miata"]
+              , o = mazdaAnalytics.getData("dataLayer.vehicle.vehicleID")
+              , r = mazdaAnalytics.getData("vehicleID.fromURLParam")
+              , s = a.findIndex(function(e) {
+                return document.location.pathname.includes(e)
+            })
+              , i = t.findIndex(function(e) {
+                return document.location.hash.includes(e)
+            })
+              , c = n.findIndex(function(e) {
+                return document.querySelector("h3.mobile-title") ? document.querySelector("h3.mobile-title").textContent.includes(e) : ""
+            })
+              , l = s > -1 ? s : i > -1 ? i : c > -1 ? c : -1;
+            return o || r || t[l] || ""
+        }
+    }, {
+        name: "buildPriceSummary",
+        selector: "#assemble > section.mdp-assemble--step.mdp-assemble--summary.section",
+        observed: "class",
+        visible: "active",
+        hidden: "",
+        dataOf: function(e) {
+            var a = ["mazda3-sedan", "mazda3-hatchback", "mazda6", "cx-3", "cx-5", "cx-9", "mx-5-miata"]
+              , t = ["m3s", "m3h", "m6g", "cx3", "cx5", "cx9", "mx5"]
+              , n = ["Mazda3 4-door", "Mazda3 5-door", "Mazda6", "CX-3", "CX-5", "CX-9", "MX-5 Miata"]
+              , o = mazdaAnalytics.getData("dataLayer.vehicle.vehicleID")
+              , r = mazdaAnalytics.getData("vehicleID.fromURLParam")
+              , s = a.findIndex(function(e) {
+                return document.location.pathname.includes(e)
+            })
+              , i = t.findIndex(function(e) {
+                return document.location.hash.includes(e)
+            })
+              , c = n.findIndex(function(e) {
+                return document.querySelector("h3.mobile-title") ? document.querySelector("h3.mobile-title").textContent.includes(e) : ""
+            })
+              , l = s > -1 ? s : i > -1 ? i : c > -1 ? c : -1;
+            return o || r || t[l] || ""
+        }
+    }];
+    PaneMirror.echo(r, e),
+    PaneMirror.echo(i, a),
+    PaneMirror.echo(c, o)
+}();
+Array.from || (Array.from = function() {
+    var r = Object.prototype.toString
+      , n = function(n) {
+        return "function" == typeof n || "[object Function]" === r.call(n)
+    }
+      , t = function(r) {
+        var n = Number(r);
+        return isNaN(n) ? 0 : 0 !== n && isFinite(n) ? (n > 0 ? 1 : -1) * Math.floor(Math.abs(n)) : n
+    }
+      , e = Math.pow(2, 53) - 1
+      , o = function(r) {
+        var n = t(r);
+        return Math.min(Math.max(n, 0), e)
+    };
+    return function(r) {
+        var t = this
+          , e = Object(r);
+        if (null == r)
+            throw new TypeError("Array.from requires an array-like object - not null or undefined");
+        var a, i = arguments.length > 1 ? arguments[1] : void 0;
+        if (void 0 !== i) {
+            if (!n(i))
+                throw new TypeError("Array.from: when provided, the second argument must be a function");
+            arguments.length > 2 && (a = arguments[2])
+        }
+        for (var u, f = o(e.length), c = n(t) ? Object(new t(f)) : new Array(f), h = 0; h < f; )
+            u = e[h],
+            c[h] = i ? void 0 === a ? i(u, h) : i.call(a, u, h) : u,
+            h += 1;
+        return c.length = f,
+        c
+    }
+}());
 function AppMeasurement(r) {
     var a = this;
     a.version = "2.10.0";
