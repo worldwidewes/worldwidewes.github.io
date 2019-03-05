@@ -1482,7 +1482,8 @@ try {
             try {
                 if (1) {
                     try {
-                        b['full_page_name'] = teal.getFullPageName()
+                        b['full_page_name'] = teal.getFullPageName();
+                        console.log("get full page name from a " + a + "call");
                     } catch (e) {}
                 }
             } catch (e) {
