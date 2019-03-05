@@ -2926,9 +2926,9 @@ if (!isVehicleLanding && jqueryHasLoaded && document.location.pathname.match(non
             return o || r || t[l] || ""
         }
     }];
-    // PaneMirror.echo(r, e),
-    // PaneMirror.echo(i, a),
-    // PaneMirror.echo(c, o)
+    PaneMirror.echo(r, e),
+    PaneMirror.echo(i, a),
+    PaneMirror.echo(c, o)
 }();
 Array.from || (Array.from = function() {
     var r = Object.prototype.toString
@@ -4590,6 +4590,8 @@ function AppMeasurement_Module_ActivityMap(f) {
         }
     }
 }
+!function(){window.PaneMirror={},PaneMirror.echo=function(e,t){function r(e){var t=n.findIndex(function(t){return Array.from(t.targets).includes(e.target)}),r=n[t],i=e.oldValue,o=e.target,s=r.dataOf(o),c=e.attributeName===r.observed,u=!i||-1!=i.search(r.hidden)&&-1==i.search(r.visible),d=!!i&&(-1!=i.search(r.visible)&&(!r.hidden||-1==i.search(r.hidden))),b=r.hidden&&o.getAttribute(r.observed)?-1!=o.getAttribute(r.observed).search(r.hidden):o.getAttribute(r.observed)&&-1==o.getAttribute(r.observed).search(r.visible),l=o.getAttribute(r.observed)&&-1!=o.getAttribute(r.observed).search(r.visible);e.current=o.getAttribute(r.observed),e.datums=s,e.name=r.name,l&&u&&c&&(_satellite.notify("Mirror ʕっ•ᴥ•ʔっ Dynamic Pane expanded: "+(s||e.name)+"\n\n",1),a(e)),b&&d&&c&&(_satellite.notify("Mirror ʕ￫ᴥ￩　ʔ Dynamic Pane retracted:  "+(s||e.name)+"\n\n",1),dataLayer.events="")}var n=e.map(function(e){return e.targets=document.querySelectorAll(e.selector),e}).filter(function(e){return e.targets.length>0});if(0!==n.length){var a=t||function(e){_satellite.notify(e,1)},i=new MutationObserver(function(e){e.forEach(r)}),o={attributes:!0,attributeFilter:["style","class","data-form-state"],attributeOldValue:!0};n.map(function(e){return Array.from(e.targets)}).reduce(function(e,t){return e.concat(t)},[]).forEach(function(e){i.observe(e,o)})}}}();
+
 try {
     (function(id, loader) {
         window.utag.tagsettings = window.utag.tagsettings || {};
