@@ -931,7 +931,7 @@ if (document.location.pathname.match(initialScrollRegex) != null) {
             }
             if (s.events !== "") {
                 s.tl(this, 'o', s.prop23 + ':scrolled');
-                dataLayer.events = "event.scroll";//localwes
+                dataLayer.events.push("event.scroll");//localwes
                 var temp = JSON.parse(JSON.stringify(dataLayer));
                 utag.link(temp);
                 s.events = "";
