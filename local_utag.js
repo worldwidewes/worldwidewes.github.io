@@ -1498,7 +1498,9 @@ try {
                         }
                         utag.DB("Floodlight Test Comment: eventKPI =  " + eventKPI);
                         //utag.DB("Floodlight Test Comment: eventKPI =  " + eventKPI, 1);
-                        var PAGE_EVENT = [_fullPageName, eventKPI].join(':');
+                        if(eventKPI != ""){//localwes check if eventKPI is there first
+                            var PAGE_EVENT = [_fullPageName, eventKPI].join(':');
+                        }
                         //utag.DB("Floodlight Test Comment: PAGE_EVENT =  " + PAGE_EVENT, 1);
                         //utag.DB("Floodlight Test Comment: PAGE_EVENT =  " + PAGE_EVENT, 1);
                         //var _floodlightActivityID = ID_LOOKUP[PAGE_EVENT] || '';
