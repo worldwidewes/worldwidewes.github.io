@@ -1,4 +1,4 @@
-//tealium universal tag - utag.loader ut4.0.201903052121, Copyright 2019 Tealium.com Inc. All Rights Reserved.
+//tealium universal tag - utag.loader ut4.0.201903062200, Copyright 2019 Tealium.com Inc. All Rights Reserved.
 var utag_condload = false;
 try {
     (function() {
@@ -1242,9 +1242,9 @@ try {
         domain: utag.loader.lh(),
         datasource: "##UTDATASOURCE##".replace("##" + "UTDATASOURCE##", ""),
         path: "//tags.tiqcdn.com/utag/mazdausa/main/dev/",
-        utid: "mazdausa/main/201903052121"
+        utid: "mazdausa/main/201903062200"
     };
-    utag.cfg.v = utag.cfg.template + "201903052121";
+    utag.cfg.v = utag.cfg.template + "201903062200";
     utag.cond = {
         10: 0,
         11: 0,
@@ -1435,7 +1435,7 @@ try {
                         if (typeof b !== "undefined" && typeof b[a] !== "undefined")
                             return b[a];
                     }
-                    teal.getFullPageName = function getFullPageName() {
+                    teal.getFullPageName = function getFullPageName(b) { //localwes
                         var URL_PATHS = ['mazda3-sedan', 'mazda3-hatchback', 'mazda6', 'cx-3', 'cx-5', 'cx-9', 'mx-5-miata'];
                         var URL_HASHES = ['m3s', 'm3h', 'm6g', 'cx3', 'cx5', 'cx9', 'mx5', 'all', 'm6g', 'mxr'];
                         var INPAGE_TEXT = ['Mazda3 4-door', 'Mazda3 5-door', 'Mazda6', 'CX-3', 'CX-5', 'CX-9', 'MX-5 Miata'];
@@ -1471,6 +1471,40 @@ try {
                         var _fullPageName = _pageStructure.filter(function(x) {
                             return x !== '';
                         }).join(':').replace(/\s/g, '_');
+                        var isPaymentEstimator = _fullPageName.search('tools:pay_est:info:') === 0;
+                        _fullPageName = isPaymentEstimator ? 'tools:pay_est:info' : _fullPageName;
+                        var isInitialScroll = _events.search(/event\.scroll/) !== -1;
+                        var isEmailUpdateSubmit = _events.search(/event5,event99/) !== -1;
+                        var isKMUSubmit = _events.search(/event27,event35/) !== -1;
+                        var isRAQComplete = _events.search(/event3,event11/) !== -1;
+                        var isBrochureSubmit = _events.search(/event5,event99/) !== -1;
+                        var isCompare = _events.search(/event22,event30/) !== -1;
+                        var isBuildStart = _events.search(/event103,event104/) !== -1;
+                        var isBuildComplete = _events.search(/event2,event21/) !== -1;
+                        var isCPOsearchResults = _events.search(/event38,event40/) !== -1;
+                        var isCPOdetailedView = _events.search(/event109,event110/) !== -1;
+                        var isNEWsearchResults = _events.search(/event12,event209/) !== -1;
+                        var isNEWdetailedView = _events.search(/event143,event144/) !== -1;
+                        var isClickDealerMap = _events.search(/event123,event124/) !== -1;
+                        var isCallDealer = _events.search(/event50,event52/) !== -1;
+                        var isDealerWebsiteOut = _events.search(/event117,event118/) !== -1;
+                        var isSpecialOffersExpand = _events.search(/event131,event132/) !== -1;
+                        var isVideoStart = _events.search(/event81/) !== -1;
+                        var isReserveSignup = _events.search(/event282,event283/) !== -1;
+                        var eventKPI = isInitialScroll ? 'scroll' : isEmailUpdateSubmit ? 'emailUpdateSubmit' : isKMUSubmit ? 'KMUsubmit' : isRAQComplete ? 'RAQcomplete' : isCompare ? 'compare' : isBrochureSubmit ? 'brochureSubmit' : isBuildStart ? 'buildStart' : isBuildComplete ? 'buildComplete' : isCPOsearchResults ? 'CPOsearchResults' : isCPOdetailedView ? 'CPOdetailedView' : isNEWsearchResults ? 'NEWsearchResults' : isNEWdetailedView ? 'NEWdetailedView' : isClickDealerMap ? 'clickDealerMap' : isCallDealer ? 'callDealer' : isDealerWebsiteOut ? 'dealerWebsite' : isSpecialOffersExpand ? 'specialOffersExpand' : isVideoStart ? 'videoStart' : isReserveSignup ? 'reserveSignup' : _events;
+                        if (eventKPI == 'buildComplete' || eventKPI == 'buildStart') {
+                            typeof updateRAQCTA !== "undefined" ? updateRAQCTA(__BUILD_VARIANT) : ''
+                        }
+                        utag.DB("Floodlight Test Comment: eventKPI =  " + eventKPI);
+                        //utag.DB("Floodlight Test Comment: eventKPI =  " + eventKPI, 1);
+                        var PAGE_EVENT = [_fullPageName, eventKPI].join(':');
+                        //utag.DB("Floodlight Test Comment: PAGE_EVENT =  " + PAGE_EVENT, 1);
+                        utag.DB("Floodlight Test Comment: PAGE_EVENT =  " + PAGE_EVENT, 1);
+                        //var _floodlightActivityID = ID_LOOKUP[PAGE_EVENT] || '';
+                        utag.DB("Floodlight Test Comment: _floodlightActivityID =  " + _floodlightActivityID, 1);
+                        //utag.DB("Floodlight Test Comment: _floodlightActivityID =  " + _floodlightActivityID, 1);
+                        // _satellite.setVar('Floodlight Activity ID', _floodlightActivityID);
+                        // utag.DB(teal.getVar('Floodlight Activity ID'));
                         return _fullPageName;
                     }
                 }
@@ -1482,8 +1516,7 @@ try {
             try {
                 if (1) {
                     try {
-                        b['full_page_name'] = teal.getFullPageName();
-                        console.log("get full page name returned |" + teal.getFullPageName() + "|from a " + a + "call");
+                        b['full_page_name'] = teal.getFullPageName()
                     } catch (e) {}
                 }
             } catch (e) {
@@ -1960,17 +1993,17 @@ try {
         }
         ];
         utag.handler.cfg_extend = [{
+            "alr": 0,
+            "bwq": 0,
             "end": 0,
             "id": "3",
-            "blr": 1,
-            "alr": 0,
-            "bwq": 0
+            "blr": 1
         }, {
+            "blr": 1,
+            "id": "5",
             "end": 0,
             "bwq": 0,
-            "alr": 0,
-            "blr": 1,
-            "id": "5"
+            "alr": 0
         }, {
             "end": 0,
             "id": "8",
@@ -1978,101 +2011,101 @@ try {
             "alr": 0,
             "bwq": 0
         }, {
-            "end": 0,
             "bwq": 0,
             "alr": 0,
             "blr": 1,
-            "id": "9"
+            "id": "9",
+            "end": 0
+        }, {
+            "alr": 0,
+            "bwq": 0,
+            "end": 0,
+            "id": "25",
+            "blr": 1
         }, {
             "end": 0,
-            "blr": 1,
-            "id": "25",
-            "bwq": 0,
-            "alr": 0
-        }, {
             "id": "28",
             "blr": 1,
             "alr": 0,
-            "bwq": 0,
-            "end": 0
+            "bwq": 0
         }, {
-            "end": 0,
             "bwq": 0,
             "alr": 0,
             "blr": 1,
-            "id": "29"
+            "id": "29",
+            "end": 0
         }, {
+            "alr": 0,
+            "bwq": 0,
             "end": 0,
             "id": "30",
+            "blr": 1
+        }, {
+            "bwq": 0,
+            "alr": 0,
+            "blr": 1,
+            "id": "31",
+            "end": 0
+        }, {
+            "alr": 0,
+            "bwq": 0,
+            "end": 0,
+            "id": "32",
+            "blr": 1
+        }, {
+            "end": 0,
+            "id": "34",
+            "blr": 1,
+            "alr": 0,
+            "bwq": 0
+        }, {
+            "bwq": 0,
+            "alr": 0,
+            "blr": 1,
+            "id": "35",
+            "end": 0
+        }, {
+            "end": 0,
+            "id": "36",
             "blr": 1,
             "alr": 0,
             "bwq": 0
         }, {
             "end": 0,
-            "alr": 0,
-            "bwq": 0,
-            "id": "31",
-            "blr": 1
-        }, {
-            "bwq": 0,
-            "alr": 0,
-            "blr": 1,
-            "id": "32",
-            "end": 0
-        }, {
-            "end": 0,
-            "blr": 1,
-            "id": "34",
-            "bwq": 0,
-            "alr": 0
-        }, {
-            "id": "35",
-            "blr": 1,
-            "alr": 0,
-            "bwq": 0,
-            "end": 0
-        }, {
-            "end": 0,
-            "bwq": 0,
-            "alr": 0,
-            "blr": 1,
-            "id": "36"
-        }, {
-            "end": 0,
-            "blr": 1,
             "id": "37",
+            "blr": 1,
+            "alr": 0,
+            "bwq": 0
+        }, {
+            "alr": 0,
+            "bwq": 0,
+            "end": 0,
+            "id": "38",
+            "blr": 1
+        }, {
+            "end": 0,
+            "id": "39",
+            "blr": 1,
+            "alr": 0,
+            "bwq": 0
+        }, {
+            "blr": 1,
+            "id": "40",
+            "end": 0,
             "bwq": 0,
             "alr": 0
         }, {
-            "id": "38",
-            "blr": 1,
             "alr": 0,
             "bwq": 0,
-            "end": 0
-        }, {
             "end": 0,
-            "alr": 0,
-            "bwq": 0,
-            "id": "39",
+            "id": "41",
             "blr": 1
         }, {
-            "alr": 0,
-            "bwq": 0,
-            "id": "40",
-            "blr": 1,
-            "end": 0
-        }, {
-            "alr": 0,
-            "bwq": 0,
-            "id": "41",
-            "blr": 1,
-            "end": 0
-        }, {
-            "bwq": 0,
-            "alr": 0,
             "blr": 1,
             "id": "42",
-            "end": 0
+            "end": 0,
+            "bwq": 0,
+            "alr": 0
         }, {
             "end": 0,
             "id": "43",
@@ -2080,9 +2113,9 @@ try {
             "alr": 0,
             "bwq": 0
         }, {
-            "end": 0,
             "alr": 0,
             "bwq": 0,
+            "end": 0,
             "id": "44",
             "blr": 1
         }];
@@ -2154,7 +2187,7 @@ try {
                 "22": {
                     load: 1,
                     send: 1,
-                    v: 201903010025,
+                    v: 201903062051,
                     wait: 1,
                     tid: 7132
                 },
@@ -2273,7 +2306,7 @@ try {
                 "53": {
                     load: 1,
                     send: 1,
-                    v: 201903052121,
+                    v: 201903062019,
                     wait: 1,
                     tid: 19063
                 }

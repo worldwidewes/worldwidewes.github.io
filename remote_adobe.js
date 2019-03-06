@@ -1,4 +1,457 @@
-//tealium universal tag - utag.53 ut4.0.201903052320, Copyright 2019 Tealium.com Inc. All Rights Reserved.
+//tealium universal tag - utag.53 ut4.0.201903062019, Copyright 2019 Tealium.com Inc. All Rights Reserved.
+!function() {
+    window.PaneMirror = {},
+    PaneMirror.echo = function(e, t) {
+        function r(e) {
+            var t = n.findIndex(function(t) {
+                return Array.from(t.targets).includes(e.target)
+            })
+              , r = n[t]
+              , i = e.oldValue
+              , o = e.target
+              , s = r.dataOf(o)
+              , c = e.attributeName === r.observed
+              , u = !i || -1 != i.search(r.hidden) && -1 == i.search(r.visible)
+              , d = !!i && (-1 != i.search(r.visible) && (!r.hidden || -1 == i.search(r.hidden)))
+              , b = r.hidden && o.getAttribute(r.observed) ? -1 != o.getAttribute(r.observed).search(r.hidden) : o.getAttribute(r.observed) && -1 == o.getAttribute(r.observed).search(r.visible)
+              , l = o.getAttribute(r.observed) && -1 != o.getAttribute(r.observed).search(r.visible);
+            e.current = o.getAttribute(r.observed),
+            e.datums = s,
+            e.name = r.name,
+            l && u && c && (mazdaAnalytics.log("Mirror ʕっ•ᴥ•ʔっ Dynamic Pane expanded: " + (s || e.name) + "\n\n", 1),
+            a(e)),
+            b && d && c && (mazdaAnalytics.log("Mirror ʕ￫ᴥ￩　ʔ Dynamic Pane retracted:  " + (s || e.name) + "\n\n", 1),
+            dataLayer.events = "")
+        }
+        var n = e.map(function(e) {
+            return e.targets = document.querySelectorAll(e.selector),
+            e
+        }).filter(function(e) {
+            return e.targets.length > 0
+        });
+        if (0 !== n.length) {
+            var a = t || function(e) {
+                mazdaAnalytics.log(e, 1)
+            }
+              , i = new MutationObserver(function(e) {
+                e.forEach(r)
+            }
+            )
+              , o = {
+                attributes: !0,
+                attributeFilter: ["style", "class", "data-form-state"],
+                attributeOldValue: !0
+            };
+            n.map(function(e) {
+                return Array.from(e.targets)
+            }).reduce(function(e, t) {
+                return e.concat(t)
+            }, []).forEach(function(e) {
+                i.observe(e, o)
+            })
+        }
+    }
+}();
+window.throttle = function(r, t) {
+    var n, e, o, i = null, u = 0, a = function() {
+        u = new Date,
+        i = null,
+        o = r.apply(n, e)
+    };
+    return function() {
+        var f = new Date;
+        u || (u = f);
+        var l = t - (f - u);
+        return n = this,
+        e = arguments,
+        l <= 0 ? (clearTimeout(i),
+        i = null,
+        u = f,
+        o = r.apply(n, e)) : i || (i = setTimeout(a, l)),
+        o
+    }
+}
+,
+Array.from || (Array.from = function() {
+    var r = Object.prototype.toString
+      , t = function(t) {
+        return "function" == typeof t || "[object Function]" === r.call(t)
+    }
+      , n = function(r) {
+        var t = Number(r);
+        return isNaN(t) ? 0 : 0 !== t && isFinite(t) ? (t > 0 ? 1 : -1) * Math.floor(Math.abs(t)) : t
+    }
+      , e = Math.pow(2, 53) - 1
+      , o = function(r) {
+        var t = n(r);
+        return Math.min(Math.max(t, 0), e)
+    };
+    return function(r) {
+        var n = this
+          , e = Object(r);
+        if (null == r)
+            throw new TypeError("Array.from requires an array-like object - not null or undefined");
+        var i, u = arguments.length > 1 ? arguments[1] : void 0;
+        if ("undefined" != typeof u) {
+            if (!t(u))
+                throw new TypeError("Array.from: when provided, the second argument must be a function");
+            arguments.length > 2 && (i = arguments[2])
+        }
+        for (var a, f = o(e.length), l = t(n) ? Object(new n(f)) : new Array(f), p = 0; p < f; )
+            a = e[p],
+            u ? l[p] = "undefined" == typeof i ? u(a, p) : u.call(i, a, p) : l[p] = a,
+            p += 1;
+        return l.length = f,
+        l
+    }
+}()),
+String.prototype.includes || (String.prototype.includes = function(r, t) {
+    "use strict";
+    return "number" != typeof t && (t = 0),
+    !(t + r.length > this.length) && this.indexOf(r, t) !== -1
+}
+),
+String.prototype.startsWith || (String.prototype.startsWith = function(r, t) {
+    return t = t || 0,
+    this.substr(t, r.length) === r
+}
+),
+Array.prototype.find || (Array.prototype.find = function(r) {
+    if (null === this)
+        throw new TypeError("Array.prototype.find called on null or undefined");
+    if ("function" != typeof r)
+        throw new TypeError("predicate must be a function");
+    for (var t, n = Object(this), e = n.length >>> 0, o = arguments[1], i = 0; i < e; i++)
+        if (t = n[i],
+        r.call(o, t, i, n))
+            return t
+}
+),
+Array.prototype.findIndex || (Array.prototype.findIndex = function(r) {
+    if (null === this)
+        throw new TypeError("Array.prototype.findIndex called on null or undefined");
+    if ("function" != typeof r)
+        throw new TypeError("predicate must be a function");
+    for (var t, n = Object(this), e = n.length >>> 0, o = arguments[1], i = 0; i < e; i++)
+        if (t = n[i],
+        r.call(o, t, i, n))
+            return i;
+    return -1
+}
+),
+Array.prototype.indexOf || (Array.prototype.indexOf = function(r, t) {
+    var n;
+    if (null == this)
+        throw new TypeError('"this" is null or not defined');
+    var e = Object(this)
+      , o = e.length >>> 0;
+    if (0 === o)
+        return -1;
+    var i = +t || 0;
+    if (Math.abs(i) === 1 / 0 && (i = 0),
+    i >= o)
+        return -1;
+    for (n = Math.max(i >= 0 ? i : o - Math.abs(i), 0); n < o; ) {
+        if (n in e && e[n] === r)
+            return n;
+        n++
+    }
+    return -1
+}
+);
+function linkTracker(r, t, a) {
+    var n = jQuery(r)
+      , e = n.attr("data-analytics-link-component-name")
+      , o = n.attr("data-analytics-link-type")
+      , i = groom(n.attr("data-analytics-link-description"))
+      , p = s.prop23
+      , l = n.attr("data-analytics-link-number") || ""
+      , c = n.attr("data-analytics-vehicle-ID") || ""
+      , u = groom(n.attr("data-analytics-form-values") || "")
+      , f = n.attr("data-analytics-content-description") || ""
+      , d = n.attr("data-gallery-full-index") || ""
+      , k = [l || c, i].filter(function(r) {
+        return "" !== r
+    }).join("_")
+      , y = [f || e, o, k, d].filter(function(r) {
+        return "" !== r
+    }).join(":")
+      , g = p + ":" + y
+      , m = {
+        prop1: c,
+        prop25: g,
+        prop36: l,
+        prop48: y,
+        prop50: k,
+        prop51: e,
+        prop52: u,
+        prop60: o,
+        eVar2: g,
+        eVar48: y,
+        eVar51: e,
+        eVar60: o,
+        list2: u
+    };
+    m.events = [t, a].map(function(r) {
+        return r ? "event" + r : ""
+    }).filter(function(r) {
+        return "" !== r
+    }).join(","),
+    m.linkTrackVars = [l ? "prop36" : "", c ? "prop1" : "", u ? "list2,prop52" : "", m.events ? "events" : "", "prop25"].filter(function(r) {
+        return "" !== r
+    }).concat(defaultLinkTrackVars).join(","),
+    s.tl(r, "o", g, m)
+}
+function groom(r) {
+    var t = r.toLocaleLowerCase().trim().replace(/\s/g, "_").replace(/%|#|\?|!/g, "").replace(/\-|@|&|\^|`|~|\(|\)|;|\||\:/g, "_").replace(/(\D(\s)*)\.((\s)*\D)/g, "$1_$2").replace(/_{2,}/g, "_");
+    return t
+}
+function vehicularize(e) {
+    var r = String(e)
+      , i = ["m3s", "m3h", "m6g", "cx3", "cx5", "cx7", "cx9", "mx5", "mxr", "rx8", "mz2", "ms3"]
+      , t = new RegExp(i.reduce(function(e, r) {
+        return e + "|" + r
+    }),"gi");
+    if ("" === r)
+        return r;
+    if (isIndistinguishable(r))
+        return r;
+    var n = r.trim().toLowerCase().replace(/\s/g, "_").replace(/-/g, "")
+      , c = (n = (n = (n = (n = n.replace(/(20)?(1[1-9]|0[0-9])/g, "")).replace(/mazda/gi, "m").replace(/miata/gi, "mx").replace(/prht/gi, "mxr").replace(/speed/gi, "s").replace(/sedan/gi, "s").replace(/hatchback/gi, "h").replace(/(4|four).?door/gi, "s").replace(/(5|five).?door/gi, "h")).replace(/_(h|s)\b/gi, "$1")).replace(/m6(g?)/gi, "m6g").replace(/m2/gi, "mz2").replace(/m5/gi, "mz5").replace(/rx(8?)/gi, "rx8")).split("_").sort().filter(function(e) {
+        return "" !== e
+    }).filter(function(e) {
+        return e.length >= 3
+    }).filter(function(e) {
+        return e.match(t)
+    }).pop();
+    c = void 0 === c ? n : c;
+    var a = i.filter(function(e) {
+        return -1 !== c.indexOf(e)
+    }).pop();
+    return a = void 0 === a ? c.toUpperCase() : a.toUpperCase()
+}
+function isIndistinguishable(e) {
+    var r = String(e).toLowerCase();
+    if (-1 !== ["m3s", "m3h", "m6g", "cx3", "cx5", "cx7", "cx9", "mx5", "mxr", "rx8", "mz2", "ms3"].findIndex(function(e) {
+        return e == r
+    }))
+        return !0;
+    if (/^(c|m|r)(x|[1-9])([1-9]|h|g|r|s|z)$/.test(r))
+        return !0;
+    var i = 3 == r.length
+      , t = -1 !== r.search(/\w{3}/g)
+      , n = 0 === r.search(/^\D/);
+    return !!(i && t && n)
+}
+!function(e, t, n) {
+    function o(e) {
+        var t = a.findIndex(function(t) {
+            return Array.from(t.targets).includes(e.target)
+        })
+          , o = a[t]
+          , r = o.dataOf(e.target)
+          , i = e.attributeName === o.observed
+          , s = !e.oldValue || e.oldValue.includes(o.off) && !e.oldValue.includes(o.on)
+          , l = !!e.oldValue && (e.oldValue.includes(o.on) && (!o.off || !e.oldValue.includes(o.off)))
+          , c = o.off ? e.target.getAttribute(o.observed).includes(o.off) : !e.target.getAttribute(o.observed).includes(o.on)
+          , u = e.target.getAttribute(o.observed).includes(o.on);
+        e.current = e.target.getAttribute(o.observed),
+        e.datums = r,
+        e.name = o.name,
+        e.inventory = r,
+        u && s && i && n(e),
+        c && l && i && n(e)
+    }
+    var r = [{
+        name: "inventorySelectModel",
+        selector: "#mdp-inventory--modelselect > section",
+        observed: "class",
+        on: "preowned",
+        off: "",
+        dataOf: function(e) {
+            var t = "vehicle-2" == e.querySelector("section.mdp-inventory--model-select div input[type=radio]:checked").id ? "cpo" : "new";
+            return t
+        }
+    }]
+      , a = r.map(function(e) {
+        return e.targets = t.querySelectorAll(e.selector),
+        e
+    }).filter(function(e) {
+        return e.targets.length > 0
+    });
+    if (0 !== a.length) {
+        n = n || function(e) {
+            mazdaAnalytics.log(e, 1)
+        }
+        ;
+        var i = new MutationObserver(function(e) {
+            e.forEach(o)
+        }
+        )
+          , s = {
+            attributes: !0,
+            attributeFilter: ["style", "class"],
+            attributeOldValue: !0
+        }
+          , l = a.map(function(e) {
+            return Array.from(e.targets)
+        }).reduce(function(e, t) {
+            return e.concat(t)
+        }, []);
+        l.forEach(function(e) {
+            i.observe(e, s)
+        })
+    }
+}(window, document, function(e) {
+    var t = [{
+        name: "inventorySelectModel",
+        page: "models",
+        nameHistorical: "musa:cpo_inventory_model",
+        subCategory: "cpo_inventory_model",
+        sectionHistorical: "cpo",
+        inventory: "cpo"
+    }, {
+        name: "inventorySelectModel",
+        page: "models",
+        nameHistorical: "musa:inventory_model",
+        subCategory: "inventory_model",
+        sectionHistorical: "inventory_model",
+        inventory: "new"
+    }]
+      , n = t.find(function(t) {
+        return t.inventory === e.inventory
+    })
+      , o = (e.datums.trim().toLowerCase().replace(/\-/g, "_"),
+    ["musa", mazdaAnalytics.setData("dataLayer.site.section"), mazdaAnalytics.setData("dataLayer.site.subsection"), n.page].filter(function(e) {
+        return "" !== e
+    }).join(":"))
+      , r = {
+        pageName: o,
+        nameHistorical: n.nameHistorical,
+        subCategory: n.subCategory,
+        sectionHistorical: n.sectionHistorical
+    };
+    dataLayer.page.name = n.page,
+    dataLayer.page.nameHistorical = r.nameHistorical,
+    dataLayer.page.subCategory = r.subCategory,
+    dataLayer.site.sectionHistorical = r.sectionHistorical,
+    s.t(r)
+});
+(function(a, b, c) {
+    function d(j) {
+        var k = j.target
+          , l = j.oldValue
+          , m = f.findIndex(function(A) {
+            return Array.from(A.targets).includes(k)
+        })
+          , n = f[m]
+          , o = k.getAttribute(n.observed).includes(n.cpoResults)
+          , p = k.getAttribute(n.observed).includes(n.newResults)
+          , q = l.includes(n.cpoResults)
+          , r = l.includes(n.newResults)
+          , s = k.getAttribute(n.observed).includes('velocity-animating')
+          , t = l.includes('velocity-animating')
+          , u = k.getAttribute(n.observed).includes('draweropen')
+          , v = l.includes('draweropen')
+          , w = l.includes(k.getAttribute(n.observed))
+          , z = n.dataOf(k);
+        j.current = k.getAttribute(n.observed),
+        j.name = n.name,
+        j.resultType = o && !p ? 'CPO' : 'NEW',
+        j.datums = z,
+        o && !s && !u && q ? (mazdaAnalytics.log('\u22CB(\u25CD\'\u0398\'\u25CD)\u22CC ' + j.resultType + ' Inventory results: ' + z + '\n\n', 1),
+        c(j)) : p && !s && !u && r && (mazdaAnalytics.log('\u22CB(\u25CD\'\u0398\'\u25CD)\u22CC ' + j.resultType + ' Inventory results: ' + z + '\n\n', 1),
+        c(j))
+    }
+    var f = [{
+        name: 'inventoryResults',
+        selector: '#mdp-inventory--results > section',
+        observed: 'class',
+        cpoResults: 'cpo-results',
+        newResults: 'new-results',
+        dataOf: function dataOf(j) {
+            var l = ['m3s', 'm3h', 'm6g', 'cx3', 'cx5', 'cx9', 'mx5']
+              , n = mazdaAnalytics.setData('dataLayer.vehicle.vehicleID')
+              , o = mazdaAnalytics.setData('vehicleID.fromURLParam')
+              , p = ['mazda3-sedan', 'mazda3-hatchback', 'mazda6', 'cx-3', 'cx-5', 'cx-9', 'mx-5-miata'].findIndex(function(t) {
+                return b.location.pathname.includes(t)
+            })
+              , q = l.findIndex(function(t) {
+                return b.location.hash.includes(t)
+            })
+              , r = ['Mazda3 4-door', 'Mazda3 5-door', 'Mazda6', 'CX-3', 'CX-5', 'CX-9', 'MX-5 Miata'].findIndex(function(t) {
+                var u = j.querySelector('h3.mobile-title') ? j.querySelector('h3.mobile-title').textContent.includes(t) : '';
+                return u
+            })
+              , s = -1 < p ? p : -1 < q ? q : -1 < r ? r : -1;
+            return n || o || l[s] || ''
+        }
+    }].map(function(j) {
+        return j.targets = b.querySelectorAll(j.selector),
+        j
+    }).filter(function(j) {
+        return 0 < j.targets.length
+    });
+    if (0 !== f.length) {
+        c = c || function(j) {
+            mazdaAnalytics.log(j, 1)
+        }
+        ;
+        var g = new MutationObserver(function(j) {
+            j.forEach(d)
+        }
+        )
+          , h = {
+            attributes: !0,
+            attributeFilter: ['class'],
+            attributeOldValue: !0
+        }
+          , i = f.map(function(j) {
+            return Array.from(j.targets)
+        }).reduce(function(j, k) {
+            return j.concat(k)
+        }, []);
+        i.forEach(function(j) {
+            g.observe(j, h)
+        })
+    }
+}
+)(window, document, function(a) {
+    var c = [{
+        resultType: 'CPO',
+        page: 'cpo_results',
+        nameHistorical: 'musa:cpo_inventory_results',
+        subCategory: 'inventory_results',
+        sectionHistorical: 'inventory_results',
+        events: 'event38,event40'
+    }, {
+        resultType: 'NEW',
+        page: 'results',
+        nameHistorical: 'musa:inventory_results',
+        subCategory: 'inventory_results',
+        sectionHistorical: 'inventory_results',
+        events: 'event12,event209'
+    }].find(function(h) {
+        return h.resultType === a.resultType
+    })
+      , d = ['musa', mazdaAnalytics.setData('dataLayer.site.section'), mazdaAnalytics.setData('dataLayer.site.subsection'), c.page].filter(function(h) {
+        return '' !== h
+    }).join(':')
+      , e = {
+        pageName: d,
+        nameHistorical: c.nameHistorical,
+        subCategory: c.subCategory,
+        sectionHistorical: c.sectionHistorical,
+        events: c.events
+    }
+      , f = dataLayer.page.name
+      , g = dataLayer.page.nameHistorical;
+    dataLayer.page.name = c.page,
+    dataLayer.page.nameHistorical = e.nameHistorical,
+    dataLayer.page.subCategory = e.subCategory,
+    dataLayer.site.sectionHistorical = e.sectionHistorical,
+    dataLayer.events = e.events
+});
 if (location.hostname == "mazdausa.com" || location.hostname == "www.mazdausa.com" || location.hostname == "www.mazdaespanol.com" || location.hostname == "mazdaespanol.com" || location.hostname == "accessories.mazdausa.com" || location.hostname == "www.mazdarecallinfo.com" || location.hostname == "www.mazdaseguridad.com" || location.hostname == "www.mymazda.com" || location.hostname == "www.mazdafeelalive.com" || location.hostname == "ja.mazdausa.com" || location.hostname == "zh.mazdausa.com") {
     var s_account = "mazdausaglobal";
 } else {
@@ -8,11 +461,11 @@ var s = s_gi(s_account);
 s.trackDownloadLinks = true;
 s.trackExternalLinks = true;
 s.trackInlineStats = true;
-s.linkInternalFilters = "javascript:,tel:,mailto:,mazdausa.com,mymazda.com,devteamcr.com";
+s.linkInternalFilters = "javascript:,tel:,mailto:,mazdausa.com,mymazda.com,devteamcr.com,mirum.agency";
 s.linkLeaveQueryString = false;
 s.linkTrackVars = "None";
 s.linkTrackEvents = "None";
-s.usePlugins = false;
+s.usePlugins = true;
 s.currencyCode = "USD";
 s.visitorNamespace = "";
 s.trackingServer = "t.mazdausa.com";
@@ -20,36 +473,6 @@ s.trackingServerSecure = "st.mazdausa.com";
 s.charSet = "UTF-8";
 s.expectSupplementalData = true;
 s.debugTracking = utag.cfg.utagdb;
-s.linkDownloadFileTypes = 'exe,zip,wav,mp3,mov,mpg,avi,doc,pdf,xls';
-var defaultLinkTrackVars = "prop1,eVar3,prop3,eVar4,prop4,prop12,eVar12,prop15,eVar15,prop16,eVar16,prop27,eVar27,prop8,prop23,prop24,prop71,eVar71,prop40,prop41,prop51,eVar51,prop60,eVar60,eVar2,prop50,eVar48,prop48,eVar80,eVar83,prop64,prop99,prop100";
-s.campaign = s.Util.getQueryParam('cid');
-s.linkExternalFilters = "http://infotainment.mazdahandsfree.com/entertainment-bluetooth,http://mazda.custhelp.com/app,http://www.allaboutdnt.org/,http://info.evidon.com/pub_info/1798,http://mazda--tst.custhelp.com/app,http://mazda.crosscountry-auto.com/,http://www2.mazda.com/,https://itunes.apple.com/us/app/mymazda/id451886367?mt=8,https://vinrcl.safercar.gov/vin/,https://www.instagram.com/mazdausa/";
-s.dynamicVariablePrefix = "D=";
-s.eVar13 = s.Util.getQueryParam('intcmp');
-s.eVar38 = s.Util.getQueryParam('semid');
-s.eVar56 = s.Util.getQueryParam('secid');
-s.eVar57 = s.Util.getQueryParam('setid');
-s.eVar58 = s.Util.getQueryParam('sesc');
-s.eVar59 = s.Util.getQueryParam('secmp');
-s.eVar31 = s.Util.getQueryParam('crmcid');
-s.eVar49 = s.Util.getQueryParam('gclid');
-s.eVar32 = s.Util.getQueryParam('soccmp');
-function analyticsFormat(t) {
-    t = t.toLocaleLowerCase();
-    t = t.replace(/\s/g, "_");
-    t = t.replace(/&/g, "");
-    t = t.replace(/\?/g, "");
-    t = t.replace(/#/g, "");
-    t = t.replace(/%/g, "");
-    t = t.replace(/__+/g, "_");
-    if (t.slice(-1) == "_") {
-        t = t.substring(0, t.length - 1);
-    }
-    if (t.substring(0, 1) == '_') {
-        t = t.slice(1);
-    }
-    return t;
-}
 window.mazdaAnalytics = {
     log(t) {
         var url = new URL(window.location.href);
@@ -58,18 +481,20 @@ window.mazdaAnalytics = {
         }
     },
     format(t) {
-        t = t.toLocaleLowerCase();
-        t = t.replace(/\s/g, "_");
-        t = t.replace(/&/g, "");
-        t = t.replace(/\?/g, "");
-        t = t.replace(/#/g, "");
-        t = t.replace(/%/g, "");
-        t = t.replace(/__+/g, "_");
-        if (t.slice(-1) == "_") {
-            t = t.substring(0, t.length - 1);
-        }
-        if (t.substring(0, 1) == '_') {
-            t = t.slice(1);
+        if (!!t && typeof (t) == 'string') {
+            t = t.toLocaleLowerCase();
+            t = t.replace(/\s/g, "_");
+            t = t.replace(/&/g, "");
+            t = t.replace(/\?/g, "");
+            t = t.replace(/#/g, "");
+            t = t.replace(/%/g, "");
+            t = t.replace(/__+/g, "_");
+            if (t.slice(-1) == "_") {
+                t = t.substring(0, t.length - 1);
+            }
+            if (t.substring(0, 1) == '_') {
+                t = t.slice(1);
+            }
         }
         return t;
     },
@@ -315,6 +740,20 @@ window.mazdaAnalytics = {
         s.eVar60 = s.prop60 = '';
     }
 }
+s.linkDownloadFileTypes = 'avi,css,csv,doc,docx,eps,exe,jpg,js,m4v,mov,mp3,pdf,png,ppt,pptx,rar,svg,tab,txt,vsd,vxd,wav,wma,wmv,xls,xlsx,xml,zip';
+var defaultLinkTrackVars = "prop1,eVar3,prop3,eVar4,prop4,prop12,eVar12,prop15,eVar15,prop16,eVar16,prop27,eVar27,prop8,prop23,prop24,prop71,eVar71,prop40,prop41,prop51,eVar51,prop60,eVar60,eVar2,prop50,eVar48,prop48,eVar80,eVar83,prop64,prop99,prop100";
+s.campaign = s.Util.getQueryParam('cid');
+s.linkExternalFilters = "http://infotainment.mazdahandsfree.com/entertainment-bluetooth,http://mazda.custhelp.com/app,http://www.allaboutdnt.org/,http://info.evidon.com/pub_info/1798,http://mazda--tst.custhelp.com/app,http://mazda.crosscountry-auto.com/,http://www2.mazda.com/,https://itunes.apple.com/us/app/mymazda/id451886367?mt=8,https://vinrcl.safercar.gov/vin/,https://www.instagram.com/mazdausa/";
+s.dynamicVariablePrefix = "D=";
+s.eVar13 = s.Util.getQueryParam('intcmp');
+s.eVar38 = s.Util.getQueryParam('semid');
+s.eVar56 = s.Util.getQueryParam('secid');
+s.eVar57 = s.Util.getQueryParam('setid');
+s.eVar58 = s.Util.getQueryParam('sesc');
+s.eVar59 = s.Util.getQueryParam('secmp');
+s.eVar31 = s.Util.getQueryParam('crmcid');
+s.eVar49 = s.Util.getQueryParam('gclid');
+s.eVar32 = s.Util.getQueryParam('soccmp');
 s.prop39 = mazdaAnalytics.getData('dataLayer.vehicle.trimCode');
 s.prop28 = mazdaAnalytics.getData('dataLayer.vehicle.msrp');
 s.prop36 = mazdaAnalytics.getData('dataLayer.vehicle.totalCost');
@@ -322,6 +761,22 @@ s.prop29 = mazdaAnalytics.getData('dataLayer.package.cost');
 s.prop30 = mazdaAnalytics.getData('dataLayer.package.name');
 s.prop32 = mazdaAnalytics.getData('dataLayer.accessory.cost');
 s.prop33 = mazdaAnalytics.getData('dataLayer.accessory.name');
+function analyticsFormat(t) {
+    t = t.toLocaleLowerCase();
+    t = t.replace(/\s/g, "_");
+    t = t.replace(/&/g, "");
+    t = t.replace(/\?/g, "");
+    t = t.replace(/#/g, "");
+    t = t.replace(/%/g, "");
+    t = t.replace(/__+/g, "_");
+    if (t.slice(-1) == "_") {
+        t = t.substring(0, t.length - 1);
+    }
+    if (t.substring(0, 1) == '_') {
+        t = t.slice(1);
+    }
+    return t;
+}
 dataLayer.events = '';
 s.events = s.events || '';
 var subSection = mazdaAnalytics.getData('dataLayer.site.subsection');
@@ -476,6 +931,7 @@ if (document.location.pathname.match(initialScrollRegex) != null) {
             }
             if (s.events !== "") {
                 s.tl(this, 'o', s.prop23 + ':scrolled');
+                dataLayer.events.kpi = "event.scroll";//localwes
                 var temp = JSON.parse(JSON.stringify(dataLayer));
                 utag.link(temp);
                 s.events = "";
@@ -1919,7 +2375,7 @@ if (!isVehicleLanding && jqueryHasLoaded && document.location.pathname.match(non
             prop69: _compName,
             eVar69: _compName,
             events: _compName == 'kmu_form_single_veh' ? 'event201,event202' : 'event193,event194',
-            linkTrackVars: "wes" + ',events,prop69,eVar69',
+            linkTrackVars: defaultLinkTrackVars + ',events,prop69,eVar69',
             linkTrackEvents: _compName == 'kmu_form_single_veh' ? 'event201,event202' : 'event193,event194'
         };
         if (_compName !== 'missing component') {
@@ -4590,8 +5046,6 @@ function AppMeasurement_Module_ActivityMap(f) {
         }
     }
 }
-!function(){window.PaneMirror={},PaneMirror.echo=function(e,t){function r(e){var t=n.findIndex(function(t){return Array.from(t.targets).includes(e.target)}),r=n[t],i=e.oldValue,o=e.target,s=r.dataOf(o),c=e.attributeName===r.observed,u=!i||-1!=i.search(r.hidden)&&-1==i.search(r.visible),d=!!i&&(-1!=i.search(r.visible)&&(!r.hidden||-1==i.search(r.hidden))),b=r.hidden&&o.getAttribute(r.observed)?-1!=o.getAttribute(r.observed).search(r.hidden):o.getAttribute(r.observed)&&-1==o.getAttribute(r.observed).search(r.visible),l=o.getAttribute(r.observed)&&-1!=o.getAttribute(r.observed).search(r.visible);e.current=o.getAttribute(r.observed),e.datums=s,e.name=r.name,l&&u&&c&&(_satellite.notify("Mirror ʕっ•ᴥ•ʔっ Dynamic Pane expanded: "+(s||e.name)+"\n\n",1),a(e)),b&&d&&c&&(_satellite.notify("Mirror ʕ￫ᴥ￩　ʔ Dynamic Pane retracted:  "+(s||e.name)+"\n\n",1),dataLayer.events="")}var n=e.map(function(e){return e.targets=document.querySelectorAll(e.selector),e}).filter(function(e){return e.targets.length>0});if(0!==n.length){var a=t||function(e){_satellite.notify(e,1)},i=new MutationObserver(function(e){e.forEach(r)}),o={attributes:!0,attributeFilter:["style","class","data-form-state"],attributeOldValue:!0};n.map(function(e){return Array.from(e.targets)}).reduce(function(e,t){return e.concat(t)},[]).forEach(function(e){i.observe(e,o)})}}}();
-
 try {
     (function(id, loader) {
         window.utag.tagsettings = window.utag.tagsettings || {};
