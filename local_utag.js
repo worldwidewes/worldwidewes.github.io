@@ -1508,7 +1508,7 @@ try {
                         //utag.DB("Floodlight Test Comment: _floodlightActivityID =  " + _floodlightActivityID, 1);
                         // _satellite.setVar('Floodlight Activity ID', _floodlightActivityID);
                         // utag.DB(teal.getVar('Floodlight Activity ID'));
-                        if(PAGE_EVENT != ""){
+                        if(typeof PAGE_EVENT != "undefined" && PAGE_EVENT != ""){
                             return PAGE_EVENT;
                         }else{
                             return _fullPageName;
