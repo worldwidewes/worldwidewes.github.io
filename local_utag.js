@@ -1465,7 +1465,8 @@ try {
                         var _pageName = teal.getVar('page.name') || '';
                         var _subCat = teal.getVar('page.subCategory') || '';
                         var _year = teal.getVar('vehicle.modelYear') || '';
-                        var _events = teal.getVar('events.kpi') || '';
+                        var _events = teal.getVar('events') || ''; //localwes
+                        //var _events = teal.getVar('events.kpi') || '';
                         var _pageStructure = _section == 'regional incentives' ? [_section, _vehicle] : _subsection == 'inventory' && _pageName == 'models' ? [_section, _subsection, _pageName, _subCat] : [_section, _subsection, _pageName, _vehicle];
                         var formSelection = document.querySelector('input:checked') ? document.querySelector('input:checked')['id'] : '';
                         var _fullPageName = _pageStructure.filter(function(x) {
