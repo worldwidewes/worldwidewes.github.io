@@ -1,4 +1,4 @@
-//tealium universal tag - utag.53 ut4.0.201903062019, Copyright 2019 Tealium.com Inc. All Rights Reserved.
+//tealium universal tag - utag.53 ut4.0.201903081742, Copyright 2019 Tealium.com Inc. All Rights Reserved.
 !function() {
     window.PaneMirror = {},
     PaneMirror.echo = function(e, t) {
@@ -754,6 +754,8 @@ s.eVar59 = s.Util.getQueryParam('secmp');
 s.eVar31 = s.Util.getQueryParam('crmcid');
 s.eVar49 = s.Util.getQueryParam('gclid');
 s.eVar32 = s.Util.getQueryParam('soccmp');
+if (!!mazdaAnalytics.getData('dataLayer.tier.content') && (mazdaAnalytics.getData('dataLayer.tier.content') == 'tier1' || mazdaAnalytics.getData('dataLayer.tier.content') == 'tier2'))
+    s.eVar40 = mazdaAnalytics.getData('dataLayer.tier.content');
 s.prop39 = mazdaAnalytics.getData('dataLayer.vehicle.trimCode');
 s.prop28 = mazdaAnalytics.getData('dataLayer.vehicle.msrp');
 s.prop36 = mazdaAnalytics.getData('dataLayer.vehicle.totalCost');
@@ -761,22 +763,6 @@ s.prop29 = mazdaAnalytics.getData('dataLayer.package.cost');
 s.prop30 = mazdaAnalytics.getData('dataLayer.package.name');
 s.prop32 = mazdaAnalytics.getData('dataLayer.accessory.cost');
 s.prop33 = mazdaAnalytics.getData('dataLayer.accessory.name');
-function analyticsFormat(t) {
-    t = t.toLocaleLowerCase();
-    t = t.replace(/\s/g, "_");
-    t = t.replace(/&/g, "");
-    t = t.replace(/\?/g, "");
-    t = t.replace(/#/g, "");
-    t = t.replace(/%/g, "");
-    t = t.replace(/__+/g, "_");
-    if (t.slice(-1) == "_") {
-        t = t.substring(0, t.length - 1);
-    }
-    if (t.substring(0, 1) == '_') {
-        t = t.slice(1);
-    }
-    return t;
-}
 dataLayer.events = '';
 s.events = s.events || '';
 var subSection = mazdaAnalytics.getData('dataLayer.site.subsection');
@@ -931,8 +917,9 @@ if (document.location.pathname.match(initialScrollRegex) != null) {
             }
             if (s.events !== "") {
                 s.tl(this, 'o', s.prop23 + ':scrolled');
-                dataLayer.events += ",event.scroll";//localwes
+                dataLayer.events += ",event.scroll";
                 var temp = JSON.parse(JSON.stringify(dataLayer));
+                //temp.events += ",event.scroll";
                 utag.link(temp);
                 s.events = "";
                 mazdaAnalytics.log('Scroll triggered for the first time.');
@@ -5108,7 +5095,10 @@ try {
             }
         }
         u.initialized = false;
-        u.map = {};
+        u.map = {
+            "mcvid": "prop31",
+            "user.cvid": "eVar96"
+        };
         u.extend = [function(a, b) {
             try {
                 if (1) {
@@ -5456,6 +5446,72 @@ try {
                 utag.DB(e)
             }
         }
+        , function(a, b) {
+            try {
+                if (1) {
+                    function assignLinkTracking() {
+                        var links = document.querySelectorAll("[data-analytics-link-component-name]");
+                        for (var a = 0, l = links.length; a < l; a++) {
+                            links[a].addEventListener("click", mazdaAnalytics.linkHandler, false);
+                        }
+                    }
+                    assignLinkTracking();
+                }
+            } catch (e) {
+                utag.DB(e)
+            }
+        }
+        , function(a, b) {
+            try {
+                if (1) {
+                    try {
+                        b['mcvid'] = typeof Visitor == "function" ? Visitor.getInstance("900A67C25245B3C10A490D4C@AdobeOrg").getMarketingCloudVisitorID() : ''
+                    } catch (e) {}
+                }
+            } catch (e) {
+                utag.DB(e)
+            }
+        }
+        , function(a, b) {
+            try {
+                if (1) {
+                    if (window.location.pathname.indexOf('/shopping-tools/build-and-price') > -1 && window.location.hash.indexOf('s=1&') > -1) {
+                        var hasTrimHashParam = document.location.hash.indexOf('s=1&') > -1;
+                        var vehID = dataLayer.vehicle.vehicleID || _satellite.readCookie('DTMvehicleID');
+                        dataLayer.page.name = hasTrimHashParam ? 'trim' : dataLayer.page.name;
+                        dataLayer.page.nameHistorical = hasTrimHashParam ? 'musa:build_trim_' + vehID : dataLayer.page.name;
+                        dataLayer.site.sectionHistorical = hasTrimHashParam ? 'build_trim' : dataLayer.page.name;
+                        dataLayer.page.subCategory = hasTrimHashParam ? 'build_trim' : dataLayer.page.subCategory;
+                        s.channel = "build_trim";
+                        s.eVar93 = s.prop33 = mazdaAnalytics.getData('dataLayer.accessory.name');
+                        s.prop8 = "build_trim";
+                        s.events = "event101,event102";
+                        s.t();
+                    }
+                }
+            } catch (e) {
+                utag.DB(e)
+            }
+        }
+        , function(a, b) {
+            try {
+                if (1) {
+                    function generateCVID() {
+                        for (var e = "", t = "0123456789", a = 0; a < 10; a++)
+                            e += t.charAt(Math.floor(Math.random() * t.length));
+                        return e
+                    }
+                    if (typeof b['cp.CVID'] == 'undefined') {
+                        dataLayer.user.cvid = generateCVID();
+                        b['user.cvid'] = dataLayer.user.cvid;
+                    } else if (b['cp.CVID'].length > 0) {
+                        b['user.cvid'] = b['cp.CVID']
+                    }
+                }
+            } catch (e) {
+                utag.DB(e)
+            }
+        }
         ];
         u.send = function(a, b, c, d, e, f, g, h, ev) {
             if (u.ev[a] || typeof u.ev.all != "undefined") {
@@ -5482,7 +5538,14 @@ try {
                     "a": {},
                     "serial": {}
                 };
-                for (d in utag.loader.GV(u.map)) {
+                for (c = 0; c < u.extend.length; c++) {
+                    try {
+                        d = u.extend[c](a, b);
+                        if (d == false)
+                            return
+                    } catch (e) {}
+                }
+                ;for (d in utag.loader.GV(u.map)) {
                     if (b[d] !== undefined && b[d] !== "") {
                         e = u.map[d].split(",");
                         for (f = 0; f < e.length; f++) {
@@ -5499,6 +5562,49 @@ try {
                     "b": b,
                     "u.data": u.data
                 });
+                for (c in utag.loader.GV(b)) {
+                    if (typeof u.map[c] != "undefined") {
+                        d = u.map[c].split(",");
+                        for (e = 0; e < d.length; e++) {
+                            if (d[e].indexOf("VALUE_") == 0) {
+                                if (u.data.serial[d[e]] !== undefined && u.data.serial[d[e]] !== "") {
+                                    u.addEvent(d[e].substring(6), b[c] + ":" + u.data.serial[d[e]]);
+                                } else {
+                                    u.addEvent(d[e].substring(6), b[c]);
+                                }
+                            } else if (d[e] == "doneAction") {
+                                b.doneAction = b[c];
+                                if (b.doneAction != "navigate") {
+                                    b.doneAction = eval(b[c]);
+                                }
+                            } else if (d[e].indexOf("c.") == 0 || d[e].indexOf("contextData.") == 0) {
+                                d[e] = d[e].replace("contextData.", "c.");
+                                if (d[e][2] !== "a" && d[e][3] !== ".") {
+                                    u.o.contextData[d[e].substring(2)] = b[c];
+                                    u.pushlt(u.ltv, "contextData." + d[e].substring(2))
+                                }
+                            } else {
+                                if (c == "sc_events" || c == "sc_prodevents" || c == "sc_prodevars") {
+                                    utag.DB("Error:53: Mapping reserved object name " + c)
+                                } else {
+                                    if (d[e] === "adobe_org_id") {
+                                        u.data.adobe_org_id = b[c];
+                                    } else {
+                                        u.o[d[e]] = b[c];
+                                    }
+                                }
+                                if (d[e] == "s_account") {
+                                    u.o.account = b[c];
+                                } else if (d[e] == "linkTrackVars") {
+                                    u.ltflag = false;
+                                } else {
+                                    u.pushlt(u.ltv, d[e]);
+                                }
+                            }
+                        }
+                    }
+                }
+                u.o.visitor = Visitor.getInstance(u.data.adobe_org_id);
                 vAPI.getInstance(u.data.adobe_org_id, function(instance) {
                     var data = u.queue.shift();
                     a = data["a"];
@@ -5506,14 +5612,7 @@ try {
                     u.data = data["u.data"];
                     u.a = a;
                     b.sc_events = b.sc_events || {};
-                    for (c = 0; c < u.extend.length; c++) {
-                        try {
-                            d = u.extend[c](a, b);
-                            if (d == false)
-                                return
-                        } catch (e) {}
-                    }
-                    ;if (!u.initialized) {
+                    if (!u.initialized) {
                         if (u.a == "view") {
                             var img = u.o.t();
                             if (typeof img != "undefined" && img != "") {
