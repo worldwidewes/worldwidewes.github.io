@@ -4181,6 +4181,10 @@ try {
                                 var ytFrame = document.querySelectorAll(selector);
                                 Array.from(ytFrame).forEach(function(vid) {
                                     vid.addEventListener('video:playing', function(e) {
+                                        if(Math.round(YT.get(e.currentTarget.id).getCurrentTime()) != 0){
+                                            console.log("Cancelled since not start of video")
+                                            return;
+                                        }
                                         s.prop68 = s.eVar68 = e.detail.title;
                                         s.events = 'event81';
                                         s.linkTrackVars = 'events,prop68,eVar68';
@@ -4237,6 +4241,7 @@ try {
                                     });
                                     vid.addEventListener('video:paused', function(e) {
                                         if(Math.round(YT.get(e.currentTarget.id).getCurrentTime()) == 0){
+                                            console.log("cancel since video auto restarted");
                                             return;
                                         }
                                         s.prop68 = s.eVar68 = e.detail.title;
