@@ -4275,7 +4275,7 @@ try {
                                         dataLayer.events = s.events;
                                         var temp = JSON.parse(JSON.stringify(dataLayer));
                                         utag.link(temp);
-                                        utag.DB("Video Event: video:play")
+                                        utag.DB("Video Event: video:play");
                                     });
                                     vid.addEventListener('video:ended', function(e) {
                                         s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
@@ -4286,7 +4286,7 @@ try {
                                         dataLayer.events = s.events;
                                         var temp = JSON.parse(JSON.stringify(dataLayer));
                                         utag.link(temp);
-                                        utag.DB("Video Event: video:100")
+                                        utag.DB("Video Event: video:100");
                                     });
                                     vid.addEventListener('video:reach75', function(e) {
                                         s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
@@ -4297,7 +4297,7 @@ try {
                                         dataLayer.events = s.events;
                                         var temp = JSON.parse(JSON.stringify(dataLayer));
                                         utag.link(temp);
-                                        utag.DB("Video Event: video:75")
+                                        utag.DB("Video Event: video:75");
                                     });
                                     vid.addEventListener('video:reach50', function(e) {
                                         s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
@@ -4308,7 +4308,7 @@ try {
                                         dataLayer.events = s.events;
                                         var temp = JSON.parse(JSON.stringify(dataLayer));
                                         utag.link(temp);
-                                        utag.DB("Video Event: video:50")
+                                        utag.DB("Video Event: video:50");
                                     });
                                     vid.addEventListener('video:reach25', function(e) {
                                         s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
@@ -4319,7 +4319,7 @@ try {
                                         dataLayer.events = s.events;
                                         var temp = JSON.parse(JSON.stringify(dataLayer));
                                         utag.link(temp);
-                                        utag.DB("Video Event: video:25")
+                                        utag.DB("Video Event: video:25");
                                     });
                                     vid.addEventListener('video:paused', function(e) {
                                         s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
@@ -4328,12 +4328,14 @@ try {
                                         dataLayer.events = s.events;
                                         var temp = JSON.parse(JSON.stringify(dataLayer));
                                         utag.link(temp);
+                                        utag.DB("Video Event: video:paused");
                                     });
                                     vid.addEventListener('video:start', function(e) {
                                         s.tl(this, 'o', 'video:start');
                                         dataLayer.events = s.events;
                                         var temp = JSON.parse(JSON.stringify(dataLayer));
                                         utag.link(temp);
+                                        utag.DB("Video Event: video:start");
                                     });
                                 });
                             }
