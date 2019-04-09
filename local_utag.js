@@ -4191,7 +4191,7 @@ try {
                                     vid.addEventListener('video:playing', getVideoTitle);
                                     vid.addEventListener('video:paused', getVideoTitle);
                                     vid.addEventListener('video:playing', function(e) {
-                                        s.prop68 = s.eVar68 = mazdaAnalytics.getData('datatLayer.videoTitle');
+                                        s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
                                         s.events = 'event81';
                                         s.linkTrackVars = 'events,prop68,eVar68';
                                         s.linkTrackEvents = 'event81';
@@ -4201,7 +4201,7 @@ try {
                                         utag.link(temp);
                                     });
                                     vid.addEventListener('video:ended', function(e) {
-                                        s.prop68 = s.eVar68 = mazdaAnalytics.getData('datatLayer.videoTitle');
+                                        s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
                                         s.events = 'event86';
                                         s.linkTrackVars = 'events,prop68,eVar68';
                                         s.linkTrackEvents = 'event86';
@@ -4211,7 +4211,7 @@ try {
                                         utag.link(temp);
                                     });
                                     vid.addEventListener('video:reach75', function(e) {
-                                        s.prop68 = s.eVar68 = mazdaAnalytics.getData('datatLayer.videoTitle');
+                                        s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
                                         s.events = 'event84';
                                         s.linkTrackVars = 'events,prop68,eVar68';
                                         s.linkTrackEvents = 'event84';
@@ -4221,7 +4221,7 @@ try {
                                         utag.link(temp);
                                     });
                                     vid.addEventListener('video:reach50', function(e) {
-                                        s.prop68 = s.eVar68 = mazdaAnalytics.getData('datatLayer.videoTitle');
+                                        s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
                                         s.events = 'event83';
                                         s.linkTrackVars = 'events,prop68,eVar68';
                                         s.linkTrackEvents = 'event83';
@@ -4231,7 +4231,7 @@ try {
                                         utag.link(temp);
                                     });
                                     vid.addEventListener('video:reach25', function(e) {
-                                        s.prop68 = s.eVar68 = mazdaAnalytics.getData('datatLayer.videoTitle');
+                                        s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
                                         s.events = 'event82';
                                         s.linkTrackVars = 'events,prop68,eVar68';
                                         s.linkTrackEvents = 'event82';
@@ -4241,7 +4241,7 @@ try {
                                         utag.link(temp);
                                     });
                                     vid.addEventListener('video:paused', function(e) {
-                                        s.prop68 = s.eVar68 = mazdaAnalytics.getData('datatLayer.videoTitle');
+                                        s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
                                         s.linkTrackVars = 'prop68,eVar68';
                                         s.tl(this, 'o', 'video:paused');
                                         dataLayer.events = s.events;
@@ -4263,18 +4263,20 @@ try {
                                 Array.from(videoIframes).forEach(function(vid) {
                                     vid.addEventListener('video:playing', getVideoTitle);
                                     vid.addEventListener('video:paused', getVideoTitle);
+                                    //WL update dataLayer to dataLayer
                                     vid.addEventListener('video:playing', function(e) {
-                                        s.prop68 = s.eVar68 = mazdaAnalytics.getData('datatLayer.videoTitle');
+                                        s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
                                         s.events = 'event81';
                                         s.linkTrackVars = 'events,prop68,eVar68';
                                         s.linkTrackEvents = 'event81';
-                                        s.tl(this, 'o', s.prop23 + ':video:100');
+                                        //WL - update to video:play from video:100
+                                        s.tl(this, 'o', s.prop23 + ':video:play');
                                         dataLayer.events = s.events;
                                         var temp = JSON.parse(JSON.stringify(dataLayer));
                                         utag.link(temp);
                                     });
                                     vid.addEventListener('video:ended', function(e) {
-                                        s.prop68 = s.eVar68 = mazdaAnalytics.getData('datatLayer.videoTitle');
+                                        s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
                                         s.events = 'event86';
                                         s.linkTrackVars = 'events,prop68,eVar68';
                                         s.linkTrackEvents = 'event86';
@@ -4284,7 +4286,7 @@ try {
                                         utag.link(temp);
                                     });
                                     vid.addEventListener('video:reach75', function(e) {
-                                        s.prop68 = s.eVar68 = mazdaAnalytics.getData('datatLayer.videoTitle');
+                                        s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
                                         s.events = 'event84';
                                         s.linkTrackVars = 'events,prop68,eVar68';
                                         s.linkTrackEvents = 'event84';
@@ -4294,7 +4296,7 @@ try {
                                         utag.link(temp);
                                     });
                                     vid.addEventListener('video:reach50', function(e) {
-                                        s.prop68 = s.eVar68 = mazdaAnalytics.getData('datatLayer.videoTitle');
+                                        s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
                                         s.events = 'event83';
                                         s.linkTrackVars = 'events,prop68,eVar68';
                                         s.linkTrackEvents = 'event83';
@@ -4304,7 +4306,7 @@ try {
                                         utag.link(temp);
                                     });
                                     vid.addEventListener('video:reach25', function(e) {
-                                        s.prop68 = s.eVar68 = mazdaAnalytics.getData('datatLayer.videoTitle');
+                                        s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
                                         s.events = 'event82';
                                         s.linkTrackVars = 'events,prop68,eVar68';
                                         s.linkTrackEvents = 'event82';
@@ -4314,7 +4316,7 @@ try {
                                         utag.link(temp);
                                     });
                                     vid.addEventListener('video:paused', function(e) {
-                                        s.prop68 = s.eVar68 = mazdaAnalytics.getData('datatLayer.videoTitle');
+                                        s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
                                         s.linkTrackVars = 'prop68,eVar68';
                                         s.tl(this, 'o', 'video:paused');
                                         dataLayer.events = s.events;
