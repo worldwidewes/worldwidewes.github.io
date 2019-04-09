@@ -4158,32 +4158,35 @@ try {
                             utag.DB(e)
                         }
                         try {
+                            if(location.pathname.toLowerCase().indexOf('/owners') > 1){
+                                var selector = 'iframe[id*="widget"].video-wrapper';
+                            }else{
+                                var selector = 'iframe.mdp-flexiblecontent-video__player';
+                            }
                             var counter = 0;
                             var waitForPop = setInterval(function() {
                                 counter++;
-                                if (document.querySelectorAll('iframe[id*="widget"].video-wrapper').length > 0) {
+                                if (document.querySelectorAll(selector).length > 0) {
                                     utag.DB("Video found attached successfully on try number: " + counter);
-                                    trackVideos();
+                                    trackVideos(selector);
                                     clearInterval(waitForPop);
                                 } else if (counter == 8) {
                                     utag.DB("After 2 seconds, clearing interval and calling not waiting for vide.");
-                                    trackVideos();
                                     clearInterval(waitForPop);
                                 }
                             }, 250);
-                            // var counter2 = 0;
-                            // var waitForPop2 = setInterval(function() {
-                            //     counter2++;
-                            //     if (document.querySelectorAll('iiframe#widget2.mdp-flexiblecontent-video__player').length > 0) {
-                            //         utag.DB("Video found attached successfully on try number: " + counter);
-                            //         newEraTrackVideos();
-                            //         clearInterval(waitForPop2);
-                            //     } else if (counter2 == 8) {
-                            //         utag.DB("After 2 seconds, clearing interval and calling not waiting for vide.");
-                            //         newEraTrackVideos();
-                            //         clearInterval(waitForPop2);
-                            //     }
-                            // }, 250);
+                            var counter2 = 0;
+                            var waitForPop2 = setInterval(function() {
+                                counter2++;
+                                if (document.querySelectorAll('iframe.mdp-flexiblecontent-video__player').length > 0) {
+                                    utag.DB("Video found attached successfully on try number: " + counter);
+                                    trackVideos();
+                                    clearInterval(waitForPop2);
+                                } else if (counter2 == 8) {
+                                    utag.DB("After 2 seconds, clearing interval and calling not waiting for video");
+                                    clearInterval(waitForPop2);
+                                }
+                            }, 250);
                             // function newEraTrackVideos() {
                             //     var videoIframes = document.querySelectorAll('iframe[id*="widget"].video-wrapper');
                             //     var newEraVideoIframes = document.querySelectorAll('iframe#widget2.mdp-flexiblecontent-video__player');
@@ -4256,17 +4259,17 @@ try {
                             //         });
                             //     });
                             // }
-                            function trackVideos() {
-                                var videoIframes = document.querySelectorAll('iframe[id*="widget"].video-wrapper');
+                            function trackVideos(selector) {
+                                //var videoIframes = document.querySelectorAll('iframe[id*="widget"].video-wrapper');
                                 //WL remove #widget2 in selector for consumer-reports page
-                                var newEraVideoIframes = document.querySelectorAll('iframe.mdp-flexiblecontent-video__player');
+                                //var newEraVideoIframes = document.querySelectorAll('iframe.mdp-flexiblecontent-video__player');
                                 //replace .from param with newEraVideoIframes
-                                Array.from(newEraVideoIframes).forEach(function(vid) {
-                                    vid.addEventListener('video:playing', getVideoTitle);
-                                    vid.addEventListener('video:paused', getVideoTitle);
+                                Array.from(selector).forEach(function(vid) {
+                                    //vid.addEventListener('video:playing', getVideoTitle);
+                                    //vid.addEventListener('video:paused', getVideoTitle);
                                     //WL update dataLayer to dataLayer
                                     vid.addEventListener('video:playing', function(e) {
-                                        s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
+                                        s.prop68 = s.eVar68 = e.detail.title;
                                         s.events = 'event81';
                                         s.linkTrackVars = 'events,prop68,eVar68';
                                         s.linkTrackEvents = 'event81';
@@ -4278,7 +4281,7 @@ try {
                                         utag.DB("Video Event: video:play");
                                     });
                                     vid.addEventListener('video:ended', function(e) {
-                                        s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
+                                        s.prop68 = s.eVar68 = e.detail.title;
                                         s.events = 'event86';
                                         s.linkTrackVars = 'events,prop68,eVar68';
                                         s.linkTrackEvents = 'event86';
@@ -4289,7 +4292,7 @@ try {
                                         utag.DB("Video Event: video:100");
                                     });
                                     vid.addEventListener('video:reach75', function(e) {
-                                        s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
+                                        s.prop68 = s.eVar68 = e.detail.title;
                                         s.events = 'event84';
                                         s.linkTrackVars = 'events,prop68,eVar68';
                                         s.linkTrackEvents = 'event84';
@@ -4300,7 +4303,7 @@ try {
                                         utag.DB("Video Event: video:75");
                                     });
                                     vid.addEventListener('video:reach50', function(e) {
-                                        s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
+                                        s.prop68 = s.eVar68 = e.detail.title;
                                         s.events = 'event83';
                                         s.linkTrackVars = 'events,prop68,eVar68';
                                         s.linkTrackEvents = 'event83';
@@ -4311,7 +4314,7 @@ try {
                                         utag.DB("Video Event: video:50");
                                     });
                                     vid.addEventListener('video:reach25', function(e) {
-                                        s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
+                                        s.prop68 = s.eVar68 = e.detail.title;
                                         s.events = 'event82';
                                         s.linkTrackVars = 'events,prop68,eVar68';
                                         s.linkTrackEvents = 'event82';
@@ -4322,11 +4325,7 @@ try {
                                         utag.DB("Video Event: video:25");
                                     });
                                     vid.addEventListener('video:paused', function(e) {
-                                        var isEnd = YT.get(this.id).getDuration() - YT.get(this.id).getCurrentTime() < 2
-                                        if(isEnd){
-                                            return false;
-                                        }
-                                        s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
+                                        s.prop68 = s.eVar68 = e.detail.title;
                                         s.linkTrackVars = 'prop68,eVar68';
                                         s.tl(this, 'o', 'video:paused');
                                         dataLayer.events = s.events;
@@ -4343,12 +4342,12 @@ try {
                                     });
                                 });
                             }
-                            function getVideoTitle(e) {
-                                mazdaAnalytics.log('Video Title');
-                                mazdaAnalytics.log(e.detail.title);
-                                dataLayer.videoTitle = e.detail.title;
-                                dataLayer.videoID = e.detail.youtubeID;
-                            }
+                            // function getVideoTitle(e) {
+                            //     mazdaAnalytics.log('Video Title');
+                            //     mazdaAnalytics.log(e.detail.title);
+                            //     dataLayer.videoTitle = e.detail.title;
+                            //     dataLayer.videoID = e.detail.youtubeID;
+                            // }
                         } catch (e) {
                             utag.DB(e);
                         }
