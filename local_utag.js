@@ -4175,18 +4175,18 @@ try {
                                     clearInterval(waitForPop);
                                 }
                             }, 250);
-                            var counter2 = 0;
-                            var waitForPop2 = setInterval(function() {
-                                counter2++;
-                                if (document.querySelectorAll('iframe.mdp-flexiblecontent-video__player').length > 0) {
-                                    utag.DB("Video found attached successfully on try number: " + counter);
-                                    trackVideos();
-                                    clearInterval(waitForPop2);
-                                } else if (counter2 == 8) {
-                                    utag.DB("After 2 seconds, clearing interval and calling not waiting for video");
-                                    clearInterval(waitForPop2);
-                                }
-                            }, 250);
+                            // var counter2 = 0;
+                            // var waitForPop2 = setInterval(function() {
+                            //     counter2++;
+                            //     if (document.querySelectorAll('iframe.mdp-flexiblecontent-video__player').length > 0) {
+                            //         utag.DB("Video found attached successfully on try number: " + counter);
+                            //         trackVideos();
+                            //         clearInterval(waitForPop2);
+                            //     } else if (counter2 == 8) {
+                            //         utag.DB("After 2 seconds, clearing interval and calling not waiting for video");
+                            //         clearInterval(waitForPop2);
+                            //     }
+                            // }, 250);
                             // function newEraTrackVideos() {
                             //     var videoIframes = document.querySelectorAll('iframe[id*="widget"].video-wrapper');
                             //     var newEraVideoIframes = document.querySelectorAll('iframe#widget2.mdp-flexiblecontent-video__player');
