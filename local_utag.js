@@ -4184,78 +4184,78 @@ try {
                                     clearInterval(waitForPop2);
                                 }
                             }, 250);
-                            function newEraTrackVideos() {
-                                var videoIframes = document.querySelectorAll('iframe[id*="widget"].video-wrapper');
-                                var newEraVideoIframes = document.querySelectorAll('iframe#widget2.mdp-flexiblecontent-video__player');
-                                Array.from(newEraVideoIframes).forEach(function(vid) {
-                                    vid.addEventListener('video:playing', getVideoTitle);
-                                    vid.addEventListener('video:paused', getVideoTitle);
-                                    vid.addEventListener('video:playing', function(e) {
-                                        s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
-                                        s.events = 'event81';
-                                        s.linkTrackVars = 'events,prop68,eVar68';
-                                        s.linkTrackEvents = 'event81';
-                                        s.tl(this, 'o', s.prop23 + ':video:100');
-                                        dataLayer.events = s.events;
-                                        var temp = JSON.parse(JSON.stringify(dataLayer));
-                                        utag.link(temp);
-                                    });
-                                    vid.addEventListener('video:ended', function(e) {
-                                        s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
-                                        s.events = 'event86';
-                                        s.linkTrackVars = 'events,prop68,eVar68';
-                                        s.linkTrackEvents = 'event86';
-                                        s.tl(this, 'o', s.prop23 + ':video:100');
-                                        dataLayer.events = s.events;
-                                        var temp = JSON.parse(JSON.stringify(dataLayer));
-                                        utag.link(temp);
-                                    });
-                                    vid.addEventListener('video:reach75', function(e) {
-                                        s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
-                                        s.events = 'event84';
-                                        s.linkTrackVars = 'events,prop68,eVar68';
-                                        s.linkTrackEvents = 'event84';
-                                        s.tl(this, 'o', s.prop23 + ':video:75');
-                                        dataLayer.events = s.events;
-                                        var temp = JSON.parse(JSON.stringify(dataLayer));
-                                        utag.link(temp);
-                                    });
-                                    vid.addEventListener('video:reach50', function(e) {
-                                        s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
-                                        s.events = 'event83';
-                                        s.linkTrackVars = 'events,prop68,eVar68';
-                                        s.linkTrackEvents = 'event83';
-                                        s.tl(this, 'o', s.prop23 + ':video:50');
-                                        dataLayer.events = s.events;
-                                        var temp = JSON.parse(JSON.stringify(dataLayer));
-                                        utag.link(temp);
-                                    });
-                                    vid.addEventListener('video:reach25', function(e) {
-                                        s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
-                                        s.events = 'event82';
-                                        s.linkTrackVars = 'events,prop68,eVar68';
-                                        s.linkTrackEvents = 'event82';
-                                        s.tl(this, 'o', s.prop23 + ':video:25');
-                                        dataLayer.events = s.events;
-                                        var temp = JSON.parse(JSON.stringify(dataLayer));
-                                        utag.link(temp);
-                                    });
-                                    vid.addEventListener('video:paused', function(e) {
-                                        s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
-                                        s.linkTrackVars = 'prop68,eVar68';
-                                        s.tl(this, 'o', 'video:paused');
-                                        dataLayer.events = s.events;
-                                        var temp = JSON.parse(JSON.stringify(dataLayer));
-                                        utag.link(temp);
-                                    });
-                                    vid.addEventListener('video:start', function(e) {
-                                        s.tl(this, 'o', 'video:start');
-                                        dataLayer.events = s.events;
-                                        var temp = JSON.parse(JSON.stringify(dataLayer));
-                                        utag.link(temp);
-                                    });
-                                });
-                            }
+                            // function newEraTrackVideos() {
+                            //     var videoIframes = document.querySelectorAll('iframe[id*="widget"].video-wrapper');
+                            //     var newEraVideoIframes = document.querySelectorAll('iframe#widget2.mdp-flexiblecontent-video__player');
+                            //     Array.from(newEraVideoIframes).forEach(function(vid) {
+                            //         vid.addEventListener('video:playing', getVideoTitle);
+                            //         vid.addEventListener('video:paused', getVideoTitle);
+                            //         vid.addEventListener('video:playing', function(e) {
+                            //             s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
+                            //             s.events = 'event81';
+                            //             s.linkTrackVars = 'events,prop68,eVar68';
+                            //             s.linkTrackEvents = 'event81';
+                            //             s.tl(this, 'o', s.prop23 + ':video:100');
+                            //             dataLayer.events = s.events;
+                            //             var temp = JSON.parse(JSON.stringify(dataLayer));
+                            //             utag.link(temp);
+                            //         });
+                            //         vid.addEventListener('video:ended', function(e) {
+                            //             s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
+                            //             s.events = 'event86';
+                            //             s.linkTrackVars = 'events,prop68,eVar68';
+                            //             s.linkTrackEvents = 'event86';
+                            //             s.tl(this, 'o', s.prop23 + ':video:100');
+                            //             dataLayer.events = s.events;
+                            //             var temp = JSON.parse(JSON.stringify(dataLayer));
+                            //             utag.link(temp);
+                            //         });
+                            //         vid.addEventListener('video:reach75', function(e) {
+                            //             s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
+                            //             s.events = 'event84';
+                            //             s.linkTrackVars = 'events,prop68,eVar68';
+                            //             s.linkTrackEvents = 'event84';
+                            //             s.tl(this, 'o', s.prop23 + ':video:75');
+                            //             dataLayer.events = s.events;
+                            //             var temp = JSON.parse(JSON.stringify(dataLayer));
+                            //             utag.link(temp);
+                            //         });
+                            //         vid.addEventListener('video:reach50', function(e) {
+                            //             s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
+                            //             s.events = 'event83';
+                            //             s.linkTrackVars = 'events,prop68,eVar68';
+                            //             s.linkTrackEvents = 'event83';
+                            //             s.tl(this, 'o', s.prop23 + ':video:50');
+                            //             dataLayer.events = s.events;
+                            //             var temp = JSON.parse(JSON.stringify(dataLayer));
+                            //             utag.link(temp);
+                            //         });
+                            //         vid.addEventListener('video:reach25', function(e) {
+                            //             s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
+                            //             s.events = 'event82';
+                            //             s.linkTrackVars = 'events,prop68,eVar68';
+                            //             s.linkTrackEvents = 'event82';
+                            //             s.tl(this, 'o', s.prop23 + ':video:25');
+                            //             dataLayer.events = s.events;
+                            //             var temp = JSON.parse(JSON.stringify(dataLayer));
+                            //             utag.link(temp);
+                            //         });
+                            //         vid.addEventListener('video:paused', function(e) {
+                            //             s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
+                            //             s.linkTrackVars = 'prop68,eVar68';
+                            //             s.tl(this, 'o', 'video:paused');
+                            //             dataLayer.events = s.events;
+                            //             var temp = JSON.parse(JSON.stringify(dataLayer));
+                            //             utag.link(temp);
+                            //         });
+                            //         vid.addEventListener('video:start', function(e) {
+                            //             s.tl(this, 'o', 'video:start');
+                            //             dataLayer.events = s.events;
+                            //             var temp = JSON.parse(JSON.stringify(dataLayer));
+                            //             utag.link(temp);
+                            //         });
+                            //     });
+                            // }
                             function trackVideos() {
                                 var videoIframes = document.querySelectorAll('iframe[id*="widget"].video-wrapper');
                                 //WL remove #widget2 in selector for consumer-reports page
