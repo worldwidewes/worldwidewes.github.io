@@ -4260,11 +4260,12 @@ try {
                             //     });
                             // }
                             function trackVideos(selector) {
+                                var ytFrame = document.querySelectorAll(selector);
                                 //var videoIframes = document.querySelectorAll('iframe[id*="widget"].video-wrapper');
                                 //WL remove #widget2 in selector for consumer-reports page
                                 //var newEraVideoIframes = document.querySelectorAll('iframe.mdp-flexiblecontent-video__player');
                                 //replace .from param with newEraVideoIframes
-                                Array.from(selector).forEach(function(vid) {
+                                Array.from(ytFrame).forEach(function(vid) {
                                     //vid.addEventListener('video:playing', getVideoTitle);
                                     //vid.addEventListener('video:paused', getVideoTitle);
                                     //WL update dataLayer to dataLayer
