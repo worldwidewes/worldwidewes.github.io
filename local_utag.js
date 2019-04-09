@@ -4322,6 +4322,10 @@ try {
                                         utag.DB("Video Event: video:25");
                                     });
                                     vid.addEventListener('video:paused', function(e) {
+                                        var isEnd = YT.get(this.id).getDuration() - YT.get(this.id).getCurrentTime() < 2
+                                        if(isEnd){
+                                            return false;
+                                        }
                                         s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
                                         s.linkTrackVars = 'prop68,eVar68';
                                         s.tl(this, 'o', 'video:paused');
