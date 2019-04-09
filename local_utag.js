@@ -4258,7 +4258,8 @@ try {
                             }
                             function trackVideos() {
                                 var videoIframes = document.querySelectorAll('iframe[id*="widget"].video-wrapper');
-                                var newEraVideoIframes = document.querySelectorAll('iframe#widget2.mdp-flexiblecontent-video__player');
+                                //WL remove #widget2 in selector for consumer-reports page
+                                var newEraVideoIframes = document.querySelectorAll('iframe.mdp-flexiblecontent-video__player');
                                 Array.from(videoIframes).forEach(function(vid) {
                                     vid.addEventListener('video:playing', getVideoTitle);
                                     vid.addEventListener('video:paused', getVideoTitle);
