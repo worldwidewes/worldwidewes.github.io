@@ -1,4 +1,4 @@
-//tealium universal tag - utag.loader ut4.0.201904091522, Copyright 2019 Tealium.com Inc. All Rights Reserved.
+//tealium universal tag - utag.loader ut4.0.201904092118, Copyright 2019 Tealium.com Inc. All Rights Reserved.
 var utag_condload = false;
 try {
     (function() {
@@ -1242,9 +1242,9 @@ try {
         domain: utag.loader.lh(),
         datasource: "##UTDATASOURCE##".replace("##" + "UTDATASOURCE##", ""),
         path: "//tags.tiqcdn.com/utag/mazdausa/main/qa/",
-        utid: "mazdausa/main/201904091522"
+        utid: "mazdausa/main/201904092118"
     };
-    utag.cfg.v = utag.cfg.template + "201904091522";
+    utag.cfg.v = utag.cfg.template + "201904092118";
     utag.cond = {
         10: 0,
         11: 0,
@@ -1950,333 +1950,335 @@ try {
             if (typeof d == 'undefined')
                 return;
             c = [{
-                'home:home:home:scroll': 'Dream0|mesp_0'
+                'home:home:home:scroll': 'Dream0|mesp_0|'
             }, {
-                'home:home:home': '|'
+                'home:home:home': '||730803|MESP_Homepage_Scroll|4354023|dreamer|CQAAAEAAAAQqAQA|CQAAAEAAAAUkcCA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|jwrp78x|avqdlo4'
             }, {
-                'tools:apply_for_financing:info': 'decid0|mesp_001'
+                'tools:apply_for_financing:info': 'decid0|mesp_001|||4354020|||||CQAAAEAAAAx7UXA|47433|lal%3D923093|||||Financing|1|87e7xxz|jy02whw'
             }, {
-                'tools:build:summary:cx3:buildComplete': 'Explo0|mesp_007'
+                'tools:build:summary:cx3:buildComplete': 'Explo0|mesp_007|735403|CX3_BuildComplete|4349443|explorer|CQAAAEAAAAQ6AQA|CQAAAEAAAARaAQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|rs2qfbf|egc8kr3'
             }, {
-                'tools:build:summary:cx5:buildComplete': 'Explo0|mesp_008'
+                'tools:build:summary:cx5:buildComplete': 'Explo0|mesp_008|735413|CX5_BuildComplete|4349443|explorer|CQAAAEAAAAQ6AQA|CQAAAEAAAARqAQA||47437|lal%3D923099||||ebd69f85cbef4b47a4fe5f421281c801|1||1|iw4rudp|egc8kr3'
             }, {
-                'tools:build:summary:cx9:buildComplete': 'Explo0|mesp_009'
+                'tools:build:summary:cx9:buildComplete': 'Explo0|mesp_009|735423|CX9_BuildComplete|4349443|explorer|CQAAAEAAAAQ6AQA|CQAAAEAAAAR6AQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|37te813|egc8kr3'
             }, {
-                'tools:build:summary:m3h:buildComplete': 'Explo0|mesp_00-'
+                'tools:build:summary:m3h:buildComplete': 'Explo0|mesp_00-|735433|M3H_BuildComplete|4349443|explorer|CQAAAEAAAAQ6AQA|CQAAAEAAAASKAQA||47435|lal%3D923096||||ebd69f85cbef4b47a4fe5f421281c801|1||1|m7aopqh|egc8kr3'
             }, {
-                'tools:build:summary:m3s:buildComplete': 'Explo0|mesp_00a'
+                'tools:build:summary:m3s:buildComplete': 'Explo0|mesp_00a|735443|M3S_BuildComplete|4349443|explorer|CQAAAEAAAAQ6AQA|CQAAAEAAAASaAQA||47435|lal%3D923096||||ebd69f85cbef4b47a4fe5f421281c801|1||1|c3qzy6b|egc8kr3'
             }, {
-                'tools:build:summary:m6g:buildComplete': 'Explo0|mesp_00b'
+                'tools:build:summary:m6g:buildComplete': 'Explo0|mesp_00b|735453|M6G_BuildComplete|4349443|explorer|CQAAAEAAAAQ6AQA|CQAAAEAAAASqAQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|gkqo0x7|egc8kr3'
             }, {
-                'tools:build:summary:mx5:buildComplete': 'Explo0|mesp_00c'
+                'tools:build:summary:mx5:buildComplete': 'Explo0|mesp_00c|735463|MX5_BuildComplete|4349443|explorer|CQAAAEAAAAQ6AQA|CQAAAEAAAAS6AQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|31p7o3x|egc8kr3'
             }, {
-                'tools:build:summary:mxr:buildComplete': 'Explo0|mesp_00d'
+                'tools:build:summary:mxr:buildComplete': 'Explo0|mesp_00d|735473|MXR_BuildComplete|4349443|explorer|CQAAAEAAAAQ6AQA|CQAAAEAAAATKAQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|klmozml|egc8kr3'
             }, {
-                'tools:compare:details:cx3:compare': 'shopp0|mesp_007'
+                'tools:compare:details:cx3:compare': 'shopp0|mesp_007|735313|CX3_Compare|4354017|shopper|CQAAAEAAAARKAQA|CQAAAEAAAARaAQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|ocwt2fr|cbyy08m'
             }, {
-                'tools:compare:details:cx5:compare': 'shopp0|mesp_008'
+                'tools:compare:details:cx5:compare': 'shopp0|mesp_008|735323|CX5_Compare|4354017|shopper|CQAAAEAAAARKAQA|CQAAAEAAAARqAQA||47437|lal%3D923099||||ebd69f85cbef4b47a4fe5f421281c801|1||1|zz5yr23|cbyy08m'
             }, {
-                'tools:compare:details:cx9:compare': 'shopp0|mesp_009'
+                'tools:compare:details:cx9:compare': 'shopp0|mesp_009|735333|CX9_Compare|4354017|shopper|CQAAAEAAAARKAQA|CQAAAEAAAAR6AQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|etpvlak|cbyy08m'
             }, {
-                'tools:compare:details:m3h:compare': 'shopp0|mesp_00-'
+                'tools:compare:details:m3h:compare': 'shopp0|mesp_00-|735343|M3H_Compare|4354017|shopper|CQAAAEAAAARKAQA|CQAAAEAAAASKAQA||47435|lal%3D923096||||ebd69f85cbef4b47a4fe5f421281c801|1||1|5bbg4gi|cbyy08m'
             }, {
-                'tools:compare:details:m3s:compare': 'shopp0|mesp_00a'
+                'tools:compare:details:m3s:compare': 'shopp0|mesp_00a|735353|M3S_Compare|4354017|shopper|CQAAAEAAAARKAQA|CQAAAEAAAASaAQA||47435|lal%3D923096||||ebd69f85cbef4b47a4fe5f421281c801|1||1|2vkwsh0|cbyy08m'
             }, {
-                'tools:compare:details:m6g:compare': 'shopp0|mesp_00b'
+                'tools:compare:details:m6g:compare': 'shopp0|mesp_00b|735363|M6G_Compare|4354017|shopper|CQAAAEAAAARKAQA|CQAAAEAAAASqAQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|f2jz4of|cbyy08m'
             }, {
-                'tools:compare:details:mx5:compare': 'shopp0|mesp_00c'
+                'tools:compare:details:mx5:compare': 'shopp0|mesp_00c|735373|MX5_Compare|4354017|shopper|CQAAAEAAAARKAQA|CQAAAEAAAAS6AQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|esef0s3|cbyy08m'
             }, {
-                'tools:compare:details:mxr:compare': 'shopp0|mesp_00d'
+                'tools:compare:details:mxr:compare': 'shopp0|mesp_00d|735383|MXR_Compare|4354017|shopper|CQAAAEAAAARKAQA|CQAAAEAAAATKAQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|9ffcj4x|cbyy08m'
             }, {
-                'tools:incentives:national:scroll': 'Dream0|mesp_009'
+                'tools:incentives:national:scroll': 'Dream0|mesp_009|'
             }, {
-                'tools:incentives:national:cx3:scroll': 'Dream0|mesp_00-'
+                'tools:incentives:national:cx3:scroll': 'Dream0|mesp_00-|730723|CX3_SpecialOffers_Scroll|4354023|dreamer|CQAAAEAAAAQqAQA|CQAAAEAAAARaAQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|etsek02|avqdlo4'
             }, {
-                'tools:incentives:national:cx3:specialOffersExpand': 'shopp0|mesp_00'
+                'tools:incentives:national:cx3:specialOffersExpand': 'shopp0|mesp_00|735313|CX3_SpecialOffers_FullView|4354017|shopper|CQAAAEAAAARKAQA|CQAAAEAAAARaAQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|tkq9pki|cbyy08m'
             }, {
-                'tools:incentives:national:cx5:scroll': 'Dream0|mesp_00b'
+                'tools:incentives:national:cx5:scroll': 'Dream0|mesp_00b|730733|CX5_SpecialOffers_Scroll|4354023|dreamer|CQAAAEAAAAQqAQA|CQAAAEAAAARqAQA||47437|lal%3D923099||||ebd69f85cbef4b47a4fe5f421281c801|1||1|56x8115|avqdlo4'
             }, {
-                'tools:incentives:national:cx5:specialOffersExpand': 'shopp0|mesp_000'
+                'tools:incentives:national:cx5:specialOffersExpand': 'shopp0|mesp_000|735323|CX5_SpecialOffers_FullView|4354017|shopper|CQAAAEAAAARKAQA|CQAAAEAAAARqAQA||47437|lal%3D923099||||ebd69f85cbef4b47a4fe5f421281c801|1||1|11nytl3|cbyy08m'
             }, {
-                'tools:incentives:national:cx9:scroll': 'Dream0|mesp_00d'
+                'tools:incentives:national:cx9:scroll': 'Dream0|mesp_00d|730743|CX9_SpecialOffers_Scroll|4354023|dreamer|CQAAAEAAAAQqAQA|CQAAAEAAAAR6AQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|rxgmyi8|avqdlo4'
             }, {
-                'tools:incentives:national:cx9:specialOffersExpand': 'shopp0|mesp_001'
+                'tools:incentives:national:cx9:specialOffersExpand': 'shopp0|mesp_001|735333|CX9_SpecialOffers_FullView|4354017|shopper|CQAAAEAAAARKAQA|CQAAAEAAAAR6AQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|9d1e6qp|cbyy08m'
             }, {
-                'tools:incentives:national:m3h:scroll': 'Dream0|mesp_00f'
+                'tools:incentives:national:m3h:scroll': 'Dream0|mesp_00f|730753|M3H_SpecialOffers_Scroll|4354023|dreamer|CQAAAEAAAAQqAQA|CQAAAEAAAASKAQA||47435|lal%3D923096||||ebd69f85cbef4b47a4fe5f421281c801|1||1|hch0o1r|avqdlo4'
             }, {
-                'tools:incentives:national:m3h:specialOffersExpand': 'shopp0|mesp_002'
+                'tools:incentives:national:m3h:specialOffersExpand': 'shopp0|mesp_002|735343|M3H_SpecialOffers_FullView|4354017|shopper|CQAAAEAAAARKAQA|CQAAAEAAAASKAQA||47435|lal%3D923096||||ebd69f85cbef4b47a4fe5f421281c801|1||1|m0ahm7z|cbyy08m'
             }, {
-                'tools:incentives:national:m3s:scroll': 'Dream0|mesp_00h'
+                'tools:incentives:national:m3s:scroll': 'Dream0|mesp_00h|730763|M3S_SpecialOffers_Scroll|4354023|dreamer|CQAAAEAAAAQqAQA|CQAAAEAAAASaAQA||47435|lal%3D923096||||ebd69f85cbef4b47a4fe5f421281c801|1||1|7avx2m3|avqdlo4'
             }, {
-                'tools:incentives:national:m3s:specialOffersExpand': 'shopp0|mesp_003'
+                'tools:incentives:national:m3s:specialOffersExpand': 'shopp0|mesp_003|735353|M3S_SpecialOffers_FullView|4354017|shopper|CQAAAEAAAARKAQA|CQAAAEAAAASaAQA||47435|lal%3D923096||||ebd69f85cbef4b47a4fe5f421281c801|1||1|q8hri7q|cbyy08m'
             }, {
-                'tools:incentives:national:m6g:scroll': 'Dream0|mesp_00j'
+                'tools:incentives:national:m6g:scroll': 'Dream0|mesp_00j|730773|M6G_SpecialOffers_Scroll|4354023|dreamer|CQAAAEAAAAQqAQA|CQAAAEAAAASqAQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|ccrazd6|avqdlo4'
             }, {
-                'tools:incentives:national:m6g:specialOffersExpand': 'shopp0|mesp_004'
+                'tools:incentives:national:m6g:specialOffersExpand': 'shopp0|mesp_004|735363|M6G_SpecialOffers_FullView|4354017|shopper|CQAAAEAAAARKAQA|CQAAAEAAAASqAQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|rlf7e52|cbyy08m'
             }, {
-                'tools:incentives:national:mx5:scroll': 'Dream0|mesp_00l'
+                'tools:incentives:national:mx5:scroll': 'Dream0|mesp_00l|730783|MX5_SpecialOffers_Scroll|4354023|dreamer|CQAAAEAAAAQqAQA|CQAAAEAAAAS6AQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|tn4nr0d|avqdlo4'
             }, {
-                'tools:incentives:national:mx5:specialOffersExpand': 'shopp0|mesp_005'
+                'tools:incentives:national:mx5:specialOffersExpand': 'shopp0|mesp_005|735373|MX5_SpecialOffers_FullView|4354017|shopper|CQAAAEAAAARKAQA|CQAAAEAAAAS6AQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|hw1hws1|cbyy08m'
             }, {
-                'tools:incentives:national:mxr:scroll': 'Dream0|mesp_00n'
+                'tools:incentives:national:mxr:scroll': 'Dream0|mesp_00n|730793|MXR_SpecialOffers_Scroll|4354023|dreamer|CQAAAEAAAAQqAQA|CQAAAEAAAATKAQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|58pdf1q|avqdlo4'
             }, {
-                'tools:incentives:national:mxr:specialOffersExpand': 'shopp0|mesp_006'
+                'tools:incentives:national:mxr:specialOffersExpand': 'shopp0|mesp_006|735383|MXR_SpecialOffers_FullView|4354017|shopper|CQAAAEAAAARKAQA|CQAAAEAAAATKAQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|eh8rh19|cbyy08m'
             }, {
-                'tools:incentives:national:specialOffersExpand': 'shopp0|mesp_0'
+                'tools:incentives:national:specialOffersExpand': 'shopp0|mesp_0|735393|FLL_SpecialOffers_FullView|4354017|shopper|CQAAAEAAAARKAQA|CQAAAEAAAAUkcCA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|okc2k3u|cbyy08m'
             }, {
-                'tools:inventory:cpo_detail:cx3:CPOdetailedView': 'shopp0|mesp_00m'
+                'tools:inventory:cpo_detail:cx3:CPOdetailedView': 'shopp0|mesp_00m|735313|CX3_CPOSearchInventoryResults_DetailedView|4354017|shopper|CQAAAEAAAARKAQA|CQAAAEAAAARaAQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|oauurc3|cbyy08m'
             }, {
-                'tools:inventory:cpo_detail:cx5:CPOdetailedView': 'shopp0|mesp_00n'
+                'tools:inventory:cpo_detail:cx5:CPOdetailedView': 'shopp0|mesp_00n|735323|CX5_CPOSearchInventoryResults_DetailedView|4354017|shopper|CQAAAEAAAARKAQA|CQAAAEAAAARqAQA||47437|lal%3D923099||||ebd69f85cbef4b47a4fe5f421281c801|1||1|hbw3j23|cbyy08m'
             }, {
-                'tools:inventory:cpo_detail:cx7:CPOdetailedView': 'shopp0|mesp_00u'
+                'tools:inventory:cpo_detail:cx7:CPOdetailedView': 'shopp0|mesp_00u|'
             }, {
-                'tools:inventory:cpo_detail:cx9:CPOdetailedView': 'shopp0|mesp_00o'
+                'tools:inventory:cpo_detail:cx9:CPOdetailedView': 'shopp0|mesp_00o|735333|CX9_CPOSearchInventoryResults_DetailedView|4354017|shopper|CQAAAEAAAARKAQA|CQAAAEAAAAR6AQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|4oee8yg|cbyy08m'
             }, {
-                'tools:inventory:cpo_detail:m3h:CPOdetailedView': 'shopp0|mesp_00p'
+                'tools:inventory:cpo_detail:m3h:CPOdetailedView': 'shopp0|mesp_00p|735343|M3H_CPOSearchInventoryResults_DetailedView|4354017|shopper|CQAAAEAAAARKAQA|CQAAAEAAAASKAQA||47435|lal%3D923096||||ebd69f85cbef4b47a4fe5f421281c801|1||1|ttqnyt7|cbyy08m'
             }, {
-                'tools:inventory:cpo_detail:m3s:CPOdetailedView': 'shopp0|mesp_00q'
+                'tools:inventory:cpo_detail:m3s:CPOdetailedView': 'shopp0|mesp_00q|735353|M3S_CPOSearchInventoryResults_DetailedView|4354017|shopper|CQAAAEAAAARKAQA|CQAAAEAAAASaAQA||47435|lal%3D923096||||ebd69f85cbef4b47a4fe5f421281c801|1||1|serh0b9|cbyy08m'
             }, {
-                'tools:inventory:cpo_detail:m6g:CPOdetailedView': 'shopp0|mesp_00r'
+                'tools:inventory:cpo_detail:m6g:CPOdetailedView': 'shopp0|mesp_00r|735363|M6G_CPOSearchInventoryResults_DetailedView|4354017|shopper|CQAAAEAAAARKAQA|CQAAAEAAAASqAQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|kwaqqmj|cbyy08m'
             }, {
-                'tools:inventory:cpo_detail:ms3:CPOdetailedView': 'shopp0|mesp_00v'
+                'tools:inventory:cpo_detail:ms3:CPOdetailedView': 'shopp0|mesp_00v|'
             }, {
-                'tools:inventory:cpo_detail:mx5:CPOdetailedView': 'shopp0|mesp_00s'
+                'tools:inventory:cpo_detail:mx5:CPOdetailedView': 'shopp0|mesp_00s|735373|MX5_CPOSearchInventoryResults_DetailedView|4354017|shopper|CQAAAEAAAARKAQA|CQAAAEAAAAS6AQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|1rnatba|cbyy08m'
             }, {
-                'tools:inventory:cpo_detail:mxr:CPOdetailedView': 'shopp0|mesp_00t'
+                'tools:inventory:cpo_detail:mxr:CPOdetailedView': 'shopp0|mesp_00t|735383|MXR_CPOSearchInventoryResults_DetailedView|4354017|shopper|CQAAAEAAAARKAQA|CQAAAEAAAATKAQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|q4z4qrt|cbyy08m'
             }, {
-                'tools:inventory:cpo_detail:mz2:CPOdetailedView': 'shopp0|mesp_00w'
+                'tools:inventory:cpo_detail:mz2:CPOdetailedView': 'shopp0|mesp_00w|'
             }, {
-                'tools:inventory:cpo_detail:mz5:CPOdetailedView': 'shopp0|mesp_00x'
+                'tools:inventory:cpo_detail:mz5:CPOdetailedView': 'shopp0|mesp_00x|'
             }, {
-                'tools:inventory:cpo_detail:rx8:CPOdetailedView': 'shopp0|mesp_00y'
+                'tools:inventory:cpo_detail:rx8:CPOdetailedView': 'shopp0|mesp_00y|'
             }, {
-                'tools:inventory:detail:cx3:NEWdetailedView': 'shopp0|mesp_00e'
+                'tools:inventory:detail:cx3:NEWdetailedView': 'shopp0|mesp_00e|735313|CX3_SearchInventoryResults_DetailedView|4354017|shopper|CQAAAEAAAARKAQA|CQAAAEAAAARaAQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|768qe6l|cbyy08m'
             }, {
-                'tools:inventory:detail:cx5:NEWdetailedView': 'shopp0|mesp_00f'
+                'tools:inventory:detail:cx5:NEWdetailedView': 'shopp0|mesp_00f|735323|CX5_SearchInventoryResults_DetailedView|4354017|shopper|CQAAAEAAAARKAQA|CQAAAEAAAARqAQA||47437|lal%3D923099||||ebd69f85cbef4b47a4fe5f421281c801|1||1|ba7hyj8|cbyy08m'
             }, {
-                'tools:inventory:detail:cx9:NEWdetailedView': 'shopp0|mesp_00g'
+                'tools:inventory:detail:cx9:NEWdetailedView': 'shopp0|mesp_00g|735333|CX9_SearchInventoryResults_DetailedView|4354017|shopper|CQAAAEAAAARKAQA|CQAAAEAAAAR6AQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|f6qpyk8|cbyy08m'
             }, {
-                'tools:inventory:detail:m3h:NEWdetailedView': 'shopp0|mesp_00h'
+                'tools:inventory:detail:m3h:NEWdetailedView': 'shopp0|mesp_00h|735343|M3H_SearchInventoryResults_DetailedView|4354017|shopper|CQAAAEAAAARKAQA|CQAAAEAAAASKAQA||47435|lal%3D923096||||ebd69f85cbef4b47a4fe5f421281c801|1||1|4y5k2py|cbyy08m'
             }, {
-                'tools:inventory:detail:m3s:NEWdetailedView': 'shopp0|mesp_00i'
+                'tools:inventory:detail:m3s:NEWdetailedView': 'shopp0|mesp_00i|735353|M3S_SearchInventoryResults_DetailedView|4354017|shopper|CQAAAEAAAARKAQA|CQAAAEAAAASaAQA||47435|lal%3D923096||||ebd69f85cbef4b47a4fe5f421281c801|1||1|cit6i7w|cbyy08m'
             }, {
-                'tools:inventory:detail:m6g:NEWdetailedView': 'shopp0|mesp_00j'
+                'tools:inventory:detail:m6g:NEWdetailedView': 'shopp0|mesp_00j|735363|M6G_SearchInventoryResults_DetailedView|4354017|shopper|CQAAAEAAAARKAQA|CQAAAEAAAASqAQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|uxll482|cbyy08m'
             }, {
-                'tools:inventory:detail:mx5:NEWdetailedView': 'shopp0|mesp_00k'
+                'tools:inventory:detail:mx5:NEWdetailedView': 'shopp0|mesp_00k|735373|MX5_SearchInventoryResults_DetailedView|4354017|shopper|CQAAAEAAAARKAQA|CQAAAEAAAAS6AQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|52p08n1|cbyy08m'
             }, {
-                'tools:locate_dealer:overview': 'shopp0|mesp_00z'
+                'tools:inventory:detail:mxr:NEWdetailedView': '||735383|MXR_SearchInventoryResults_DetailedView|4354017|shopper|CQAAAEAAAARKAQA|CQAAAEAAAATKAQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|ep40h46|cbyy08m'
             }, {
-                'tools:locate_dealer:overview:callDealer': 'decid0|mesp_0'
+                'tools:locate_dealer:overview': 'shopp0|mesp_00z|735393|Homepage_LocateDealerResults|4354017|shopper|CQAAAEAAAARKAQA|CQAAAEAAAAUkcCA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|89lllmr|cbyy08m'
             }, {
-                'tools:locate_dealer:overview:clickDealerMap': 'decid0|mesp_00'
+                'tools:locate_dealer:overview:callDealer': 'decid0|mesp_0|||4354020|||||CQAAAEAAAAx7UXA|47433|lal%3D923093|||||ClickToCallDealer|1|9y52z2y|jy02whw'
             }, {
-                'tools:locate_dealer:overview:dealerWebsite': 'decid0|mesp_000'
+                'tools:locate_dealer:overview:clickDealerMap': 'decid0|mesp_00|||4354020|||||CQAAAEAAAAx7UXA|47433|lal%3D923093|||||ClickToDealerMap|1|sdwhs7u|jy02whw'
             }, {
-                'tools:pay_est:info:event14': 'shopp0|mesp_00_'
+                'tools:locate_dealer:overview:dealerWebsite': 'decid0|mesp_000|||4354020|||||CQAAAEAAAAx7UXA|47433|lal%3D923093|||||DealerWebsiteClickout|1|rwi0b6e|jy02whw'
             }, {
-                'tools:quote:confirm:cx3:RAQcomplete': 'decid0|mesp_002'
+                'tools:pay_est:info:event14': 'shopp0|mesp_00_|735393|Shopping_PaymentEstimatorComplete|4354017|shopper|CQAAAEAAAARKAQA|CQAAAEAAAAUkcCA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|66c7rpf|cbyy08m'
             }, {
-                'tools:quote:confirm:cx5:RAQcomplete': 'decid0|mesp_003'
+                'tools:quote:confirm:cx3:RAQcomplete': 'decid0|mesp_002|735283|CX3_RAQComplete|4354020||CQAAAEAAAAyDUoA|CQAAAEAAAARaAQA|ebd69f85cbef4b47a4fe5f421281c801|47433|lal%3D923093||47433|lal%3D923093|||RAQComplete|1|5fy1un2|jy02whw'
             }, {
-                'tools:quote:confirm:cx9:RAQcomplete': 'decid0|mesp_004'
+                'tools:quote:confirm:cx5:RAQcomplete': 'decid0|mesp_003|735283|CX5_RAQComplete|4354020||CQAAAEAAAAyDUoA|CQAAAEAAAARqAQA|ebd69f85cbef4b47a4fe5f421281c801|47437|lal%3D923099||47437|lal%3D923099|||RAQComplete|1|45zxdxp|jy02whw'
             }, {
-                'tools:quote:confirm:m3h:RAQcomplete': 'decid0|mesp_005'
+                'tools:quote:confirm:cx9:RAQcomplete': 'decid0|mesp_004|735283|CX9_RAQComplete|4354020||CQAAAEAAAAyDUoA|CQAAAEAAAAR6AQA|ebd69f85cbef4b47a4fe5f421281c801|47433|lal%3D923093||47433|lal%3D923093|||RAQComplete|1|u4jeqlp|jy02whw'
             }, {
-                'tools:quote:confirm:m3s:RAQcomplete': 'decid0|mesp_006'
+                'tools:quote:confirm:m3h:RAQcomplete': 'decid0|mesp_005|735283|M3H_RAQComplete|4354020||CQAAAEAAAAyDUoA|CQAAAEAAAASKAQA|ebd69f85cbef4b47a4fe5f421281c801|47435|lal%3D923096||47435|lal%3D923096|||RAQComplete|1|0mljmtk|jy02whw'
             }, {
-                'tools:quote:confirm:m6g:RAQcomplete': 'decid0|mesp_007'
+                'tools:quote:confirm:m3s:RAQcomplete': 'decid0|mesp_006|735283|M3S_RAQComplete|4354020||CQAAAEAAAAyDUoA|CQAAAEAAAASaAQA|ebd69f85cbef4b47a4fe5f421281c801|47435|lal%3D923096||47435|lal%3D923096|||RAQComplete|1|sn1umme|jy02whw'
             }, {
-                'tools:quote:confirm:mx5:RAQcomplete': 'decid0|mesp_008'
+                'tools:quote:confirm:m6g:RAQcomplete': 'decid0|mesp_007|735283|M6G_RAQComplete|4354020||CQAAAEAAAAyDUoA|CQAAAEAAAASqAQA|ebd69f85cbef4b47a4fe5f421281c801|47433|lal%3D923093||47433|lal%3D923093|||RAQComplete|1|a27lqkb|jy02whw'
             }, {
-                'tools:quote:confirm:mxr:RAQcomplete': 'decid0|mesp_009'
+                'tools:quote:confirm:mx5:RAQcomplete': 'decid0|mesp_008|735283|MX5_RAQComplete|4354020||CQAAAEAAAAyDUoA|CQAAAEAAAAS6AQA|ebd69f85cbef4b47a4fe5f421281c801|47433|lal%3D923093||47433|lal%3D923093|||RAQComplete|1|m4zewwt|jy02whw'
             }, {
-                'vehicles:anniversary:overview:mx5': 'Dream0|mesp_00s'
+                'tools:quote:confirm:mxr:RAQcomplete': 'decid0|mesp_009|735303|MXR_RAQComplete|4354020||CQAAAEAAAAyDUoA|CQAAAEAAAATKAQA|ebd69f85cbef4b47a4fe5f421281c801|47433|lal%3D923093||47433|lal%3D923093|||RAQComplete|1|6xnj0cj|jy02whw'
             }, {
-                'vehicles:cx3:features:cx3:scroll': 'Explo0|mesp_00e'
+                'vehicles:anniversary:overview:mx5': 'Dream0|mesp_00s|'
             }, {
-                'vehicles:cx3:gallery:cx3:scroll': 'Explo0|mesp_00m'
+                'vehicles:cx3:features:cx3:scroll': 'Explo0|mesp_00e|730723|CX3_Features_Scroll|4349443|explorer|CQAAAEAAAAQqAQA|CQAAAEAAAARaAQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|juxja22|egc8kr3'
             }, {
-                'vehicles:cx3:overview:cx3:scroll': 'Dream0|mesp_00a'
+                'vehicles:cx3:gallery:cx3:scroll': 'Explo0|mesp_00m|730723|CX3_Gallery_Scroll|4349443|explorer|CQAAAEAAAAQqAQA|CQAAAEAAAARaAQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|0qsrtub|egc8kr3'
             }, {
-                'vehicles:cx3:overview:cx3': '|'
+                'vehicles:cx3:overview:cx3:scroll': 'Dream0|mesp_00a|'
             }, {
-                'vehicles:cx3:specs:cx3': 'Explo0|mesp_00u'
+                'vehicles:cx3:overview:cx3': '||730723|CX3_VLP_Scroll|4354023|dreamer|CQAAAEAAAAQqAQA|CQAAAEAAAARaAQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|xmv5kqw|avqdlo4'
             }, {
-                'vehicles:cx5:features:cx5:scroll': 'Explo0|mesp_00f'
+                'vehicles:cx3:specs:cx3': 'Explo0|mesp_00u|735403|CX3_Specs|4349443|explorer|CQAAAEAAAAQ6AQA|CQAAAEAAAARaAQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|g7gizpi|egc8kr3'
             }, {
-                'vehicles:cx5:gallery:cx5:scroll': 'Explo0|mesp_00n'
+                'vehicles:cx5:features:cx5:scroll': 'Explo0|mesp_00f|730733|CX5_Features_Scroll|4349443|explorer|CQAAAEAAAAQqAQA|CQAAAEAAAARqAQA||47437|lal%3D923099||||ebd69f85cbef4b47a4fe5f421281c801|1||1|fey7kxx|egc8kr3'
             }, {
-                'vehicles:cx5:overview:cx5:scroll': 'Dream0|mesp_00c'
+                'vehicles:cx5:gallery:cx5:scroll': 'Explo0|mesp_00n|730733|CX5_Gallery_Scroll|4349443|explorer|CQAAAEAAAAQqAQA|CQAAAEAAAARqAQA||47437|lal%3D923099||||ebd69f85cbef4b47a4fe5f421281c801|1||1|tzfm8ty|egc8kr3'
             }, {
-                'vehicles:cx5:overview:cx5': '|'
+                'vehicles:cx5:overview:cx5:scroll': 'Dream0|mesp_00c|'
             }, {
-                'vehicles:cx5:specs:cx5': 'Explo0|mesp_00v'
+                'vehicles:cx5:overview:cx5': '||730733|CX5_VLP_Scroll|4354023|dreamer|CQAAAEAAAAQqAQA|CQAAAEAAAARqAQA||47437|lal%3D923099||||ebd69f85cbef4b47a4fe5f421281c801|1||1|1e68n8r|avqdlo4'
             }, {
-                'vehicles:cx9:features:cx9:scroll': 'Explo0|mesp_00g'
+                'vehicles:cx5:specs:cx5': 'Explo0|mesp_00v|735413|CX5_Specs|4349443|explorer|CQAAAEAAAAQ6AQA|CQAAAEAAAARqAQA||47437|lal%3D923099||||ebd69f85cbef4b47a4fe5f421281c801|1||1|drn4fpz|egc8kr3'
             }, {
-                'vehicles:cx9:gallery:cx9:scroll': 'Explo0|mesp_00o'
+                'vehicles:cx9:features:cx9:scroll': 'Explo0|mesp_00g|730743|CX9_Features_Scroll|4349443|explorer|CQAAAEAAAAQqAQA|CQAAAEAAAAR6AQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|kfm2wu3|egc8kr3'
             }, {
-                'vehicles:cx9:overview:cx9:scroll': 'Dream0|mesp_00e'
+                'vehicles:cx9:gallery:cx9:scroll': 'Explo0|mesp_00o|730743|CX9_Gallery_Scroll|4349443|explorer|CQAAAEAAAAQqAQA|CQAAAEAAAAR6AQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|s3vbohm|egc8kr3'
             }, {
-                'vehicles:cx9:overview:cx9': '|'
+                'vehicles:cx9:overview:cx9:scroll': 'Dream0|mesp_00e|'
             }, {
-                'vehicles:cx9:specs:cx9': 'Explo0|mesp_00w'
+                'vehicles:cx9:overview:cx9': '||730743|CX9_VLP_Scroll|4354023|dreamer|CQAAAEAAAAQqAQA|CQAAAEAAAAR6AQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|ukdf7hu|avqdlo4'
             }, {
-                'vehicles:m3h:features:m3h:scroll': 'Explo0|mesp_00h'
+                'vehicles:cx9:specs:cx9': 'Explo0|mesp_00w|735423|CX9_Specs|4349443|explorer|CQAAAEAAAAQ6AQA|CQAAAEAAAAR6AQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|y2872f0|egc8kr3'
             }, {
-                'vehicles:m3h:gallery:m3h:scroll': 'Explo0|mesp_00p'
+                'vehicles:m3h:features:m3h:scroll': 'Explo0|mesp_00h|730753|M3H_Features_Scroll|4349443|explorer|CQAAAEAAAAQqAQA|CQAAAEAAAASKAQA||47435|lal%3D923096||||ebd69f85cbef4b47a4fe5f421281c801|1||1|ed3mpad|egc8kr3'
             }, {
-                'vehicles:m3h:overview:m3h:scroll': 'Dream0|mesp_00g'
+                'vehicles:m3h:gallery:m3h:scroll': 'Explo0|mesp_00p|730753|M3H_Gallery_Scroll|4349443|explorer|CQAAAEAAAAQqAQA|CQAAAEAAAASKAQA||47435|lal%3D923096||||ebd69f85cbef4b47a4fe5f421281c801|1||1|h581fu8|egc8kr3'
             }, {
-                'vehicles:m3h:overview:m3h': '|'
+                'vehicles:m3h:overview:m3h:scroll': 'Dream0|mesp_00g|'
             }, {
-                'vehicles:m3h:specs:m3h': 'Explo0|mesp_00x'
+                'vehicles:m3h:overview:m3h': '||730753|M3H_VLP_Scroll|4354023|dreamer|CQAAAEAAAAQqAQA|CQAAAEAAAASKAQA||47435|lal%3D923096||||ebd69f85cbef4b47a4fe5f421281c801|1||1|islhh6s|avqdlo4'
             }, {
-                'vehicles:m3s:features:m3s:scroll': 'Explo0|mesp_00i'
+                'vehicles:m3h:specs:m3h': 'Explo0|mesp_00x|735433|M3H_Specs|4349443|explorer|CQAAAEAAAAQ6AQA|CQAAAEAAAASKAQA||47435|lal%3D923096||||ebd69f85cbef4b47a4fe5f421281c801|1||1|45m5y4t|egc8kr3'
             }, {
-                'vehicles:m3s:gallery:m3s:scroll': 'Explo0|mesp_00q'
+                'vehicles:m3s:features:m3s:scroll': 'Explo0|mesp_00i|730763|M3S_Features_Scroll|4349443|explorer|CQAAAEAAAAQqAQA|CQAAAEAAAASaAQA||47435|lal%3D923096||||ebd69f85cbef4b47a4fe5f421281c801|1||1|ujbthaj|egc8kr3'
             }, {
-                'vehicles:m3s:overview:m3s:scroll': 'Dream0|mesp_00i'
+                'vehicles:m3s:gallery:m3s:scroll': 'Explo0|mesp_00q|730763|M3S_Gallery_Scroll|4349443|explorer|CQAAAEAAAAQqAQA|CQAAAEAAAASaAQA||47435|lal%3D923096||||ebd69f85cbef4b47a4fe5f421281c801|1||1|klwurjy|egc8kr3'
             }, {
-                'vehicles:m3s:overview:m3s': '|'
+                'vehicles:m3s:overview:m3s:scroll': 'Dream0|mesp_00i|'
             }, {
-                'vehicles:m3s:specs:m3s': 'Explo0|mesp_00y'
+                'vehicles:m3s:overview:m3s': '||730763|M3S_VLP_Scroll|4354023|dreamer|CQAAAEAAAAQqAQA|CQAAAEAAAASaAQA||47435|lal%3D923096||||ebd69f85cbef4b47a4fe5f421281c801|1||1|upzugq6|avqdlo4'
             }, {
-                'vehicles:m6g:features:m6g:scroll': 'Explo0|mesp_00j'
+                'vehicles:m3s:specs:m3s': 'Explo0|mesp_00y|735443|M3S_Specs|4349443|explorer|CQAAAEAAAAQ6AQA|CQAAAEAAAASaAQA||47435|lal%3D923096||||ebd69f85cbef4b47a4fe5f421281c801|1||1|lp6yrmx|egc8kr3'
             }, {
-                'vehicles:m6g:gallery:m6g:scroll': 'Explo0|mesp_00r'
+                'vehicles:m6g:features:m6g:scroll': 'Explo0|mesp_00j|730773|M6G_Features_Scroll|4349443|explorer|CQAAAEAAAAQqAQA|CQAAAEAAAASqAQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|tcrsko8|egc8kr3'
             }, {
-                'vehicles:m6g:overview:m6g:scroll': 'Dream0|mesp_00k'
+                'vehicles:m6g:gallery:m6g:scroll': 'Explo0|mesp_00r|730773|M6G_Gallery_Scroll|4349443|explorer|CQAAAEAAAAQqAQA|CQAAAEAAAASqAQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|u41h3dd|egc8kr3'
             }, {
-                'vehicles:m6g:overview:m6g': '|'
+                'vehicles:m6g:overview:m6g:scroll': 'Dream0|mesp_00k|730773|M6G_VLP_Scroll|4354023|dreamer|CQAAAEAAAAQqAQA|CQAAAEAAAASqAQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|sycuort|avqdlo4'
             }, {
-                'vehicles:mx5:features:mx5:scroll': 'Explo0|mesp_00k'
+                'vehicles:m6g:overview:m6g': '||735453|M6G_Specs|4349443|explorer|CQAAAEAAAAQ6AQA|CQAAAEAAAASqAQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|c5av7tz|egc8kr3'
             }, {
-                'vehicles:mx5:gallery:mx5:scroll': 'Explo0|mesp_00s'
+                'vehicles:mx5:features:mx5:scroll': 'Explo0|mesp_00k|730783|MX5_Features_Scroll|4349443|explorer|CQAAAEAAAAQqAQA|CQAAAEAAAAS6AQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|zq0bzx1|egc8kr3'
             }, {
-                'vehicles:mx5:overview:mx5:scroll': 'Dream0|mesp_00m'
+                'vehicles:mx5:gallery:mx5:scroll': 'Explo0|mesp_00s|730783|MX5_Gallery_Scroll|4349443|explorer|CQAAAEAAAAQqAQA|CQAAAEAAAAS6AQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|3rajyl9|egc8kr3'
             }, {
-                'vehicles:mx5:overview:mx5': '|'
+                'vehicles:mx5:overview:mx5:scroll': 'Dream0|mesp_00m|'
             }, {
-                'vehicles:mx5:specs:mx5': 'Explo0|mesp_00_'
+                'vehicles:mx5:overview:mx5': '||730783|MX5_VLP_Scroll|4354023|dreamer|CQAAAEAAAAQqAQA|CQAAAEAAAAS6AQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|pelap2y|avqdlo4'
             }, {
-                'vehicles:mxr:features:mxr:scroll': 'Explo0|mesp_00l'
+                'vehicles:mx5:specs:mx5': 'Explo0|mesp_00_|735463|MX5_Specs|4349443|explorer|CQAAAEAAAAQ6AQA|CQAAAEAAAAS6AQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|u5lb0km|egc8kr3'
             }, {
-                'vehicles:mxr:gallery:mxr:scroll': 'Explo0|mesp_00t'
+                'vehicles:mxr:features:mxr:scroll': 'Explo0|mesp_00l|730793|MXR_Features_Scroll|4349443|explorer|CQAAAEAAAAQqAQA|CQAAAEAAAATKAQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|rszuv2r|egc8kr3'
             }, {
-                'vehicles:mxr:overview:mxr:scroll': 'Dream0|mesp_00o'
+                'vehicles:mxr:gallery:mxr:scroll': 'Explo0|mesp_00t|730793|MXR_Gallery_Scroll|4349443|explorer|CQAAAEAAAAQqAQA|CQAAAEAAAATKAQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|gtfy0o0|egc8kr3'
             }, {
-                'vehicles:mxr:overview:mxr': '|'
+                'vehicles:mxr:overview:mxr:scroll': 'Dream0|mesp_00o|'
             }, {
-                'vehicles:mxr:specs:mxr': 'Explo0|mesp_01'
+                'vehicles:mxr:overview:mxr': '||730793|MXR_VLP_Scroll|4354023|dreamer|CQAAAEAAAAQqAQA|CQAAAEAAAATKAQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|uqrtm7h|avqdlo4'
             }, {
-                'vehicles:m6g:specs:m6g': 'Explo0|mesp_00z'
+                'vehicles:mxr:specs:mxr': 'Explo0|mesp_01|735473|MXR_Specs|4349443|explorer|CQAAAEAAAAQ6AQA|CQAAAEAAAATKAQA||47433|lal%3D923093||||ebd69f85cbef4b47a4fe5f421281c801|1||1|jglwyqg|egc8kr3'
             }, {
-                'vehicles:new_era:overview': 'Dream0|mesp_00q'
+                'vehicles:m6g:specs:m6g': 'Explo0|mesp_00z|'
             }, {
-                'vehicles:new_era:overview:KMUsubmit': 'Explo0|mesp_00r'
+                'vehicles:new_era:overview': 'Dream0|mesp_00q|'
             }, {
-                'tools:test_drive:reserve_a_test_drive': '|'
+                'vehicles:new_era:overview:KMUsubmit': 'Explo0|mesp_00r|'
             }, {
-                'vehicles:cx3:features:cx3': '|'
+                'tools:test_drive:reserve_a_test_drive': '||'
             }, {
-                'vehicles:cx5:features:cx5': '|'
+                'vehicles:cx3:features:cx3': '||'
             }, {
-                'vehicles:cx9:features:cx9': '|'
+                'vehicles:cx5:features:cx5': '||'
             }, {
-                'vehicles:m3h:features:m3h': '|'
+                'vehicles:cx9:features:cx9': '||'
             }, {
-                'vehicles:m3s:features:m3s': '|'
+                'vehicles:m3h:features:m3h': '||'
             }, {
-                'vehicles:m6g:features:m6g': '|'
+                'vehicles:m3s:features:m3s': '||'
             }, {
-                'vehicles:mx5:features:mx5': '|'
+                'vehicles:m6g:features:m6g': '||'
             }, {
-                'vehicles:mxr:features:mxr': '|'
+                'vehicles:mx5:features:mx5': '||'
             }, {
-                'tools:apply_for_financing:info:financeApplySubmit': '|'
+                'vehicles:mxr:features:mxr': '||'
             }, {
-                'tools:quote:info': '|'
+                'tools:apply_for_financing:info:financeApplySubmit': '||'
             }, {
-                'vehicles:cx3:gallery:cx3': '|'
+                'tools:quote:info': '||'
             }, {
-                'vehicles:cx5:gallery:cx5': '|'
+                'vehicles:cx3:gallery:cx3': '||'
             }, {
-                'vehicles:cx9:gallery:cx9': '|'
+                'vehicles:cx5:gallery:cx5': '||'
             }, {
-                'vehicles:m3h:gallery:m3h': '|'
+                'vehicles:cx9:gallery:cx9': '||'
             }, {
-                'vehicles:m3s:gallery:m3s': '|'
+                'vehicles:m3h:gallery:m3h': '||'
             }, {
-                'vehicles:m6g:gallery:m6g': '|'
+                'vehicles:m3s:gallery:m3s': '||'
             }, {
-                'vehicles:mx5:gallery:mx5': '|'
+                'vehicles:m6g:gallery:m6g': '||'
             }, {
-                'vehicles:mxr:gallery:mxr': '|'
+                'vehicles:mx5:gallery:mx5': '||'
             }, {
-                'tools:kmu:confirm:emailUpdateSubmit': '|'
+                'vehicles:mxr:gallery:mxr': '||'
             }, {
-                'tools:apply_for_financing:info:cx3:financeApplySubmit': '|'
+                'tools:kmu:confirm:emailUpdateSubmit': '||'
             }, {
-                'tools:apply_for_financing:info:cx5:financeApplySubmit': '|'
+                'tools:apply_for_financing:info:cx3:financeApplySubmit': '||'
             }, {
-                'tools:apply_for_financing:info:cx9:financeApplySubmit': '|'
+                'tools:apply_for_financing:info:cx5:financeApplySubmit': '||'
             }, {
-                'tools:apply_for_financing:info:m3h:financeApplySubmit': '|'
+                'tools:apply_for_financing:info:cx9:financeApplySubmit': '||'
             }, {
-                'tools:apply_for_financing:info:m3s:financeApplySubmit': '|'
+                'tools:apply_for_financing:info:m3h:financeApplySubmit': '||'
             }, {
-                'tools:apply_for_financing:info:m6g:financeApplySubmit': '|'
+                'tools:apply_for_financing:info:m3s:financeApplySubmit': '||'
             }, {
-                'tools:apply_for_financing:info:mx5:financeApplySubmit': '|'
+                'tools:apply_for_financing:info:m6g:financeApplySubmit': '||'
             }, {
-                'tools:apply_for_financing:info:mxr:financeApplySubmit': '|'
+                'tools:apply_for_financing:info:mx5:financeApplySubmit': '||'
             }, {
-                'tools:incentives:national': '|'
+                'tools:apply_for_financing:info:mxr:financeApplySubmit': '||'
             }, {
-                'tools:test_drive:reserve_a_test_drive_confirm:reserveSignup': '|'
+                'tools:incentives:national': '||'
             }, {
-                'tools:inventory:cpo_results:cx3:CPOsearchResults': '|'
+                'tools:test_drive:reserve_a_test_drive_confirm:reserveSignup': '||'
             }, {
-                'tools:inventory:cpo_results:cx5:CPOsearchResults': '|'
+                'tools:inventory:cpo_results:cx3:CPOsearchResults': '||'
             }, {
-                'tools:inventory:cpo_results:cx9:CPOsearchResults': '|'
+                'tools:inventory:cpo_results:cx5:CPOsearchResults': '||'
             }, {
-                'tools:inventory:cpo_results:m3h:CPOsearchResults': '|'
+                'tools:inventory:cpo_results:cx9:CPOsearchResults': '||'
             }, {
-                'tools:inventory:cpo_results:m3s:CPOsearchResults': '|'
+                'tools:inventory:cpo_results:m3h:CPOsearchResults': '||'
             }, {
-                'tools:inventory:cpo_results:m6g:CPOsearchResults': '|'
+                'tools:inventory:cpo_results:m3s:CPOsearchResults': '||'
             }, {
-                'tools:inventory:cpo_results:mx5:CPOsearchResults': '|'
+                'tools:inventory:cpo_results:m6g:CPOsearchResults': '||'
             }, {
-                'tools:inventory:cpo_results:mxr:CPOsearchResults': '|'
+                'tools:inventory:cpo_results:mx5:CPOsearchResults': '||'
             }, {
-                'tools:inventory:cpo_results:mz2:CPOsearchResults': '|'
+                'tools:inventory:cpo_results:mxr:CPOsearchResults': '||'
             }, {
-                'tools:inventory:cpo_results:mz5:CPOsearchResults': '|'
+                'tools:inventory:cpo_results:mz2:CPOsearchResults': '||'
             }, {
-                'tools:inventory:cpo_results:rx8:CPOsearchResults': '|'
+                'tools:inventory:cpo_results:mz5:CPOsearchResults': '||'
             }, {
-                'tools:inventory:cpo_results:ms3:CPOsearchResults': '|'
+                'tools:inventory:cpo_results:rx8:CPOsearchResults': '||'
             }, {
-                'tools:inventory:results:cx3:NEWsearchResults': '|'
+                'tools:inventory:cpo_results:ms3:CPOsearchResults': '||'
             }, {
-                'tools:inventory:results:cx5:NEWsearchResults': '|'
+                'tools:inventory:results:cx3:NEWsearchResults': '||'
             }, {
-                'tools:inventory:results:cx9:NEWsearchResults': '|'
+                'tools:inventory:results:cx5:NEWsearchResults': '||'
             }, {
-                'tools:inventory:results:m3h:NEWsearchResults': '|'
+                'tools:inventory:results:cx9:NEWsearchResults': '||'
             }, {
-                'tools:inventory:results:m3s:NEWsearchResults': '|'
+                'tools:inventory:results:m3h:NEWsearchResults': '||'
             }, {
-                'tools:inventory:results:m6g:NEWsearchResults': '|'
+                'tools:inventory:results:m3s:NEWsearchResults': '||'
             }, {
-                'tools:inventory:results:mx5:NEWsearchResults': '|'
+                'tools:inventory:results:m6g:NEWsearchResults': '||'
             }, {
-                'tools:inventory:results:mxr:NEWsearchResults': '|'
+                'tools:inventory:results:mx5:NEWsearchResults': '||'
             }, {
-                'whymazda:feelalive:home:scroll': 'dream0|mesp_00g'
+                'tools:inventory:results:mxr:NEWsearchResults': '||'
+            }, {
+                'whymazda:feelalive:home:scroll': 'dream0|mesp_00g|'
             }];
             var m = false;
             for (e = 0; e < c.length; e++) {
@@ -4158,9 +4160,9 @@ try {
                             utag.DB(e)
                         }
                         try {
-                            if(location.pathname.toLowerCase().indexOf('/owners') > -1){
+                            if (location.pathname.toLowerCase().indexOf('/owners') > -1) {
                                 var selector = 'iframe[id*="widget"].video-wrapper';
-                            }else{
+                            } else {
                                 var selector = 'iframe.mdp-flexiblecontent-video__player';
                             }
                             var counter = 0;
@@ -4175,106 +4177,14 @@ try {
                                     clearInterval(waitForPop);
                                 }
                             }, 250);
-                            // var counter2 = 0;
-                            // var waitForPop2 = setInterval(function() {
-                            //     counter2++;
-                            //     if (document.querySelectorAll('iframe.mdp-flexiblecontent-video__player').length > 0) {
-                            //         utag.DB("Video found attached successfully on try number: " + counter);
-                            //         trackVideos();
-                            //         clearInterval(waitForPop2);
-                            //     } else if (counter2 == 8) {
-                            //         utag.DB("After 2 seconds, clearing interval and calling not waiting for video");
-                            //         clearInterval(waitForPop2);
-                            //     }
-                            // }, 250);
-                            // function newEraTrackVideos() {
-                            //     var videoIframes = document.querySelectorAll('iframe[id*="widget"].video-wrapper');
-                            //     var newEraVideoIframes = document.querySelectorAll('iframe#widget2.mdp-flexiblecontent-video__player');
-                            //     Array.from(newEraVideoIframes).forEach(function(vid) {
-                            //         vid.addEventListener('video:playing', getVideoTitle);
-                            //         vid.addEventListener('video:paused', getVideoTitle);
-                            //         vid.addEventListener('video:playing', function(e) {
-                            //             s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
-                            //             s.events = 'event81';
-                            //             s.linkTrackVars = 'events,prop68,eVar68';
-                            //             s.linkTrackEvents = 'event81';
-                            //             s.tl(this, 'o', s.prop23 + ':video:100');
-                            //             dataLayer.events = s.events;
-                            //             var temp = JSON.parse(JSON.stringify(dataLayer));
-                            //             utag.link(temp);
-                            //         });
-                            //         vid.addEventListener('video:ended', function(e) {
-                            //             s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
-                            //             s.events = 'event86';
-                            //             s.linkTrackVars = 'events,prop68,eVar68';
-                            //             s.linkTrackEvents = 'event86';
-                            //             s.tl(this, 'o', s.prop23 + ':video:100');
-                            //             dataLayer.events = s.events;
-                            //             var temp = JSON.parse(JSON.stringify(dataLayer));
-                            //             utag.link(temp);
-                            //         });
-                            //         vid.addEventListener('video:reach75', function(e) {
-                            //             s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
-                            //             s.events = 'event84';
-                            //             s.linkTrackVars = 'events,prop68,eVar68';
-                            //             s.linkTrackEvents = 'event84';
-                            //             s.tl(this, 'o', s.prop23 + ':video:75');
-                            //             dataLayer.events = s.events;
-                            //             var temp = JSON.parse(JSON.stringify(dataLayer));
-                            //             utag.link(temp);
-                            //         });
-                            //         vid.addEventListener('video:reach50', function(e) {
-                            //             s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
-                            //             s.events = 'event83';
-                            //             s.linkTrackVars = 'events,prop68,eVar68';
-                            //             s.linkTrackEvents = 'event83';
-                            //             s.tl(this, 'o', s.prop23 + ':video:50');
-                            //             dataLayer.events = s.events;
-                            //             var temp = JSON.parse(JSON.stringify(dataLayer));
-                            //             utag.link(temp);
-                            //         });
-                            //         vid.addEventListener('video:reach25', function(e) {
-                            //             s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
-                            //             s.events = 'event82';
-                            //             s.linkTrackVars = 'events,prop68,eVar68';
-                            //             s.linkTrackEvents = 'event82';
-                            //             s.tl(this, 'o', s.prop23 + ':video:25');
-                            //             dataLayer.events = s.events;
-                            //             var temp = JSON.parse(JSON.stringify(dataLayer));
-                            //             utag.link(temp);
-                            //         });
-                            //         vid.addEventListener('video:paused', function(e) {
-                            //             s.prop68 = s.eVar68 = mazdaAnalytics.getData('dataLayer.videoTitle');
-                            //             s.linkTrackVars = 'prop68,eVar68';
-                            //             s.tl(this, 'o', 'video:paused');
-                            //             dataLayer.events = s.events;
-                            //             var temp = JSON.parse(JSON.stringify(dataLayer));
-                            //             utag.link(temp);
-                            //         });
-                            //         vid.addEventListener('video:start', function(e) {
-                            //             s.tl(this, 'o', 'video:start');
-                            //             dataLayer.events = s.events;
-                            //             var temp = JSON.parse(JSON.stringify(dataLayer));
-                            //             utag.link(temp);
-                            //         });
-                            //     });
-                            // }
                             function trackVideos(selector) {
                                 var ytFrame = document.querySelectorAll(selector);
-                                //var videoIframes = document.querySelectorAll('iframe[id*="widget"].video-wrapper');
-                                //WL remove #widget2 in selector for consumer-reports page
-                                //var newEraVideoIframes = document.querySelectorAll('iframe.mdp-flexiblecontent-video__player');
-                                //replace .from param with newEraVideoIframes
                                 Array.from(ytFrame).forEach(function(vid) {
-                                    //vid.addEventListener('video:playing', getVideoTitle);
-                                    //vid.addEventListener('video:paused', getVideoTitle);
-                                    //WL update dataLayer to dataLayer
                                     vid.addEventListener('video:playing', function(e) {
                                         s.prop68 = s.eVar68 = e.detail.title;
                                         s.events = 'event81';
                                         s.linkTrackVars = 'events,prop68,eVar68';
                                         s.linkTrackEvents = 'event81';
-                                        //WL - update to video:play from video:100
                                         s.tl(this, 'o', s.prop23 + ':video:play');
                                         dataLayer.events = s.events;
                                         var temp = JSON.parse(JSON.stringify(dataLayer));
@@ -4326,6 +4236,9 @@ try {
                                         utag.DB("Video Event: video:25");
                                     });
                                     vid.addEventListener('video:paused', function(e) {
+                                        if(Math.round(YT.get(e.currentTarget.id).getCurrentTime()) == 0){
+                                            return;
+                                        }
                                         s.prop68 = s.eVar68 = e.detail.title;
                                         s.linkTrackVars = 'prop68,eVar68';
                                         s.tl(this, 'o', 'video:paused');
@@ -4343,12 +4256,6 @@ try {
                                     });
                                 });
                             }
-                            // function getVideoTitle(e) {
-                            //     mazdaAnalytics.log('Video Title');
-                            //     mazdaAnalytics.log(e.detail.title);
-                            //     dataLayer.videoTitle = e.detail.title;
-                            //     dataLayer.videoID = e.detail.youtubeID;
-                            // }
                         } catch (e) {
                             utag.DB(e);
                         }
@@ -4438,178 +4345,178 @@ try {
         }
         ];
         utag.handler.cfg_extend = [{
-            "end": 0,
-            "blr": 1,
-            "bwq": 0,
             "id": "3",
-            "alr": 0
-        }, {
             "end": 0,
+            "alr": 0,
             "blr": 1,
+            "bwq": 0
+        }, {
             "bwq": 0,
+            "blr": 1,
+            "alr": 0,
             "id": "5",
-            "alr": 0
+            "end": 0
         }, {
-            "blr": 1,
-            "end": 0,
             "bwq": 0,
-            "id": "8",
-            "alr": 0
+            "blr": 1,
+            "alr": 0,
+            "end": 0,
+            "id": "8"
         }, {
+            "end": 0,
             "id": "9",
-            "end": 0,
+            "alr": 0,
             "blr": 1,
-            "bwq": 0,
-            "alr": 0
+            "bwq": 0
         }, {
+            "id": "76",
+            "end": 0,
+            "alr": 0,
+            "blr": 1,
+            "bwq": 0
+        }, {
+            "bwq": 0,
+            "blr": 1,
             "alr": 0,
             "end": 0,
-            "bwq": 0,
-            "blr": 1,
-            "id": "76"
+            "id": "64"
         }, {
-            "end": 0,
             "blr": 1,
             "bwq": 0,
-            "id": "64",
+            "end": 0,
+            "id": "83",
             "alr": 0
         }, {
-            "id": "77",
             "blr": 1,
-            "end": 0,
             "bwq": 0,
-            "alr": 0
-        }, {
-            "alr": 0,
             "id": "28",
             "end": 0,
-            "bwq": 0,
-            "blr": 1
+            "alr": 0
         }, {
+            "alr": 0,
             "id": "78",
             "end": 0,
-            "blr": 1,
             "bwq": 0,
-            "alr": 0
-        }, {
-            "blr": 1,
-            "end": 0,
-            "bwq": 0,
-            "id": "29",
-            "alr": 0
+            "blr": 1
         }, {
             "alr": 0,
-            "id": "30",
-            "bwq": 0,
             "end": 0,
+            "id": "29",
+            "bwq": 0,
             "blr": 1
         }, {
             "blr": 1,
-            "end": 0,
             "bwq": 0,
-            "id": "31",
+            "id": "30",
+            "end": 0,
             "alr": 0
         }, {
+            "bwq": 0,
+            "blr": 1,
+            "alr": 0,
+            "end": 0,
+            "id": "31"
+        }, {
+            "blr": 1,
+            "bwq": 0,
+            "end": 0,
             "id": "32",
-            "blr": 1,
-            "end": 0,
-            "bwq": 0,
             "alr": 0
         }, {
-            "blr": 1,
             "end": 0,
-            "bwq": 0,
             "id": "34",
-            "alr": 0
+            "alr": 0,
+            "blr": 1,
+            "bwq": 0
         }, {
+            "end": 0,
             "id": "35",
+            "alr": 0,
             "blr": 1,
-            "end": 0,
-            "bwq": 0,
-            "alr": 0
+            "bwq": 0
         }, {
-            "end": 0,
-            "blr": 1,
-            "bwq": 0,
             "id": "36",
-            "alr": 0
-        }, {
-            "id": "37",
             "end": 0,
+            "alr": 0,
+            "blr": 1,
+            "bwq": 0
+        }, {
+            "bwq": 0,
+            "blr": 1,
+            "alr": 0,
+            "end": 0,
+            "id": "37"
+        }, {
             "blr": 1,
             "bwq": 0,
-            "alr": 0
-        }, {
             "id": "38",
             "end": 0,
-            "blr": 1,
-            "bwq": 0,
             "alr": 0
         }, {
-            "alr": 0,
             "bwq": 0,
-            "end": 0,
             "blr": 1,
-            "id": "39"
+            "alr": 0,
+            "id": "39",
+            "end": 0
         }, {
-            "alr": 0,
-            "end": 0,
             "bwq": 0,
             "blr": 1,
+            "alr": 0,
+            "end": 0,
             "id": "40"
         }, {
             "id": "41",
             "end": 0,
+            "alr": 0,
             "blr": 1,
-            "bwq": 0,
-            "alr": 0
-        }, {
-            "blr": 1,
-            "end": 0,
-            "bwq": 0,
-            "id": "42",
-            "alr": 0
+            "bwq": 0
         }, {
             "alr": 0,
-            "bwq": 0,
             "end": 0,
-            "blr": 1,
-            "id": "43"
+            "id": "42",
+            "bwq": 0,
+            "blr": 1
         }, {
+            "id": "43",
+            "end": 0,
+            "alr": 0,
+            "blr": 1,
+            "bwq": 0
+        }, {
+            "alr": 0,
             "id": "44",
             "end": 0,
-            "blr": 1,
             "bwq": 0,
-            "alr": 0
+            "blr": 1
         }, {
             "alr": 0,
             "id": "70",
-            "bwq": 0,
             "end": 0,
+            "bwq": 0,
             "blr": 1
         }, {
-            "end": 0,
+            "bwq": 0,
             "blr": 1,
-            "bwq": 0,
-            "id": "71",
-            "alr": 0
-        }, {
             "alr": 0,
-            "bwq": 0,
-            "end": 1,
-            "blr": 0,
-            "id": "56"
-        }, {
-            "alr": 1,
-            "bwq": 0,
             "end": 0,
-            "blr": 0,
-            "id": "58"
+            "id": "71"
         }, {
+            "end": 1,
+            "id": "56",
+            "alr": 0,
+            "blr": 0,
+            "bwq": 0
+        }, {
+            "end": 0,
+            "id": "58",
+            "alr": 1,
+            "blr": 0,
+            "bwq": 0
+        }, {
+            "blr": 0,
+            "bwq": 0,
             "id": "79",
             "end": 0,
-            "blr": 0,
-            "bwq": 0,
             "alr": 1
         }];
         utag.loader.initcfg = function() {
@@ -4827,7 +4734,7 @@ try {
                 "53": {
                     load: 1,
                     send: 1,
-                    v: 201904052329,
+                    v: 201904092033,
                     wait: 1,
                     tid: 19063
                 },
@@ -5031,7 +4938,7 @@ try {
         utag.loader.PINIT()
     }
 }
-//tealium universal tag - utag.54 ut4.0.201904091522, Copyright 2019 Tealium.com Inc. All Rights Reserved.
+//tealium universal tag - utag.54 ut4.0.201904092118, Copyright 2019 Tealium.com Inc. All Rights Reserved.
 var e = function() {
     "use strict";
     function e() {
