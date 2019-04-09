@@ -4158,7 +4158,7 @@ try {
                             utag.DB(e)
                         }
                         try {
-                            if(location.pathname.toLowerCase().indexOf('/owners') > 1){
+                            if(location.pathname.toLowerCase().indexOf('/owners') > -1){
                                 var selector = 'iframe[id*="widget"].video-wrapper';
                             }else{
                                 var selector = 'iframe.mdp-flexiblecontent-video__player';
