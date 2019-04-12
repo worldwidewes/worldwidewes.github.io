@@ -304,7 +304,8 @@ function vehicularize(e){var r=String(e),i=["m3s","m3h","m6g","cx3","cx5","cx7",
           }
           //find a dealer:engage exit to map
           //WL 03/13/19 - updated to check for address_-_exit_to_map with underscores since mazdaAnaltyics.format adds them in place of spaces
-          if(mazdaAnalytics.getData('dataLayer.site.section') == 'tools' && componentname == 'dealer_results' && linkdescription == 'address_-_exit_to_map'){
+          //WL local
+          if(mazdaAnalytics.getData('dataLayer.site.section') == 'tools' && componentname == 'dealer_results' && (linkdescription == 'address_-_exit_to_map' || linkdescription == "dirección_-_salir_hacia_mapa"){
             s.events = 'event123,event124';
             s.linkTrackEvents = 'event123,event124';
             adobe.target.trackEvent({'mbox':'dealer_handoff'});
